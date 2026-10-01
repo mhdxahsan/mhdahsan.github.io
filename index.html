@@ -9,6 +9,7 @@
 <meta name="description" content="Muhammad Ahsan - Graphic Designer, Shopify Specialist, E-Commerce Creator and Web Developer.">
 
 <style>
+
 /* =========================================================
    RESET
 ========================================================= */
@@ -43,6 +44,7 @@ img {
     max-width: 100%;
     display: block;
 }
+
 
 /* =========================================================
    CUSTOM CURSOR
@@ -79,6 +81,7 @@ img {
         border-color 0.25s ease;
 }
 
+
 /* =========================================================
    BACKGROUND
 ========================================================= */
@@ -114,6 +117,7 @@ body::after {
 }
 
 @keyframes blobMove {
+
     from {
         transform: translate(0, 0);
     }
@@ -121,9 +125,11 @@ body::after {
     to {
         transform: translate(180px, 120px);
     }
+
 }
 
 @keyframes blobMove2 {
+
     from {
         transform: translate(0, 0);
     }
@@ -131,7 +137,9 @@ body::after {
     to {
         transform: translate(-150px, -100px);
     }
+
 }
+
 
 /* =========================================================
    LOADER
@@ -145,7 +153,9 @@ body::after {
     display: flex;
     align-items: center;
     justify-content: center;
-    transition: opacity 0.8s ease, visibility 0.8s ease;
+    transition:
+        opacity 0.8s ease,
+        visibility 0.8s ease;
 }
 
 .loader.hide {
@@ -161,6 +171,7 @@ body::after {
 }
 
 @keyframes loaderPulse {
+
     from {
         transform: scale(0.9);
         opacity: 0.4;
@@ -170,7 +181,9 @@ body::after {
         transform: scale(1.05);
         opacity: 1;
     }
+
 }
+
 
 /* =========================================================
    NAVIGATION
@@ -183,16 +196,22 @@ body::after {
     transform: translateX(-50%);
     width: min(1150px, calc(100% - 30px));
     padding: 12px 16px;
+
     display: flex;
     align-items: center;
     justify-content: space-between;
+
     background: rgba(10,10,10,0.68);
     border: 1px solid rgba(255,255,255,0.1);
+
     backdrop-filter: blur(20px);
     -webkit-backdrop-filter: blur(20px);
+
     border-radius: 22px;
     z-index: 5000;
-    box-shadow: 0 20px 70px rgba(0,0,0,0.35);
+
+    box-shadow:
+        0 20px 70px rgba(0,0,0,0.35);
 }
 
 .logo {
@@ -202,7 +221,9 @@ body::after {
 }
 
 .logo span {
-    background: linear-gradient(90deg,#a78bfa,#22d3ee);
+    background:
+        linear-gradient(90deg,#a78bfa,#22d3ee);
+
     -webkit-background-clip: text;
     color: transparent;
 }
@@ -237,6 +258,7 @@ body::after {
     cursor: pointer;
 }
 
+
 /* =========================================================
    GENERAL
 ========================================================= */
@@ -259,9 +281,12 @@ section {
 .section-label {
     display: inline-block;
     margin-bottom: 15px;
+
     color: #22d3ee;
+
     font-size: 12px;
     font-weight: 800;
+
     letter-spacing: 3px;
     text-transform: uppercase;
 }
@@ -274,10 +299,13 @@ section {
 
 .section-title p {
     margin-top: 20px;
+
     color: #8f8f8f;
+
     line-height: 1.8;
     max-width: 650px;
 }
+
 
 /* =========================================================
    HERO
@@ -285,16 +313,24 @@ section {
 
 .hero {
     min-height: 100vh;
+
     display: flex;
     align-items: center;
+
     padding-top: 130px;
+
     overflow: hidden;
 }
 
 .hero-grid {
     display: grid;
-    grid-template-columns: minmax(0,1fr) 330px;
+
+    grid-template-columns:
+        minmax(0,1fr)
+        330px;
+
     gap: 55px;
+
     align-items: center;
 }
 
@@ -303,6 +339,7 @@ section {
 }
 
 @keyframes heroText {
+
     from {
         opacity: 0;
         transform: translateY(40px);
@@ -312,39 +349,92 @@ section {
         opacity: 1;
         transform: translateY(0);
     }
+
 }
 
 .hero-small {
     color: #22d3ee;
+
     font-size: 13px;
     font-weight: 800;
+
     letter-spacing: 3px;
     text-transform: uppercase;
+
     margin-bottom: 18px;
 }
 
-.hero h1 {
+
+/* =========================================================
+   NAME + FIREWORKS
+========================================================= */
+
+.name-fireworks {
+    position: relative;
+    display: inline-block;
+
+    z-index: 10;
+
+    isolation: isolate;
+}
+
+.name-fireworks h1 {
+    position: relative;
+
+    z-index: 5;
+
     font-size: clamp(55px, 8vw, 110px);
     line-height: 0.86;
     letter-spacing: -7px;
+
     max-width: 850px;
 }
 
+#fireworksCanvas {
+    position: absolute;
+
+    left: -150px;
+    top: -120px;
+
+    width: calc(100% + 300px);
+    height: calc(100% + 240px);
+
+    pointer-events: none;
+
+    z-index: 2;
+
+    overflow: visible;
+}
+
+
+/* =========================================================
+   GRADIENT NAME
+========================================================= */
+
 .gradient-text {
-    background: linear-gradient(
-        100deg,
-        #ffffff,
-        #a78bfa,
-        #22d3ee,
-        #ffffff
-    );
-    background-size: 300%;
+    background:
+        linear-gradient(
+            100deg,
+            #ffffff,
+            #a78bfa,
+            #22d3ee,
+            #f472b6,
+            #ffffff
+        );
+
+    background-size: 400%;
+
     -webkit-background-clip: text;
+
     color: transparent;
-    animation: gradientMove 7s ease infinite;
+
+    animation:
+        gradientMove 7s ease infinite,
+        nameGlow 3s ease-in-out infinite alternate;
 }
 
 @keyframes gradientMove {
+
     0%,100% {
         background-position: 0%;
     }
@@ -352,535 +442,943 @@ section {
     50% {
         background-position: 100%;
     }
+
 }
+
+@keyframes nameGlow {
+
+    from {
+        filter:
+            drop-shadow(0 0 0 rgba(167,139,250,0));
+    }
+
+    to {
+        filter:
+            drop-shadow(0 0 18px rgba(167,139,250,0.25));
+    }
+
+}
+
+
+/* =========================================================
+   HERO DESCRIPTION
+========================================================= */
 
 .hero-description {
     margin-top: 30px;
+
     color: #999;
+
     line-height: 1.8;
+
     max-width: 600px;
+
     font-size: 16px;
 }
 
 .hero-buttons {
     display: flex;
+
     gap: 12px;
+
     flex-wrap: wrap;
+
     margin-top: 32px;
 }
 
 .btn {
     display: inline-flex;
+
     align-items: center;
     justify-content: center;
+
     min-height: 50px;
+
     padding: 0 22px;
+
     border-radius: 15px;
-    border: 1px solid rgba(255,255,255,0.13);
-    background: rgba(255,255,255,0.06);
+
+    border:
+        1px solid rgba(255,255,255,0.13);
+
+    background:
+        rgba(255,255,255,0.06);
+
     color: white;
+
     font-weight: 700;
+
     font-size: 14px;
+
     transition: 0.3s ease;
 }
 
 .btn:hover {
+
     transform: translateY(-4px);
-    border-color: rgba(255,255,255,0.3);
-    background: rgba(255,255,255,0.1);
+
+    border-color:
+        rgba(255,255,255,0.3);
+
+    background:
+        rgba(255,255,255,0.1);
 }
 
 .btn-primary {
+
     background: #ffffff;
+
     color: #050505;
 }
 
 .btn-primary:hover {
+
     background: #e8e8e8;
 }
 
+
 /* =========================================================
-   PROFILE PLACEHOLDER
+   PROFILE
 ========================================================= */
 
 .profile-wrap {
     position: relative;
+
     display: flex;
+
     justify-content: center;
-    animation: profileIn 1.2s ease both;
+
+    animation:
+        profileIn 1.2s ease both;
 }
 
 @keyframes profileIn {
+
     from {
         opacity: 0;
-        transform: translateX(50px) rotate(8deg);
+        transform:
+            translateX(50px)
+            rotate(8deg);
     }
 
     to {
         opacity: 1;
-        transform: translateX(0) rotate(3deg);
+        transform:
+            translateX(0)
+            rotate(3deg);
     }
+
 }
 
 .profile-card {
+
     width: 290px;
     height: 390px;
+
     border-radius: 38px;
+
     position: relative;
+
     overflow: hidden;
-    border: 1px solid rgba(255,255,255,0.15);
+
+    border:
+        1px solid rgba(255,255,255,0.15);
+
     background:
-        radial-gradient(circle at 30% 20%, rgba(167,139,250,0.5), transparent 30%),
-        radial-gradient(circle at 80% 80%, rgba(34,211,238,0.35), transparent 30%),
+
+        radial-gradient(
+            circle at 30% 20%,
+            rgba(167,139,250,0.5),
+            transparent 30%
+        ),
+
+        radial-gradient(
+            circle at 80% 80%,
+            rgba(34,211,238,0.35),
+            transparent 30%
+        ),
+
         #111;
+
     box-shadow:
-        0 30px 100px rgba(0,0,0,0.5),
-        inset 0 0 50px rgba(255,255,255,0.04);
+
+        0 30px 100px
+        rgba(0,0,0,0.5),
+
+        inset 0 0 50px
+        rgba(255,255,255,0.04);
+
     transform: rotate(3deg);
+
     transition: 0.5s ease;
 }
 
 .profile-card:hover {
-    transform: rotate(0deg) translateY(-10px);
+
+    transform:
+        rotate(0deg)
+        translateY(-10px);
 }
 
 .profile-content {
+
     position: absolute;
+
     inset: 0;
+
     display: flex;
+
     flex-direction: column;
+
     align-items: center;
+
     justify-content: center;
 }
 
 .profile-ma {
+
     font-size: 100px;
+
     font-weight: 900;
+
     letter-spacing: -10px;
-    background: linear-gradient(135deg,#fff,#a78bfa,#22d3ee);
+
+    background:
+        linear-gradient(
+            135deg,
+            #fff,
+            #a78bfa,
+            #22d3ee
+        );
+
     -webkit-background-clip: text;
+
     color: transparent;
 }
 
 .profile-content span {
+
     margin-top: 12px;
+
     color: #aaa;
+
     font-size: 11px;
+
     letter-spacing: 4px;
+
     text-transform: uppercase;
 }
+
 
 /* =========================================================
    STATS
 ========================================================= */
 
 .stats {
+
     display: grid;
-    grid-template-columns: repeat(3,1fr);
+
+    grid-template-columns:
+        repeat(3,1fr);
+
     gap: 15px;
+
     margin-top: 60px;
 }
 
 .stat {
+
     padding: 22px;
-    border: 1px solid rgba(255,255,255,0.08);
-    background: rgba(255,255,255,0.035);
+
+    border:
+        1px solid rgba(255,255,255,0.08);
+
+    background:
+        rgba(255,255,255,0.035);
+
     border-radius: 20px;
 }
 
 .stat strong {
+
     display: block;
+
     font-size: 28px;
+
     margin-bottom: 5px;
 }
 
 .stat span {
+
     color: #777;
+
     font-size: 12px;
 }
+
 
 /* =========================================================
    ABOUT
 ========================================================= */
 
 .about-grid {
+
     display: grid;
-    grid-template-columns: 0.8fr 1.2fr;
+
+    grid-template-columns:
+        0.8fr 1.2fr;
+
     gap: 70px;
+
     align-items: center;
 }
 
 .about-logo {
+
     min-height: 380px;
+
     border-radius: 35px;
+
     display: flex;
+
     align-items: center;
     justify-content: center;
+
     background:
-        linear-gradient(135deg, rgba(167,139,250,0.13), rgba(34,211,238,0.07)),
+
+        linear-gradient(
+            135deg,
+            rgba(167,139,250,0.13),
+            rgba(34,211,238,0.07)
+        ),
+
         #0c0c0c;
-    border: 1px solid rgba(255,255,255,0.08);
-    box-shadow: 0 30px 100px rgba(0,0,0,0.25);
+
+    border:
+        1px solid rgba(255,255,255,0.08);
+
+    box-shadow:
+        0 30px 100px
+        rgba(0,0,0,0.25);
 }
 
 .about-logo span {
+
     font-size: 110px;
+
     font-weight: 900;
+
     letter-spacing: -12px;
-    background: linear-gradient(135deg,#fff,#a78bfa,#22d3ee);
+
+    background:
+        linear-gradient(
+            135deg,
+            #fff,
+            #a78bfa,
+            #22d3ee
+        );
+
     -webkit-background-clip: text;
+
     color: transparent;
 }
 
 .about-text h3 {
+
     font-size: 38px;
+
     letter-spacing: -2px;
+
     margin-bottom: 20px;
 }
 
 .about-text p {
+
     color: #8f8f8f;
+
     line-height: 1.9;
+
     margin-bottom: 18px;
 }
+
 
 /* =========================================================
    SERVICES
 ========================================================= */
 
 .services-grid {
+
     display: grid;
-    grid-template-columns: repeat(4,1fr);
+
+    grid-template-columns:
+        repeat(4,1fr);
+
     gap: 15px;
 }
 
 .service-card {
+
     min-height: 260px;
+
     padding: 27px;
-    border: 1px solid rgba(255,255,255,0.08);
-    background: linear-gradient(
-        145deg,
-        rgba(255,255,255,0.07),
-        rgba(255,255,255,0.025)
-    );
+
+    border:
+        1px solid rgba(255,255,255,0.08);
+
+    background:
+
+        linear-gradient(
+            145deg,
+            rgba(255,255,255,0.07),
+            rgba(255,255,255,0.025)
+        );
+
     border-radius: 25px;
+
     position: relative;
+
     overflow: hidden;
+
     transition: 0.45s ease;
 }
 
 .service-card::before {
+
     content: "";
+
     position: absolute;
+
     width: 150px;
     height: 150px;
+
     right: -70px;
     top: -70px;
+
     background: #a78bfa;
+
     filter: blur(60px);
+
     opacity: 0;
+
     transition: 0.45s ease;
 }
 
 .service-card:hover {
+
     transform: translateY(-10px);
-    border-color: rgba(255,255,255,0.18);
+
+    border-color:
+        rgba(255,255,255,0.18);
 }
 
 .service-card:hover::before {
+
     opacity: 0.25;
 }
 
 .service-icon {
+
     font-size: 34px;
+
     margin-bottom: 35px;
 }
 
 .service-card h3 {
+
     font-size: 22px;
+
     margin-bottom: 12px;
 }
 
 .service-card p {
+
     color: #777;
+
     line-height: 1.7;
+
     font-size: 14px;
 }
+
 
 /* =========================================================
    GRAPHIC DESIGN
 ========================================================= */
 
 .design-gallery {
+
     display: grid;
-    grid-template-columns: repeat(3,1fr);
+
+    grid-template-columns:
+        repeat(3,1fr);
+
     gap: 18px;
 }
 
 .design-placeholder {
+
     min-height: 300px;
+
     border-radius: 25px;
-    border: 1px solid rgba(255,255,255,0.08);
+
+    border:
+        1px solid rgba(255,255,255,0.08);
+
     background:
-        radial-gradient(circle at 20% 20%, rgba(167,139,250,0.25), transparent 35%),
-        radial-gradient(circle at 80% 80%, rgba(34,211,238,0.2), transparent 35%),
+
+        radial-gradient(
+            circle at 20% 20%,
+            rgba(167,139,250,0.25),
+            transparent 35%
+        ),
+
+        radial-gradient(
+            circle at 80% 80%,
+            rgba(34,211,238,0.2),
+            transparent 35%
+        ),
+
         #0d0d0d;
+
     display: flex;
+
     flex-direction: column;
+
     align-items: center;
+
     justify-content: center;
+
     text-align: center;
+
     padding: 30px;
+
     transition: 0.45s ease;
 }
 
 .design-placeholder:hover {
-    transform: translateY(-8px) scale(1.01);
-    border-color: rgba(255,255,255,0.2);
+
+    transform:
+        translateY(-8px)
+        scale(1.01);
+
+    border-color:
+        rgba(255,255,255,0.2);
 }
 
 .design-placeholder .number {
+
     font-size: 50px;
+
     font-weight: 900;
+
     opacity: 0.15;
+
     margin-bottom: 10px;
 }
 
 .design-placeholder strong {
+
     font-size: 18px;
 }
 
 .design-placeholder span {
+
     color: #666;
+
     font-size: 12px;
+
     margin-top: 8px;
 }
+
 
 /* =========================================================
    PROJECTS
 ========================================================= */
 
 .projects-grid {
+
     display: grid;
-    grid-template-columns: repeat(2,1fr);
+
+    grid-template-columns:
+        repeat(2,1fr);
+
     gap: 18px;
 }
 
 .project-card {
-    border: 1px solid rgba(255,255,255,0.08);
+
+    border:
+        1px solid rgba(255,255,255,0.08);
+
     border-radius: 28px;
+
     overflow: hidden;
+
     background: #0b0b0b;
+
     transition: 0.45s ease;
 }
 
 .project-card:hover {
+
     transform: translateY(-10px);
-    border-color: rgba(255,255,255,0.18);
+
+    border-color:
+        rgba(255,255,255,0.18);
 }
 
 .project-visual {
+
     height: 300px;
+
     display: flex;
+
     align-items: center;
+
     justify-content: center;
+
     position: relative;
+
     overflow: hidden;
 }
 
 .shopify-bg {
+
     background:
-        radial-gradient(circle at 30% 30%, rgba(34,197,94,0.35), transparent 30%),
-        linear-gradient(135deg,#102018,#070707);
+
+        radial-gradient(
+            circle at 30% 30%,
+            rgba(34,197,94,0.35),
+            transparent 30%
+        ),
+
+        linear-gradient(
+            135deg,
+            #102018,
+            #070707
+        );
 }
 
 .ecommerce-bg {
+
     background:
-        radial-gradient(circle at 70% 30%, rgba(251,146,60,0.3), transparent 30%),
-        linear-gradient(135deg,#21150d,#070707);
+
+        radial-gradient(
+            circle at 70% 30%,
+            rgba(251,146,60,0.3),
+            transparent 30%
+        ),
+
+        linear-gradient(
+            135deg,
+            #21150d,
+            #070707
+        );
 }
 
 .web-bg {
+
     background:
-        radial-gradient(circle at 50% 40%, rgba(59,130,246,0.3), transparent 35%),
-        linear-gradient(135deg,#0d1728,#070707);
+
+        radial-gradient(
+            circle at 50% 40%,
+            rgba(59,130,246,0.3),
+            transparent 35%
+        ),
+
+        linear-gradient(
+            135deg,
+            #0d1728,
+            #070707
+        );
 }
 
 .project-symbol {
+
     font-size: 90px;
+
     font-weight: 900;
+
     opacity: 0.9;
 }
 
 .project-info {
+
     padding: 24px;
 }
 
 .project-tag {
+
     display: inline-block;
+
     color: #22d3ee;
+
     font-size: 10px;
+
     font-weight: 800;
+
     letter-spacing: 2px;
+
     text-transform: uppercase;
+
     margin-bottom: 10px;
 }
 
 .project-info h3 {
+
     font-size: 24px;
+
     margin-bottom: 9px;
 }
 
 .project-info p {
+
     color: #777;
+
     line-height: 1.7;
+
     font-size: 14px;
 }
+
 
 /* =========================================================
    SKILLS
 ========================================================= */
 
 .skills-grid {
+
     display: grid;
-    grid-template-columns: repeat(2,1fr);
+
+    grid-template-columns:
+        repeat(2,1fr);
+
     gap: 20px 60px;
 }
 
 .skill {
+
     margin-bottom: 25px;
 }
 
 .skill-top {
+
     display: flex;
+
     justify-content: space-between;
+
     margin-bottom: 10px;
 }
 
 .skill-top span {
+
     font-size: 14px;
 }
 
 .skill-top strong {
+
     color: #777;
+
     font-size: 12px;
 }
 
 .skill-bar {
+
     height: 5px;
-    background: rgba(255,255,255,0.08);
+
+    background:
+        rgba(255,255,255,0.08);
+
     border-radius: 20px;
+
     overflow: hidden;
 }
 
 .skill-fill {
+
     height: 100%;
+
     width: 0;
+
     border-radius: 20px;
-    background: linear-gradient(90deg,#a78bfa,#22d3ee);
-    transition: width 1.5s cubic-bezier(.2,.8,.2,1);
+
+    background:
+        linear-gradient(
+            90deg,
+            #a78bfa,
+            #22d3ee
+        );
+
+    transition:
+        width 1.5s
+        cubic-bezier(.2,.8,.2,1);
 }
+
 
 /* =========================================================
    CONTACT
 ========================================================= */
 
 .contact-box {
+
     padding: 65px;
+
     border-radius: 35px;
-    border: 1px solid rgba(255,255,255,0.1);
+
+    border:
+        1px solid rgba(255,255,255,0.1);
+
     background:
-        radial-gradient(circle at 20% 20%, rgba(167,139,250,0.13), transparent 35%),
-        radial-gradient(circle at 80% 80%, rgba(34,211,238,0.1), transparent 35%),
+
+        radial-gradient(
+            circle at 20% 20%,
+            rgba(167,139,250,0.13),
+            transparent 35%
+        ),
+
+        radial-gradient(
+            circle at 80% 80%,
+            rgba(34,211,238,0.1),
+            transparent 35%
+        ),
+
         #0b0b0b;
+
     text-align: center;
 }
 
 .contact-box h2 {
-    font-size: clamp(40px,6vw,75px);
+
+    font-size:
+        clamp(40px,6vw,75px);
+
     letter-spacing: -4px;
+
     line-height: 0.95;
 }
 
 .contact-box p {
+
     max-width: 600px;
+
     margin: 25px auto;
+
     color: #888;
+
     line-height: 1.8;
 }
 
 .contact-buttons {
+
     display: flex;
+
     justify-content: center;
+
     flex-wrap: wrap;
+
     gap: 12px;
 }
+
 
 /* =========================================================
    FOOTER
 ========================================================= */
 
 footer {
+
     padding: 45px 0;
-    border-top: 1px solid rgba(255,255,255,0.07);
+
+    border-top:
+        1px solid rgba(255,255,255,0.07);
 }
 
 .footer-inner {
+
     display: flex;
+
     justify-content: space-between;
+
     gap: 20px;
+
     align-items: center;
 }
 
 .footer-inner p {
+
     color: #666;
+
     font-size: 12px;
 }
 
 .footer-logo {
+
     font-weight: 900;
 }
+
 
 /* =========================================================
    SCROLL REVEAL
 ========================================================= */
 
 .reveal {
+
     opacity: 0;
+
     transform: translateY(35px);
-    transition: opacity 0.8s ease, transform 0.8s ease;
+
+    transition:
+        opacity 0.8s ease,
+        transform 0.8s ease;
 }
 
 .reveal.active {
+
     opacity: 1;
+
     transform: translateY(0);
 }
+
 
 /* =========================================================
    FLOATING BUTTON
 ========================================================= */
 
 .float-button {
+
     position: fixed;
+
     right: 22px;
+
     bottom: 22px;
+
     width: 55px;
     height: 55px;
+
     border-radius: 50%;
+
     display: flex;
+
     align-items: center;
     justify-content: center;
+
     background: #ffffff;
+
     color: #050505;
+
     font-size: 22px;
+
     z-index: 4000;
-    box-shadow: 0 15px 40px rgba(0,0,0,0.4);
+
+    box-shadow:
+        0 15px 40px rgba(0,0,0,0.4);
+
     transition: 0.3s ease;
 }
 
 .float-button:hover {
-    transform: translateY(-5px) scale(1.05);
+
+    transform:
+        translateY(-5px)
+        scale(1.05);
 }
+
 
 /* =========================================================
    MOBILE
@@ -889,175 +1387,263 @@ footer {
 @media (max-width: 900px) {
 
     .nav-links {
+
         position: absolute;
+
         top: 70px;
+
         left: 0;
         right: 0;
+
         padding: 12px;
+
         display: none;
+
         flex-direction: column;
+
         align-items: stretch;
-        background: rgba(10,10,10,0.96);
-        border: 1px solid rgba(255,255,255,0.1);
+
+        background:
+            rgba(10,10,10,0.96);
+
+        border:
+            1px solid rgba(255,255,255,0.1);
+
         border-radius: 20px;
     }
 
     .nav-links.open {
+
         display: flex;
     }
 
     .nav-links a {
+
         padding: 14px;
     }
 
     .menu-btn {
+
         display: block;
     }
 
     .hero-grid {
-        grid-template-columns: minmax(0,1fr) 190px;
+
+        grid-template-columns:
+            minmax(0,1fr)
+            190px;
+
         gap: 20px;
     }
 
     .hero h1 {
-        font-size: clamp(43px, 10vw, 75px);
+
+        font-size:
+            clamp(43px,10vw,75px);
+
         letter-spacing: -5px;
     }
 
     .profile-card {
+
         width: 175px;
         height: 260px;
     }
 
     .profile-ma {
+
         font-size: 65px;
     }
 
     .services-grid {
-        grid-template-columns: repeat(2,1fr);
+
+        grid-template-columns:
+            repeat(2,1fr);
     }
 
     .design-gallery {
-        grid-template-columns: repeat(2,1fr);
+
+        grid-template-columns:
+            repeat(2,1fr);
     }
 
     .about-grid {
+
         grid-template-columns: 1fr;
     }
+
 }
+
 
 @media (max-width: 600px) {
 
     .container {
-        width: min(100% - 22px, 1150px);
+
+        width:
+            min(100% - 22px,1150px);
     }
 
     section {
+
         padding: 85px 0;
     }
 
     .hero {
+
         min-height: 100svh;
+
         padding-top: 110px;
     }
 
-    /* IMPORTANT:
-       Text stays LEFT and profile stays RIGHT */
+    /* TEXT LEFT + PROFILE RIGHT */
+
     .hero-grid {
-        grid-template-columns: minmax(0,1fr) 125px;
+
+        grid-template-columns:
+            minmax(0,1fr)
+            125px;
+
         gap: 12px;
     }
 
     .hero h1 {
-        font-size: clamp(38px, 12vw, 62px);
+
+        font-size:
+            clamp(38px,12vw,62px);
+
         letter-spacing: -4px;
     }
 
     .hero-small {
+
         font-size: 9px;
+
         letter-spacing: 2px;
     }
 
     .hero-description {
+
         font-size: 13px;
+
         line-height: 1.6;
+
         margin-top: 20px;
     }
 
     .hero-buttons {
+
         margin-top: 22px;
     }
 
     .btn {
+
         min-height: 44px;
+
         padding: 0 15px;
+
         font-size: 12px;
     }
 
     .profile-card {
+
         width: 118px;
+
         height: 190px;
+
         border-radius: 24px;
     }
 
     .profile-ma {
+
         font-size: 43px;
+
         letter-spacing: -6px;
     }
 
     .profile-content span {
+
         font-size: 7px;
+
         letter-spacing: 2px;
     }
 
+    /* SMALLER FIREWORK AREA */
+
+    #fireworksCanvas {
+
+        left: -80px;
+
+        top: -70px;
+
+        width: calc(100% + 160px);
+
+        height: calc(100% + 140px);
+    }
+
     .stats {
+
         grid-template-columns: 1fr;
+
         margin-top: 40px;
     }
 
     .section-title h2 {
+
         letter-spacing: -3px;
     }
 
     .services-grid {
+
         grid-template-columns: 1fr;
     }
 
     .design-gallery {
+
         grid-template-columns: 1fr;
     }
 
     .projects-grid {
+
         grid-template-columns: 1fr;
     }
 
     .skills-grid {
+
         grid-template-columns: 1fr;
+
         gap: 0;
     }
 
     .about-logo {
+
         min-height: 260px;
     }
 
     .about-logo span {
+
         font-size: 80px;
     }
 
     .contact-box {
+
         padding: 40px 20px;
     }
 
     .footer-inner {
+
         flex-direction: column;
+
         text-align: center;
     }
 
     .cursor,
     .cursor-ring {
+
         display: none;
     }
+
 }
+
 
 /* =========================================================
    REDUCED MOTION
@@ -1068,31 +1654,50 @@ footer {
     *,
     *::before,
     *::after {
-        animation-duration: 0.01ms !important;
-        animation-iteration-count: 1 !important;
-        scroll-behavior: auto !important;
-        transition-duration: 0.01ms !important;
+
+        animation-duration:
+            0.01ms !important;
+
+        animation-iteration-count:
+            1 !important;
+
+        scroll-behavior:
+            auto !important;
+
+        transition-duration:
+            0.01ms !important;
     }
+
 }
+
 </style>
 </head>
 
+
 <body>
+
 
 <!-- =======================================================
      LOADER
 ======================================================= -->
 
 <div class="loader" id="loader">
-    <div class="loader-logo">MA.</div>
+
+    <div class="loader-logo">
+        MA.
+    </div>
+
 </div>
+
 
 <!-- =======================================================
      CURSOR
 ======================================================= -->
 
 <div class="cursor" id="cursor"></div>
+
 <div class="cursor-ring" id="cursorRing"></div>
+
 
 <!-- =======================================================
      NAVIGATION
@@ -1105,21 +1710,51 @@ footer {
     </a>
 
     <div class="nav-links" id="navLinks">
-        <a href="#home">Home</a>
-        <a href="#about">About</a>
-        <a href="#services">Services</a>
-        <a href="#design">Design</a>
-        <a href="#stores">Stores</a>
-        <a href="#web">Web</a>
-        <a href="#skills">Skills</a>
-        <a href="#contact">Contact</a>
+
+        <a href="#home">
+            Home
+        </a>
+
+        <a href="#about">
+            About
+        </a>
+
+        <a href="#services">
+            Services
+        </a>
+
+        <a href="#design">
+            Design
+        </a>
+
+        <a href="#stores">
+            Stores
+        </a>
+
+        <a href="#web">
+            Web
+        </a>
+
+        <a href="#skills">
+            Skills
+        </a>
+
+        <a href="#contact">
+            Contact
+        </a>
+
     </div>
 
-    <button class="menu-btn" id="menuBtn" aria-label="Open menu">
+    <button
+        class="menu-btn"
+        id="menuBtn"
+        aria-label="Open menu"
+    >
         ☰
     </button>
 
 </nav>
+
 
 <!-- =======================================================
      HERO
@@ -1133,63 +1768,113 @@ footer {
 
         <div class="hero-grid">
 
+
+            <!-- HERO TEXT -->
+
             <div class="hero-text">
 
                 <div class="hero-small">
                     Creative Digital Designer
                 </div>
 
-                <h1>
-                    Muhammad<br>
-                    <span class="gradient-text">Ahsan.</span>
-                </h1>
+
+                <!-- =================================================
+                     MUHAMMAD AHSAN + FIREWORKS
+                ================================================== -->
+
+                <div class="name-fireworks">
+
+                    <canvas id="fireworksCanvas"></canvas>
+
+                    <h1>
+
+                        Muhammad<br>
+
+                        <span class="gradient-text">
+                            Ahsan.
+                        </span>
+
+                    </h1>
+
+                </div>
+
 
                 <p class="hero-description">
+
                     I create modern designs, Shopify stores,
                     e-commerce experiences and responsive websites
                     with a strong focus on visual quality.
+
                 </p>
+
 
                 <div class="hero-buttons">
 
-                    <a href="#design" class="btn btn-primary">
+                    <a
+                        href="#design"
+                        class="btn btn-primary"
+                    >
                         View My Work
                     </a>
 
-                    <a href="#contact" class="btn">
+                    <a
+                        href="#contact"
+                        class="btn"
+                    >
                         Let's Talk
                     </a>
 
                 </div>
 
+
                 <div class="stats">
 
                     <div class="stat">
-                        <strong>04</strong>
-                        <span>Main Services</span>
+
+                        <strong>
+                            04
+                        </strong>
+
+                        <span>
+                            Main Services
+                        </span>
+
                     </div>
 
-                    <div class="stat">
-                        <strong>∞</strong>
-                        <span>Creative Ideas</span>
-                    </div>
 
                     <div class="stat">
-                        <strong>24/7</strong>
-                        <span>Creating</span>
+
+                        <strong>
+                            ∞
+                        </strong>
+
+                        <span>
+                            Creative Ideas
+                        </span>
+
+                    </div>
+
+
+                    <div class="stat">
+
+                        <strong>
+                            24/7
+                        </strong>
+
+                        <span>
+                            Creating
+                        </span>
+
                     </div>
 
                 </div>
 
             </div>
 
-            <!--
-                YOUR PROFILE PHOTO WILL GO HERE LATER.
 
-                For now this is a beautiful placeholder.
-                We will add your real picture after the main
-                portfolio is working.
-            -->
+            <!-- =================================================
+                 PROFILE PLACEHOLDER
+            ================================================== -->
 
             <div class="profile-wrap">
 
@@ -1211,11 +1896,13 @@ footer {
 
             </div>
 
+
         </div>
 
     </div>
 
 </section>
+
 
 <!-- =======================================================
      ABOUT
@@ -1232,43 +1919,66 @@ footer {
             </span>
 
             <h2>
+
                 Design with<br>
-                <span class="gradient-text">purpose.</span>
+
+                <span class="gradient-text">
+                    purpose.
+                </span>
+
             </h2>
 
             <p>
+
                 I combine creativity, modern design and technology
                 to build digital experiences that look clean,
                 professional and memorable.
+
             </p>
 
         </div>
 
+
         <div class="about-grid">
 
+
             <div class="about-logo reveal">
-                <span>MA.</span>
+
+                <span>
+                    MA.
+                </span>
+
             </div>
+
 
             <div class="about-text reveal">
 
                 <h3>
+
                     Creative mind.<br>
                     Digital builder.
+
                 </h3>
 
                 <p>
+
                     My work focuses on visual design, online stores,
                     e-commerce and modern websites.
+
                 </p>
 
                 <p>
+
                     I enjoy turning simple ideas into polished
                     digital experiences with smooth interactions
                     and strong visual presentation.
+
                 </p>
 
-                <a href="#contact" class="btn">
+                <a
+                    href="#contact"
+                    class="btn"
+                >
                     Work With Me
                 </a>
 
@@ -1279,6 +1989,7 @@ footer {
     </div>
 
 </section>
+
 
 <!-- =======================================================
      SERVICES
@@ -1295,82 +2006,112 @@ footer {
             </span>
 
             <h2>
-                My <span class="gradient-text">Services.</span>
+
+                My
+                <span class="gradient-text">
+                    Services.
+                </span>
+
             </h2>
 
             <p>
+
                 Four areas where I create digital work.
+
             </p>
 
         </div>
 
+
         <div class="services-grid">
+
 
             <div class="service-card reveal">
 
-                <div class="service-icon">🎨</div>
+                <div class="service-icon">
+                    🎨
+                </div>
 
                 <h3>
                     Graphic Design
                 </h3>
 
                 <p>
+
                     Social media graphics, promotional designs,
                     posters, banners and visual content.
+
                 </p>
 
             </div>
 
+
             <div class="service-card reveal">
 
-                <div class="service-icon">🛍️</div>
+                <div class="service-icon">
+                    🛍️
+                </div>
 
                 <h3>
                     Shopify
                 </h3>
 
                 <p>
+
                     Modern Shopify store layouts, product pages
                     and clean online shopping experiences.
+
                 </p>
 
             </div>
 
+
             <div class="service-card reveal">
 
-                <div class="service-icon">🛒</div>
+                <div class="service-icon">
+                    🛒
+                </div>
 
                 <h3>
                     E-Commerce
                 </h3>
 
                 <p>
+
                     Product-focused online stores designed
                     around a clear and simple customer journey.
+
                 </p>
 
             </div>
 
+
             <div class="service-card reveal">
 
-                <div class="service-icon">💻</div>
+                <div class="service-icon">
+                    💻
+                </div>
 
                 <h3>
                     Web Development
                 </h3>
 
                 <p>
+
                     Responsive websites with modern layouts,
                     smooth interactions and clean structure.
+
                 </p>
 
             </div>
+
 
         </div>
 
     </div>
 
 </section>
+
 
 <!-- =======================================================
      GRAPHIC DESIGN
@@ -1387,60 +2128,136 @@ footer {
             </span>
 
             <h2>
-                Graphic <span class="gradient-text">Design.</span>
+
+                Graphic
+                <span class="gradient-text">
+                    Design.
+                </span>
+
             </h2>
 
             <p>
+
                 Your design projects will appear here.
                 We will add your pictures after this base
                 portfolio is working correctly.
+
             </p>
 
         </div>
 
+
         <div class="design-gallery">
 
-            <div class="design-placeholder reveal">
-                <div class="number">01</div>
-                <strong>Design Project</strong>
-                <span>Image will be added here</span>
-            </div>
 
             <div class="design-placeholder reveal">
-                <div class="number">02</div>
-                <strong>Design Project</strong>
-                <span>Image will be added here</span>
+
+                <div class="number">
+                    01
+                </div>
+
+                <strong>
+                    Design Project
+                </strong>
+
+                <span>
+                    Image will be added here
+                </span>
+
             </div>
 
-            <div class="design-placeholder reveal">
-                <div class="number">03</div>
-                <strong>Design Project</strong>
-                <span>Image will be added here</span>
-            </div>
 
             <div class="design-placeholder reveal">
-                <div class="number">04</div>
-                <strong>Design Project</strong>
-                <span>Image will be added here</span>
+
+                <div class="number">
+                    02
+                </div>
+
+                <strong>
+                    Design Project
+                </strong>
+
+                <span>
+                    Image will be added here
+                </span>
+
             </div>
 
-            <div class="design-placeholder reveal">
-                <div class="number">05</div>
-                <strong>Design Project</strong>
-                <span>Image will be added here</span>
-            </div>
 
             <div class="design-placeholder reveal">
-                <div class="number">06</div>
-                <strong>Design Project</strong>
-                <span>Image will be added here</span>
+
+                <div class="number">
+                    03
+                </div>
+
+                <strong>
+                    Design Project
+                </strong>
+
+                <span>
+                    Image will be added here
+                </span>
+
             </div>
+
+
+            <div class="design-placeholder reveal">
+
+                <div class="number">
+                    04
+                </div>
+
+                <strong>
+                    Design Project
+                </strong>
+
+                <span>
+                    Image will be added here
+                </span>
+
+            </div>
+
+
+            <div class="design-placeholder reveal">
+
+                <div class="number">
+                    05
+                </div>
+
+                <strong>
+                    Design Project
+                </strong>
+
+                <span>
+                    Image will be added here
+                </span>
+
+            </div>
+
+
+            <div class="design-placeholder reveal">
+
+                <div class="number">
+                    06
+                </div>
+
+                <strong>
+                    Design Project
+                </strong>
+
+                <span>
+                    Image will be added here
+                </span>
+
+            </div>
+
 
         </div>
 
     </div>
 
 </section>
+
 
 <!-- =======================================================
      SHOPIFY + E-COMMERCE
@@ -1457,22 +2274,35 @@ footer {
             </span>
 
             <h2>
-                Shopify & <span class="gradient-text">E-Commerce.</span>
+
+                Shopify &
+                <span class="gradient-text">
+                    E-Commerce.
+                </span>
+
             </h2>
 
             <p>
+
                 Store designs and e-commerce projects can be
                 added here as you build your portfolio.
+
             </p>
 
         </div>
 
+
         <div class="projects-grid">
+
 
             <div class="project-card reveal">
 
                 <div class="project-visual shopify-bg">
-                    <div class="project-symbol">S</div>
+
+                    <div class="project-symbol">
+                        S
+                    </div>
+
                 </div>
 
                 <div class="project-info">
@@ -1486,18 +2316,25 @@ footer {
                     </h3>
 
                     <p>
+
                         Modern storefront concept focused on
                         products and clean presentation.
+
                     </p>
 
                 </div>
 
             </div>
 
+
             <div class="project-card reveal">
 
                 <div class="project-visual shopify-bg">
-                    <div class="project-symbol">S</div>
+
+                    <div class="project-symbol">
+                        S
+                    </div>
+
                 </div>
 
                 <div class="project-info">
@@ -1511,18 +2348,25 @@ footer {
                     </h3>
 
                     <p>
+
                         Product-focused store layout with a
                         simple customer journey.
+
                     </p>
 
                 </div>
 
             </div>
 
+
             <div class="project-card reveal">
 
                 <div class="project-visual ecommerce-bg">
-                    <div class="project-symbol">E</div>
+
+                    <div class="project-symbol">
+                        E
+                    </div>
+
                 </div>
 
                 <div class="project-info">
@@ -1536,18 +2380,25 @@ footer {
                     </h3>
 
                     <p>
+
                         E-commerce concept designed around
                         products and visual branding.
+
                     </p>
 
                 </div>
 
             </div>
 
+
             <div class="project-card reveal">
 
                 <div class="project-visual ecommerce-bg">
-                    <div class="project-symbol">E</div>
+
+                    <div class="project-symbol">
+                        E
+                    </div>
+
                 </div>
 
                 <div class="project-info">
@@ -1561,19 +2412,23 @@ footer {
                     </h3>
 
                     <p>
+
                         Clean and responsive shopping experience
                         concept.
+
                     </p>
 
                 </div>
 
             </div>
 
+
         </div>
 
     </div>
 
 </section>
+
 
 <!-- =======================================================
      WEB DEVELOPMENT
@@ -1590,22 +2445,35 @@ footer {
             </span>
 
             <h2>
-                Web <span class="gradient-text">Development.</span>
+
+                Web
+                <span class="gradient-text">
+                    Development.
+                </span>
+
             </h2>
 
             <p>
+
                 Responsive websites with modern interfaces,
                 animations and clean layouts.
+
             </p>
 
         </div>
 
+
         <div class="projects-grid">
+
 
             <div class="project-card reveal">
 
                 <div class="project-visual web-bg">
-                    <div class="project-symbol">&lt;/&gt;</div>
+
+                    <div class="project-symbol">
+                        &lt;/&gt;
+                    </div>
+
                 </div>
 
                 <div class="project-info">
@@ -1619,18 +2487,25 @@ footer {
                     </h3>
 
                     <p>
+
                         Responsive website concept with a
                         modern digital interface.
+
                     </p>
 
                 </div>
 
             </div>
 
+
             <div class="project-card reveal">
 
                 <div class="project-visual web-bg">
-                    <div class="project-symbol">{ }</div>
+
+                    <div class="project-symbol">
+                        { }
+                    </div>
+
                 </div>
 
                 <div class="project-info">
@@ -1644,19 +2519,23 @@ footer {
                     </h3>
 
                     <p>
+
                         Clean frontend concept with responsive
                         design and smooth interactions.
+
                     </p>
 
                 </div>
 
             </div>
 
+
         </div>
 
     </div>
 
 </section>
+
 
 <!-- =======================================================
      SKILLS
@@ -1673,96 +2552,182 @@ footer {
             </span>
 
             <h2>
-                What I <span class="gradient-text">use.</span>
+
+                What I
+                <span class="gradient-text">
+                    use.
+                </span>
+
             </h2>
 
         </div>
 
+
         <div class="skills-grid">
 
-            <div class="skill reveal">
-
-                <div class="skill-top">
-                    <span>Graphic Design</span>
-                    <strong>90%</strong>
-                </div>
-
-                <div class="skill-bar">
-                    <div class="skill-fill" data-width="90%"></div>
-                </div>
-
-            </div>
 
             <div class="skill reveal">
 
                 <div class="skill-top">
-                    <span>Shopify</span>
-                    <strong>85%</strong>
+
+                    <span>
+                        Graphic Design
+                    </span>
+
+                    <strong>
+                        90%
+                    </strong>
+
                 </div>
 
                 <div class="skill-bar">
-                    <div class="skill-fill" data-width="85%"></div>
+
+                    <div
+                        class="skill-fill"
+                        data-width="90%"
+                    ></div>
+
                 </div>
 
             </div>
+
 
             <div class="skill reveal">
 
                 <div class="skill-top">
-                    <span>E-Commerce</span>
-                    <strong>85%</strong>
+
+                    <span>
+                        Shopify
+                    </span>
+
+                    <strong>
+                        85%
+                    </strong>
+
                 </div>
 
                 <div class="skill-bar">
-                    <div class="skill-fill" data-width="85%"></div>
+
+                    <div
+                        class="skill-fill"
+                        data-width="85%"
+                    ></div>
+
                 </div>
 
             </div>
+
 
             <div class="skill reveal">
 
                 <div class="skill-top">
-                    <span>HTML / CSS</span>
-                    <strong>90%</strong>
+
+                    <span>
+                        E-Commerce
+                    </span>
+
+                    <strong>
+                        85%
+                    </strong>
+
                 </div>
 
                 <div class="skill-bar">
-                    <div class="skill-fill" data-width="90%"></div>
+
+                    <div
+                        class="skill-fill"
+                        data-width="85%"
+                    ></div>
+
                 </div>
 
             </div>
+
 
             <div class="skill reveal">
 
                 <div class="skill-top">
-                    <span>JavaScript</span>
-                    <strong>75%</strong>
+
+                    <span>
+                        HTML / CSS
+                    </span>
+
+                    <strong>
+                        90%
+                    </strong>
+
                 </div>
 
                 <div class="skill-bar">
-                    <div class="skill-fill" data-width="75%"></div>
+
+                    <div
+                        class="skill-fill"
+                        data-width="90%"
+                    ></div>
+
                 </div>
 
             </div>
+
 
             <div class="skill reveal">
 
                 <div class="skill-top">
-                    <span>UI / UX</span>
-                    <strong>85%</strong>
+
+                    <span>
+                        JavaScript
+                    </span>
+
+                    <strong>
+                        75%
+                    </strong>
+
                 </div>
 
                 <div class="skill-bar">
-                    <div class="skill-fill" data-width="85%"></div>
+
+                    <div
+                        class="skill-fill"
+                        data-width="75%"
+                    ></div>
+
                 </div>
 
             </div>
+
+
+            <div class="skill reveal">
+
+                <div class="skill-top">
+
+                    <span>
+                        UI / UX
+                    </span>
+
+                    <strong>
+                        85%
+                    </strong>
+
+                </div>
+
+                <div class="skill-bar">
+
+                    <div
+                        class="skill-fill"
+                        data-width="85%"
+                    ></div>
+
+                </div>
+
+            </div>
+
 
         </div>
 
     </div>
 
 </section>
+
 
 <!-- =======================================================
      CONTACT
@@ -1779,27 +2744,36 @@ footer {
             </span>
 
             <h2>
+
                 Let's create<br>
-                <span class="gradient-text">something.</span>
+
+                <span class="gradient-text">
+                    something.
+                </span>
+
             </h2>
 
             <p>
+
                 Have a design, store or website idea?
                 Let's turn it into something modern and memorable.
+
             </p>
+
 
             <div class="contact-buttons">
 
-                <!--
-                    LATER replace these with your real
-                    email and WhatsApp links.
-                -->
-
-                <a href="mailto:your@email.com" class="btn btn-primary">
+                <a
+                    href="mailto:your@email.com"
+                    class="btn btn-primary"
+                >
                     Email Me
                 </a>
 
-                <a href="#" class="btn">
+                <a
+                    href="#"
+                    class="btn"
+                >
                     WhatsApp
                 </a>
 
@@ -1811,7 +2785,9 @@ footer {
 
 </section>
 
+
 </main>
+
 
 <!-- =======================================================
      FOOTER
@@ -1841,17 +2817,26 @@ footer {
 
 </footer>
 
-<!-- FLOATING BUTTON -->
 
-<a href="#contact" class="float-button" aria-label="Contact">
+<!-- =======================================================
+     FLOATING BUTTON
+======================================================= -->
+
+<a
+    href="#contact"
+    class="float-button"
+    aria-label="Contact"
+>
     ✦
 </a>
+
 
 <!-- =======================================================
      JAVASCRIPT
 ======================================================= -->
 
 <script>
+
 
 /* =========================================================
    LOADER
@@ -1861,7 +2846,10 @@ window.addEventListener("load", () => {
 
     setTimeout(() => {
 
-        document.getElementById("loader").classList.add("hide");
+        document
+            .getElementById("loader")
+            .classList
+            .add("hide");
 
     }, 900);
 
@@ -1872,8 +2860,12 @@ window.addEventListener("load", () => {
    MOBILE MENU
 ========================================================= */
 
-const menuBtn = document.getElementById("menuBtn");
-const navLinks = document.getElementById("navLinks");
+const menuBtn =
+    document.getElementById("menuBtn");
+
+const navLinks =
+    document.getElementById("navLinks");
+
 
 menuBtn.addEventListener("click", () => {
 
@@ -1881,48 +2873,71 @@ menuBtn.addEventListener("click", () => {
 
 });
 
-document.querySelectorAll(".nav-links a").forEach(link => {
 
-    link.addEventListener("click", () => {
+document
+    .querySelectorAll(".nav-links a")
+    .forEach(link => {
 
-        navLinks.classList.remove("open");
+        link.addEventListener("click", () => {
+
+            navLinks.classList.remove("open");
+
+        });
 
     });
-
-});
 
 
 /* =========================================================
    CUSTOM CURSOR
 ========================================================= */
 
-const cursor = document.getElementById("cursor");
-const cursorRing = document.getElementById("cursorRing");
+const cursor =
+    document.getElementById("cursor");
+
+const cursorRing =
+    document.getElementById("cursorRing");
+
 
 let mouseX = 0;
 let mouseY = 0;
+
 let ringX = 0;
 let ringY = 0;
+
 
 document.addEventListener("mousemove", (e) => {
 
     mouseX = e.clientX;
     mouseY = e.clientY;
 
-    cursor.style.left = mouseX + "px";
-    cursor.style.top = mouseY + "px";
+    cursor.style.left =
+        mouseX + "px";
+
+    cursor.style.top =
+        mouseY + "px";
 
 });
 
+
 function animateCursor() {
 
-    ringX += (mouseX - ringX) * 0.12;
-    ringY += (mouseY - ringY) * 0.12;
+    ringX +=
+        (mouseX - ringX) * 0.12;
 
-    cursorRing.style.left = ringX + "px";
-    cursorRing.style.top = ringY + "px";
+    ringY +=
+        (mouseY - ringY) * 0.12;
 
-    requestAnimationFrame(animateCursor);
+
+    cursorRing.style.left =
+        ringX + "px";
+
+    cursorRing.style.top =
+        ringY + "px";
+
+
+    requestAnimationFrame(
+        animateCursor
+    );
 
 }
 
@@ -1933,48 +2948,78 @@ animateCursor();
    CURSOR HOVER
 ========================================================= */
 
-document.querySelectorAll("a, button, .service-card, .project-card, .design-placeholder").forEach(item => {
+document
+    .querySelectorAll(
+        "a, button, .service-card, .project-card, .design-placeholder"
+    )
+    .forEach(item => {
 
-    item.addEventListener("mouseenter", () => {
+        item.addEventListener(
+            "mouseenter",
+            () => {
 
-        cursorRing.style.width = "55px";
-        cursorRing.style.height = "55px";
-        cursorRing.style.borderColor = "#ffffff";
+                cursorRing.style.width =
+                    "55px";
+
+                cursorRing.style.height =
+                    "55px";
+
+                cursorRing.style.borderColor =
+                    "#ffffff";
+
+            }
+        );
+
+
+        item.addEventListener(
+            "mouseleave",
+            () => {
+
+                cursorRing.style.width =
+                    "34px";
+
+                cursorRing.style.height =
+                    "34px";
+
+                cursorRing.style.borderColor =
+                    "rgba(255,255,255,0.55)";
+
+            }
+        );
 
     });
-
-    item.addEventListener("mouseleave", () => {
-
-        cursorRing.style.width = "34px";
-        cursorRing.style.height = "34px";
-        cursorRing.style.borderColor = "rgba(255,255,255,0.55)";
-
-    });
-
-});
 
 
 /* =========================================================
    SCROLL REVEAL
 ========================================================= */
 
-const revealElements = document.querySelectorAll(".reveal");
+const revealElements =
+    document.querySelectorAll(".reveal");
 
-const revealObserver = new IntersectionObserver((entries) => {
 
-    entries.forEach(entry => {
+const revealObserver =
+    new IntersectionObserver(
+        (entries) => {
 
-        if (entry.isIntersecting) {
+            entries.forEach(entry => {
 
-            entry.target.classList.add("active");
+                if (entry.isIntersecting) {
 
+                    entry.target
+                        .classList
+                        .add("active");
+
+                }
+
+            });
+
+        },
+        {
+            threshold: 0.12
         }
+    );
 
-    });
-
-}, {
-    threshold: 0.12
-});
 
 revealElements.forEach(element => {
 
@@ -1987,25 +3032,37 @@ revealElements.forEach(element => {
    SKILL BARS
 ========================================================= */
 
-const skillBars = document.querySelectorAll(".skill-fill");
+const skillBars =
+    document.querySelectorAll(".skill-fill");
 
-const skillObserver = new IntersectionObserver((entries) => {
 
-    entries.forEach(entry => {
+const skillObserver =
+    new IntersectionObserver(
+        (entries) => {
 
-        if (entry.isIntersecting) {
+            entries.forEach(entry => {
 
-            const width = entry.target.getAttribute("data-width");
+                if (entry.isIntersecting) {
 
-            entry.target.style.width = width;
+                    const width =
+                        entry.target
+                            .getAttribute(
+                                "data-width"
+                            );
 
+                    entry.target.style.width =
+                        width;
+
+                }
+
+            });
+
+        },
+        {
+            threshold: 0.4
         }
+    );
 
-    });
-
-}, {
-    threshold: 0.4
-});
 
 skillBars.forEach(bar => {
 
@@ -2018,32 +3075,52 @@ skillBars.forEach(bar => {
    ACTIVE NAV
 ========================================================= */
 
-const sections = document.querySelectorAll("section[id]");
-const navItems = document.querySelectorAll(".nav-links a");
+const sections =
+    document.querySelectorAll(
+        "section[id]"
+    );
+
+const navItems =
+    document.querySelectorAll(
+        ".nav-links a"
+    );
+
 
 window.addEventListener("scroll", () => {
 
     let current = "";
 
+
     sections.forEach(section => {
 
-        const sectionTop = section.offsetTop - 180;
+        const sectionTop =
+            section.offsetTop - 180;
 
-        if (window.scrollY >= sectionTop) {
 
-            current = section.getAttribute("id");
+        if (
+            window.scrollY >= sectionTop
+        ) {
+
+            current =
+                section.getAttribute("id");
 
         }
 
     });
 
+
     navItems.forEach(link => {
 
         link.style.color = "";
 
-        if (link.getAttribute("href") === "#" + current) {
 
-            link.style.color = "#ffffff";
+        if (
+            link.getAttribute("href") ===
+            "#" + current
+        ) {
+
+            link.style.color =
+                "#ffffff";
 
         }
 
@@ -2053,53 +3130,590 @@ window.addEventListener("scroll", () => {
 
 
 /* =========================================================
-   SMOOTH BUTTON HOVER TILT
+   3D CARD TILT
 ========================================================= */
 
-document.querySelectorAll(".project-card, .service-card").forEach(card => {
+document
+    .querySelectorAll(
+        ".project-card, .service-card"
+    )
+    .forEach(card => {
 
-    card.addEventListener("mousemove", (e) => {
 
-        const rect = card.getBoundingClientRect();
+        card.addEventListener(
+            "mousemove",
+            (e) => {
 
-        const x = e.clientX - rect.left;
-        const y = e.clientY - rect.top;
+                const rect =
+                    card.getBoundingClientRect();
 
-        const centerX = rect.width / 2;
-        const centerY = rect.height / 2;
 
-        const rotateX = (y - centerY) / 35;
-        const rotateY = (centerX - x) / 35;
+                const x =
+                    e.clientX - rect.left;
 
-        card.style.transform =
-            `perspective(900px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateY(-7px)`;
+                const y =
+                    e.clientY - rect.top;
+
+
+                const centerX =
+                    rect.width / 2;
+
+                const centerY =
+                    rect.height / 2;
+
+
+                const rotateX =
+                    (y - centerY) / 35;
+
+                const rotateY =
+                    (centerX - x) / 35;
+
+
+                card.style.transform =
+                    `perspective(900px)
+                     rotateX(${rotateX}deg)
+                     rotateY(${rotateY}deg)
+                     translateY(-7px)`;
+
+            }
+        );
+
+
+        card.addEventListener(
+            "mouseleave",
+            () => {
+
+                card.style.transform = "";
+
+            }
+        );
 
     });
-
-    card.addEventListener("mouseleave", () => {
-
-        card.style.transform = "";
-
-    });
-
-});
 
 
 /* =========================================================
    ESC KEY
 ========================================================= */
 
-document.addEventListener("keydown", (e) => {
+document.addEventListener(
+    "keydown",
+    (e) => {
 
-    if (e.key === "Escape") {
+        if (e.key === "Escape") {
 
-        navLinks.classList.remove("open");
+            navLinks.classList.remove(
+                "open"
+            );
+
+        }
+
+    }
+);
+
+
+/* =========================================================
+   FIREWORKS
+   MUHAMMAD AHSAN
+========================================================= */
+
+const fireworksCanvas =
+    document.getElementById(
+        "fireworksCanvas"
+    );
+
+const fireworksCtx =
+    fireworksCanvas.getContext("2d");
+
+
+let fireworkParticles = [];
+
+
+/* =========================================================
+   FIREWORK CANVAS SIZE
+========================================================= */
+
+function resizeFireworks() {
+
+    const rect =
+        fireworksCanvas.getBoundingClientRect();
+
+
+    const dpr =
+        window.devicePixelRatio || 1;
+
+
+    fireworksCanvas.width =
+        rect.width * dpr;
+
+    fireworksCanvas.height =
+        rect.height * dpr;
+
+
+    fireworksCtx.setTransform(
+        dpr,
+        0,
+        0,
+        dpr,
+        0,
+        0
+    );
+
+}
+
+
+resizeFireworks();
+
+
+window.addEventListener(
+    "resize",
+    resizeFireworks
+);
+
+
+/* =========================================================
+   FIREWORK COLORS
+========================================================= */
+
+const fireworkColors = [
+
+    "#ffffff",
+
+    "#a78bfa",
+
+    "#22d3ee",
+
+    "#f472b6",
+
+    "#60a5fa",
+
+    "#c084fc"
+
+];
+
+
+/* =========================================================
+   CREATE FIREWORK
+========================================================= */
+
+function createFirework(
+    customX = null,
+    customY = null
+) {
+
+
+    const rect =
+        fireworksCanvas.getBoundingClientRect();
+
+
+    const x =
+        customX !== null
+            ? customX
+            : rect.width *
+              (
+                  0.12 +
+                  Math.random() * 0.76
+              );
+
+
+    const y =
+        customY !== null
+            ? customY
+            : rect.height *
+              (
+                  0.18 +
+                  Math.random() * 0.55
+              );
+
+
+    const color =
+        fireworkColors[
+            Math.floor(
+                Math.random() *
+                fireworkColors.length
+            )
+        ];
+
+
+    /* MAIN EXPLOSION */
+
+    for (
+        let i = 0;
+        i < 65;
+        i++
+    ) {
+
+        const angle =
+            Math.random() *
+            Math.PI *
+            2;
+
+
+        const speed =
+            1.4 +
+            Math.random() * 4.2;
+
+
+        fireworkParticles.push({
+
+            x: x,
+
+            y: y,
+
+            vx:
+                Math.cos(angle) *
+                speed,
+
+            vy:
+                Math.sin(angle) *
+                speed,
+
+            life: 1,
+
+            size:
+                1 +
+                Math.random() * 2.3,
+
+            color: color
+
+        });
 
     }
 
-});
+
+    /* SMALL SECONDARY SPARKS */
+
+    for (
+        let i = 0;
+        i < 18;
+        i++
+    ) {
+
+        const angle =
+            Math.random() *
+            Math.PI *
+            2;
+
+
+        const speed =
+            0.5 +
+            Math.random() * 2;
+
+
+        fireworkParticles.push({
+
+            x:
+                x +
+                (Math.random() - 0.5) *
+                10,
+
+            y:
+                y +
+                (Math.random() - 0.5) *
+                10,
+
+            vx:
+                Math.cos(angle) *
+                speed,
+
+            vy:
+                Math.sin(angle) *
+                speed,
+
+            life: 1,
+
+            size:
+                0.5 +
+                Math.random() * 1.5,
+
+            color:
+                "#ffffff"
+
+        });
+
+    }
+
+}
+
+
+/* =========================================================
+   FIREWORK ANIMATION
+========================================================= */
+
+function animateFireworks() {
+
+    const rect =
+        fireworksCanvas.getBoundingClientRect();
+
+
+    fireworksCtx.clearRect(
+        0,
+        0,
+        rect.width,
+        rect.height
+    );
+
+
+    for (
+        let i =
+            fireworkParticles.length - 1;
+
+        i >= 0;
+
+        i--
+    ) {
+
+
+        const particle =
+            fireworkParticles[i];
+
+
+        particle.x +=
+            particle.vx;
+
+        particle.y +=
+            particle.vy;
+
+
+        particle.vx *=
+            0.985;
+
+        particle.vy *=
+            0.985;
+
+
+        particle.vy +=
+            0.035;
+
+
+        particle.life -=
+            0.012;
+
+
+        if (
+            particle.life <= 0
+        ) {
+
+            fireworkParticles.splice(
+                i,
+                1
+            );
+
+            continue;
+
+        }
+
+
+        fireworksCtx.beginPath();
+
+
+        fireworksCtx.arc(
+
+            particle.x,
+
+            particle.y,
+
+            particle.size,
+
+            0,
+
+            Math.PI * 2
+
+        );
+
+
+        fireworksCtx.fillStyle =
+            particle.color;
+
+
+        fireworksCtx.globalAlpha =
+            particle.life;
+
+
+        fireworksCtx.shadowBlur =
+            14;
+
+
+        fireworksCtx.shadowColor =
+            particle.color;
+
+
+        fireworksCtx.fill();
+
+    }
+
+
+    fireworksCtx.globalAlpha =
+        1;
+
+    fireworksCtx.shadowBlur =
+        0;
+
+
+    requestAnimationFrame(
+        animateFireworks
+    );
+
+}
+
+
+animateFireworks();
+
+
+/* =========================================================
+   AUTOMATIC FIREWORKS
+========================================================= */
+
+setInterval(() => {
+
+    createFirework();
+
+}, 1200);
+
+
+/* =========================================================
+   FIREWORK BURST AROUND NAME
+========================================================= */
+
+const heroSection =
+    document.querySelector(
+        ".hero"
+    );
+
+
+let fireworksStarted =
+    false;
+
+
+const fireworksObserver =
+    new IntersectionObserver(
+        (entries) => {
+
+            entries.forEach(
+                entry => {
+
+                    if (
+                        entry.isIntersecting &&
+                        !fireworksStarted
+                    ) {
+
+                        fireworksStarted =
+                            true;
+
+
+                        /* BIG OPENING SHOW */
+
+                        for (
+                            let i = 0;
+                            i < 9;
+                            i++
+                        ) {
+
+                            setTimeout(
+                                () => {
+
+                                    const rect =
+                                        fireworksCanvas
+                                            .getBoundingClientRect();
+
+
+                                    const x =
+                                        rect.width *
+                                        (
+                                            0.12 +
+                                            Math.random() *
+                                            0.76
+                                        );
+
+
+                                    const y =
+                                        rect.height *
+                                        (
+                                            0.15 +
+                                            Math.random() *
+                                            0.65
+                                        );
+
+
+                                    createFirework(
+                                        x,
+                                        y
+                                    );
+
+
+                                },
+                                i * 220
+                            );
+
+                        }
+
+                    }
+
+                }
+            );
+
+        },
+        {
+            threshold: 0.3
+        }
+    );
+
+
+fireworksObserver.observe(
+    heroSection
+);
+
+
+/* =========================================================
+   SPECIAL FIREWORKS NEAR NAME
+========================================================= */
+
+setTimeout(() => {
+
+    const rect =
+        fireworksCanvas.getBoundingClientRect();
+
+
+    createFirework(
+        rect.width * 0.18,
+        rect.height * 0.32
+    );
+
+
+}, 1800);
+
+
+setTimeout(() => {
+
+    const rect =
+        fireworksCanvas.getBoundingClientRect();
+
+
+    createFirework(
+        rect.width * 0.82,
+        rect.height * 0.42
+    );
+
+
+}, 2800);
+
+
+setTimeout(() => {
+
+    const rect =
+        fireworksCanvas.getBoundingClientRect();
+
+
+    createFirework(
+        rect.width * 0.50,
+        rect.height * 0.20
+    );
+
+
+}, 3900);
+
 
 </script>
+
 
 </body>
 </html>
