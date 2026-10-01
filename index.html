@@ -2245,4 +2245,62 @@ document
 </script>
 
 </body>
+    <!-- CUSTOM CURSOR -->
+
+<style>
+body{
+    cursor:none;
+}
+
+.custom-cursor{
+    position:fixed;
+    width:18px;
+    height:18px;
+    border:2px solid #8b5cf6;
+    border-radius:50%;
+    pointer-events:none;
+    z-index:999999;
+    transform:translate(-50%,-50%);
+    box-shadow:0 0 10px #8b5cf6,0 0 25px rgba(0,229,255,.5);
+    transition:.2s;
+}
+
+.custom-cursor.active{
+    width:38px;
+    height:38px;
+    background:rgba(139,92,246,.15);
+    border-color:#00e5ff;
+}
+
+@media(max-width:700px){
+    body{
+        cursor:auto;
+    }
+
+    .custom-cursor{
+        display:none;
+    }
+}
+</style>
+
+<div class="custom-cursor"></div>
+
+<script>
+const customCursor=document.querySelector(".custom-cursor");
+
+document.addEventListener("mousemove",(e)=>{
+    customCursor.style.left=e.clientX+"px";
+    customCursor.style.top=e.clientY+"px";
+});
+
+document.querySelectorAll("a,button,.card,.project").forEach(item=>{
+    item.addEventListener("mouseenter",()=>{
+        customCursor.classList.add("active");
+    });
+
+    item.addEventListener("mouseleave",()=>{
+        customCursor.classList.remove("active");
+    });
+});
+</script>
 </html>
