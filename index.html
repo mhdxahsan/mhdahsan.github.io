@@ -7,6 +7,7 @@
 <title>Muhammad Ahsan | Creative Digital Designer</title>
 
 <style>
+
 *{
     margin:0;
     padding:0;
@@ -38,7 +39,10 @@ section{
     padding:110px 0;
 }
 
-/* BACKGROUND */
+
+/* ================================
+   BACKGROUND
+================================ */
 
 body:before,
 body:after{
@@ -67,7 +71,9 @@ body:after{
 }
 
 
-/* LOADER */
+/* ================================
+   LOADER
+================================ */
 
 .loader{
     position:fixed;
@@ -84,7 +90,13 @@ body:after{
     font-size:45px;
     font-weight:900;
     letter-spacing:5px;
-    background:linear-gradient(90deg,#fff,#8b5cf6,#00e5ff,#fff);
+    background:linear-gradient(
+        90deg,
+        #fff,
+        #8b5cf6,
+        #00e5ff,
+        #fff
+    );
     background-size:300%;
     -webkit-background-clip:text;
     -webkit-text-fill-color:transparent;
@@ -99,12 +111,19 @@ body:after{
 }
 
 @keyframes gradient{
-    from{background-position:0}
-    to{background-position:300%}
+    from{
+        background-position:0;
+    }
+
+    to{
+        background-position:300%;
+    }
 }
 
 
-/* NAV */
+/* ================================
+   NAV
+================================ */
 
 .navbar{
     position:fixed;
@@ -165,7 +184,9 @@ body:after{
 }
 
 
-/* HERO */
+/* ================================
+   HERO
+================================ */
 
 .hero{
     min-height:100vh;
@@ -200,9 +221,9 @@ body:after{
 }
 
 
-/* =========================================
-   NEW FIREWORK SYSTEM
-========================================= */
+/* ================================
+   NAME + FIREWORKS
+================================ */
 
 .name-area{
     position:relative;
@@ -211,8 +232,6 @@ body:after{
     padding:35px 45px;
     margin:-35px -45px;
 }
-
-/* actual name */
 
 .name{
     position:relative;
@@ -238,7 +257,7 @@ body:after{
 }
 
 
-/* fireworks */
+/* FIREWORKS */
 
 .firework{
     position:absolute;
@@ -260,6 +279,7 @@ body:after{
     border-radius:50%;
     background:#fff;
     transform:translate(-50%,-50%);
+
     box-shadow:
         0 -35px 2px #8b5cf6,
         0 35px 2px #8b5cf6,
@@ -280,6 +300,7 @@ body:after{
     height:80px;
     border-radius:50%;
     transform:translate(-50%,-50%);
+
     background:radial-gradient(
         circle,
         rgba(255,255,255,.2),
@@ -316,6 +337,7 @@ body:after{
 }
 
 @keyframes fireworkGlow{
+
     0%,100%{
         opacity:.25;
         transform:scale(.65);
@@ -324,6 +346,7 @@ body:after{
     50%{
         opacity:1;
         transform:scale(1.15);
+
         filter:
             drop-shadow(0 0 8px #fff)
             drop-shadow(0 0 18px #8b5cf6);
@@ -331,7 +354,7 @@ body:after{
 }
 
 
-/* shooting stars */
+/* SPARKS */
 
 .sparks{
     position:absolute;
@@ -363,6 +386,7 @@ body:after{
 }
 
 @keyframes sparkMove{
+
     0%{
         opacity:0;
         transform:translate(0,30px) scale(.3);
@@ -406,7 +430,11 @@ body:after{
 }
 
 .primary{
-    background:linear-gradient(135deg,#7c3aed,#00bfff);
+    background:linear-gradient(
+        135deg,
+        #7c3aed,
+        #00bfff
+    );
 }
 
 .outline{
@@ -418,7 +446,9 @@ body:after{
 }
 
 
-/* PROFILE */
+/* ================================
+   PROFILE
+================================ */
 
 .profile-area{
     display:flex;
@@ -430,6 +460,7 @@ body:after{
     aspect-ratio:.82;
     border-radius:35px;
     border:1px solid rgba(255,255,255,.1);
+
     background:
         radial-gradient(
             circle at 30% 20%,
@@ -437,9 +468,41 @@ body:after{
             transparent 40%
         ),
         rgba(255,255,255,.03);
+
     position:relative;
     overflow:hidden;
     animation:float 5s ease-in-out infinite;
+}
+
+.profile-card:before{
+    content:"";
+    position:absolute;
+    inset:-2px;
+    background:linear-gradient(
+        120deg,
+        transparent,
+        rgba(139,92,246,.35),
+        transparent,
+        rgba(0,229,255,.3),
+        transparent
+    );
+    background-size:300% 300%;
+    animation:profileGlow 6s linear infinite;
+    pointer-events:none;
+}
+
+@keyframes profileGlow{
+    0%{
+        background-position:0 50%;
+    }
+
+    50%{
+        background-position:100% 50%;
+    }
+
+    100%{
+        background-position:0 50%;
+    }
 }
 
 .profile-inner{
@@ -453,39 +516,59 @@ body:after{
     flex-direction:column;
     text-align:center;
     padding:20px;
+    overflow:hidden;
+}
+
+.profile-photo{
+    width:82%;
+    height:82%;
+    object-fit:cover;
+    object-position:center;
+    border-radius:25px;
+    border:1px solid rgba(255,255,255,.15);
+
+    box-shadow:
+        0 0 30px rgba(139,92,246,.25),
+        0 0 70px rgba(0,229,255,.08);
+
+    transition:.5s;
+}
+
+.profile-card:hover .profile-photo{
+    transform:scale(1.04);
 }
 
 .profile-icon{
-    width:80px;
-    height:80px;
-    border-radius:50%;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    background:linear-gradient(135deg,#7c3aed,#00d9ff);
-    font-size:27px;
-    font-weight:bold;
-    margin-bottom:20px;
+    display:none;
 }
 
 .profile-inner strong{
     font-size:22px;
+    margin-top:15px;
 }
 
 .profile-inner p{
     color:#777783;
     font-size:13px;
-    margin-top:10px;
+    margin-top:8px;
     line-height:1.6;
 }
 
 @keyframes float{
-    0%,100%{transform:translateY(0)}
-    50%{transform:translateY(-12px)}
+
+    0%,100%{
+        transform:translateY(0);
+    }
+
+    50%{
+        transform:translateY(-12px);
+    }
 }
 
 
-/* SECTION TITLES */
+/* ================================
+   SECTION TITLES
+================================ */
 
 .section-title{
     text-align:center;
@@ -512,7 +595,9 @@ body:after{
 }
 
 
-/* SERVICES */
+/* ================================
+   SERVICES
+================================ */
 
 .services{
     display:grid;
@@ -556,7 +641,9 @@ body:after{
 }
 
 
-/* PROJECTS */
+/* ================================
+   PROJECTS
+================================ */
 
 .projects{
     display:grid;
@@ -574,7 +661,11 @@ body:after{
 
 .project:hover{
     transform:translateY(-8px);
+    border-color:rgba(139,92,246,.35);
 }
+
+
+/* PROJECT IMAGE */
 
 .project-image{
     height:240px;
@@ -590,13 +681,30 @@ body:after{
             transparent 35%
         ),
         #111117;
+
     display:flex;
     align-items:center;
     justify-content:center;
+
     color:#555563;
     letter-spacing:4px;
     font-size:12px;
+
+    overflow:hidden;
 }
+
+.project-image img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    display:block;
+    transition:.6s;
+}
+
+.project:hover .project-image img{
+    transform:scale(1.07);
+}
+
 
 .project-info{
     padding:25px;
@@ -622,7 +730,9 @@ body:after{
 }
 
 
-/* ABOUT */
+/* ================================
+   ABOUT
+================================ */
 
 .about-grid{
     display:grid;
@@ -666,7 +776,9 @@ body:after{
 }
 
 
-/* SKILLS */
+/* ================================
+   SKILLS
+================================ */
 
 .skills{
     display:grid;
@@ -694,18 +806,25 @@ body:after{
 
 .progress{
     height:100%;
-    background:linear-gradient(90deg,#7c3aed,#00d9ff);
+    background:linear-gradient(
+        90deg,
+        #7c3aed,
+        #00d9ff
+    );
     border-radius:20px;
 }
 
 
-/* CONTACT */
+/* ================================
+   CONTACT
+================================ */
 
 .contact{
     text-align:center;
     padding:70px 30px;
     border:1px solid rgba(255,255,255,.08);
     border-radius:35px;
+
     background:
         radial-gradient(
             circle,
@@ -731,13 +850,56 @@ body:after{
     font-size:24px;
     font-weight:bold;
     margin-bottom:25px;
-    background:linear-gradient(90deg,#fff,#8b5cf6,#00d9ff);
+
+    background:linear-gradient(
+        90deg,
+        #fff,
+        #8b5cf6,
+        #00d9ff
+    );
+
     -webkit-background-clip:text;
     -webkit-text-fill-color:transparent;
 }
 
 
-/* FOOTER */
+/* ================================
+   WHATSAPP
+================================ */
+
+.whatsapp{
+    position:fixed;
+    left:25px;
+    bottom:25px;
+    width:55px;
+    height:55px;
+    border-radius:50%;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    background:#25D366;
+    color:#fff;
+
+    font-size:26px;
+
+    z-index:999;
+
+    box-shadow:
+        0 0 20px rgba(37,211,102,.35);
+
+    transition:.3s;
+}
+
+.whatsapp:hover{
+    transform:translateY(-5px) scale(1.05);
+}
+
+
+/* ================================
+   FOOTER
+================================ */
 
 footer{
     padding:40px 0;
@@ -756,24 +918,32 @@ footer{
 }
 
 
-/* TOP */
+/* ================================
+   TOP
+================================ */
 
 .top{
     position:fixed;
     right:25px;
     bottom:25px;
+
     width:50px;
     height:50px;
+
     border-radius:50%;
     border:1px solid rgba(255,255,255,.1);
+
     background:#15151c;
     color:#fff;
+
     cursor:pointer;
     z-index:999;
 }
 
 
-/* REVEAL */
+/* ================================
+   REVEAL
+================================ */
 
 .reveal{
     opacity:0;
@@ -787,7 +957,9 @@ footer{
 }
 
 
-/* MOBILE */
+/* ================================
+   MOBILE
+================================ */
 
 @media(max-width:900px){
 
@@ -815,9 +987,7 @@ footer{
         padding:80px 0;
     }
 
-    /*
-       TWO COLUMNS ON MOBILE
-    */
+    /* TWO COLUMNS ON MOBILE */
 
     .hero-grid{
         grid-template-columns:minmax(0,1.25fr) minmax(115px,.75fr);
@@ -864,22 +1034,18 @@ footer{
     .profile-inner{
         inset:6px;
         border-radius:15px;
-        padding:8px;
+        padding:6px;
     }
 
-    .profile-icon{
-        width:45px;
-        height:45px;
-        font-size:16px;
-        margin-bottom:10px;
+    .profile-photo{
+        width:100%;
+        height:100%;
+        border-radius:12px;
     }
 
-    .profile-inner strong{
-        font-size:11px;
-    }
-
+    .profile-inner strong,
     .profile-inner p{
-        font-size:7px;
+        display:none;
     }
 
     .services,
@@ -906,21 +1072,41 @@ footer{
             18px -18px 2px #ff4fd8,
             -18px 18px 2px #ff4fd8;
     }
+
+    .whatsapp{
+        left:15px;
+        bottom:15px;
+        width:48px;
+        height:48px;
+        font-size:22px;
+    }
+
+    .top{
+        right:15px;
+        bottom:15px;
+        width:48px;
+        height:48px;
+    }
 }
+
 </style>
 </head>
 
 <body>
 
 
-<!-- LOADER -->
+<!-- ================================
+     LOADER
+================================ -->
 
 <div class="loader">
     <span>MA.</span>
 </div>
 
 
-<!-- NAVIGATION -->
+<!-- ================================
+     NAVIGATION
+================================ -->
 
 <header class="navbar">
 
@@ -931,18 +1117,59 @@ footer{
         </a>
 
         <nav>
+
             <ul class="nav-links">
 
-                <li><a href="#home" class="active">Home</a></li>
-                <li><a href="#about">About</a></li>
-                <li><a href="#services">Services</a></li>
-                <li><a href="#graphic">Graphic Design</a></li>
-                <li><a href="#shopify">Shopify</a></li>
-                <li><a href="#web">Web Development</a></li>
-                <li><a href="#skills">Skills</a></li>
-                <li><a href="#contact">Contact</a></li>
+                <li>
+                    <a href="#home" class="active">
+                        Home
+                    </a>
+                </li>
+
+                <li>
+                    <a href="#about">
+                        About
+                    </a>
+                </li>
+
+                <li>
+                    <a href="#services">
+                        Services
+                    </a>
+                </li>
+
+                <li>
+                    <a href="#graphic">
+                        Graphic Design
+                    </a>
+                </li>
+
+                <li>
+                    <a href="#shopify">
+                        Shopify
+                    </a>
+                </li>
+
+                <li>
+                    <a href="#web">
+                        Web Development
+                    </a>
+                </li>
+
+                <li>
+                    <a href="#skills">
+                        Skills
+                    </a>
+                </li>
+
+                <li>
+                    <a href="#contact">
+                        Contact
+                    </a>
+                </li>
 
             </ul>
+
         </nav>
 
         <button class="menu" id="menu">
@@ -954,7 +1181,9 @@ footer{
 </header>
 
 
-<!-- HERO -->
+<!-- ================================
+     HERO
+================================ -->
 
 <section class="hero" id="home">
 
@@ -963,6 +1192,8 @@ footer{
 <div class="hero-grid">
 
 
+<!-- LEFT -->
+
 <div>
 
     <div class="hero-small">
@@ -970,13 +1201,9 @@ footer{
     </div>
 
 
-    <!-- ==================================
-         MUHAMMAD AHSAN + FIREWORKS
-    =================================== -->
+    <!-- NAME + FIREWORKS -->
 
     <div class="name-area">
-
-        <!-- visible fireworks -->
 
         <div class="firework one"></div>
         <div class="firework two"></div>
@@ -989,19 +1216,24 @@ footer{
 
 
         <h1 class="name">
+
             Muhammad<br>
+
             <span class="gradient-name">
                 Ahsan.
             </span>
+
         </h1>
 
     </div>
 
 
     <p class="hero-description">
+
         I create modern digital experiences through
         Graphic Design, Shopify, E-Commerce and
         Web Development.
+
     </p>
 
 
@@ -1020,7 +1252,7 @@ footer{
 </div>
 
 
-<!-- PROFILE -->
+<!-- RIGHT PROFILE -->
 
 <div class="profile-area">
 
@@ -1028,17 +1260,20 @@ footer{
 
         <div class="profile-inner">
 
-            <div class="profile-icon">
-                MA
-            </div>
+            <!-- YOUR PROFILE PHOTO -->
+
+            <img
+                src="Gemini_Generated_Image_q3ucymq3ucymq3uc.jpg"
+                alt="Muhammad Ahsan"
+                class="profile-photo"
+            >
 
             <strong>
                 Muhammad Ahsan
             </strong>
 
             <p>
-                Your profile picture will be
-                added here later.
+                Creative Digital Designer
             </p>
 
         </div>
@@ -1054,7 +1289,9 @@ footer{
 </section>
 
 
-<!-- ABOUT -->
+<!-- ================================
+     ABOUT
+================================ -->
 
 <section id="about">
 
@@ -1062,7 +1299,9 @@ footer{
 
 <div class="section-title">
 
-<span>About Me</span>
+<span>
+About Me
+</span>
 
 <h2>
 Creative. Digital. Modern.
@@ -1130,7 +1369,9 @@ to understand.
 </section>
 
 
-<!-- SERVICES -->
+<!-- ================================
+     SERVICES
+================================ -->
 
 <section id="services">
 
@@ -1138,9 +1379,13 @@ to understand.
 
 <div class="section-title">
 
-<span>What I Do</span>
+<span>
+What I Do
+</span>
 
-<h2>My Services</h2>
+<h2>
+My Services
+</h2>
 
 <p>
 Four core areas where I create digital work.
@@ -1154,11 +1399,17 @@ Four core areas where I create digital work.
 
 <div class="card">
 
-<div class="number">01</div>
+<div class="number">
+01
+</div>
 
-<div class="icon">🎨</div>
+<div class="icon">
+🎨
+</div>
 
-<h3>Graphic Design</h3>
+<h3>
+Graphic Design
+</h3>
 
 <p>
 Social media graphics, branding,
@@ -1171,11 +1422,17 @@ visual designs.
 
 <div class="card">
 
-<div class="number">02</div>
+<div class="number">
+02
+</div>
 
-<div class="icon">🛍️</div>
+<div class="icon">
+🛍️
+</div>
 
-<h3>Shopify</h3>
+<h3>
+Shopify
+</h3>
 
 <p>
 Clean, modern and professional
@@ -1187,11 +1444,17 @@ Shopify stores for online businesses.
 
 <div class="card">
 
-<div class="number">03</div>
+<div class="number">
+03
+</div>
 
-<div class="icon">🚀</div>
+<div class="icon">
+🚀
+</div>
 
-<h3>E-Commerce</h3>
+<h3>
+E-Commerce
+</h3>
 
 <p>
 Product-focused online shopping
@@ -1203,11 +1466,17 @@ experiences for modern brands.
 
 <div class="card">
 
-<div class="number">04</div>
+<div class="number">
+04
+</div>
 
-<div class="icon">💻</div>
+<div class="icon">
+💻
+</div>
 
-<h3>Web Development</h3>
+<h3>
+Web Development
+</h3>
 
 <p>
 Responsive websites with modern
@@ -1224,7 +1493,9 @@ layouts, animations and interactions.
 </section>
 
 
-<!-- GRAPHIC DESIGN -->
+<!-- ================================
+     GRAPHIC DESIGN
+================================ -->
 
 <section id="graphic">
 
@@ -1232,9 +1503,13 @@ layouts, animations and interactions.
 
 <div class="section-title">
 
-<span>Portfolio</span>
+<span>
+Portfolio
+</span>
 
-<h2>Graphic Design</h2>
+<h2>
+Graphic Design
+</h2>
 
 <p>
 Your graphic design projects will appear here.
@@ -1246,20 +1521,31 @@ Your graphic design projects will appear here.
 <div class="projects">
 
 
+<!-- GRAPHIC PROJECT 1 -->
+
 <div class="project">
 
 <div class="project-image">
-PROJECT
+
+<img
+src="graphic-1.jpg"
+alt="Graphic Design Project 1"
+>
+
 </div>
 
 <div class="project-info">
 
-<span>Graphic Design</span>
+<span>
+Graphic Design
+</span>
 
-<h3>Project One</h3>
+<h3>
+Project One
+</h3>
 
 <p>
-Add your graphic design image here.
+Modern graphic design project.
 </p>
 
 </div>
@@ -1267,20 +1553,31 @@ Add your graphic design image here.
 </div>
 
 
+<!-- GRAPHIC PROJECT 2 -->
+
 <div class="project">
 
 <div class="project-image">
-PROJECT
+
+<img
+src="graphic-2.jpg"
+alt="Graphic Design Project 2"
+>
+
 </div>
 
 <div class="project-info">
 
-<span>Graphic Design</span>
+<span>
+Graphic Design
+</span>
 
-<h3>Project Two</h3>
+<h3>
+Project Two
+</h3>
 
 <p>
-Add your graphic design image here.
+Modern graphic design project.
 </p>
 
 </div>
@@ -1288,20 +1585,31 @@ Add your graphic design image here.
 </div>
 
 
+<!-- GRAPHIC PROJECT 3 -->
+
 <div class="project">
 
 <div class="project-image">
-PROJECT
+
+<img
+src="graphic-3.jpg"
+alt="Graphic Design Project 3"
+>
+
 </div>
 
 <div class="project-info">
 
-<span>Graphic Design</span>
+<span>
+Graphic Design
+</span>
 
-<h3>Project Three</h3>
+<h3>
+Project Three
+</h3>
 
 <p>
-Add your graphic design image here.
+Modern graphic design project.
 </p>
 
 </div>
@@ -1316,7 +1624,9 @@ Add your graphic design image here.
 </section>
 
 
-<!-- SHOPIFY -->
+<!-- ================================
+     SHOPIFY
+================================ -->
 
 <section id="shopify">
 
@@ -1324,9 +1634,13 @@ Add your graphic design image here.
 
 <div class="section-title">
 
-<span>Portfolio</span>
+<span>
+Portfolio
+</span>
 
-<h2>Shopify & E-Commerce</h2>
+<h2>
+Shopify & E-Commerce
+</h2>
 
 <p>
 Showcase your Shopify and e-commerce projects here.
@@ -1338,20 +1652,31 @@ Showcase your Shopify and e-commerce projects here.
 <div class="projects">
 
 
+<!-- SHOPIFY 1 -->
+
 <div class="project">
 
 <div class="project-image">
-PROJECT
+
+<img
+src="shopify-1.jpg"
+alt="Shopify Project 1"
+>
+
 </div>
 
 <div class="project-info">
 
-<span>Shopify</span>
+<span>
+Shopify
+</span>
 
-<h3>Online Store</h3>
+<h3>
+Online Store
+</h3>
 
 <p>
-Add your Shopify project screenshot here.
+Modern Shopify store project.
 </p>
 
 </div>
@@ -1359,20 +1684,31 @@ Add your Shopify project screenshot here.
 </div>
 
 
+<!-- SHOPIFY 2 -->
+
 <div class="project">
 
 <div class="project-image">
-PROJECT
+
+<img
+src="shopify-2.jpg"
+alt="E-Commerce Project 2"
+>
+
 </div>
 
 <div class="project-info">
 
-<span>E-Commerce</span>
+<span>
+E-Commerce
+</span>
 
-<h3>Product Store</h3>
+<h3>
+Product Store
+</h3>
 
 <p>
-Add your e-commerce project here.
+Modern e-commerce project.
 </p>
 
 </div>
@@ -1380,20 +1716,31 @@ Add your e-commerce project here.
 </div>
 
 
+<!-- SHOPIFY 3 -->
+
 <div class="project">
 
 <div class="project-image">
-PROJECT
+
+<img
+src="shopify-3.jpg"
+alt="Shopify Project 3"
+>
+
 </div>
 
 <div class="project-info">
 
-<span>Shopify</span>
+<span>
+Shopify
+</span>
 
-<h3>Modern Store</h3>
+<h3>
+Modern Store
+</h3>
 
 <p>
-Add your Shopify design here.
+Modern Shopify project.
 </p>
 
 </div>
@@ -1408,7 +1755,9 @@ Add your Shopify design here.
 </section>
 
 
-<!-- WEB DEVELOPMENT -->
+<!-- ================================
+     WEB DEVELOPMENT
+================================ -->
 
 <section id="web">
 
@@ -1416,9 +1765,13 @@ Add your Shopify design here.
 
 <div class="section-title">
 
-<span>Portfolio</span>
+<span>
+Portfolio
+</span>
 
-<h2>Web Development</h2>
+<h2>
+Web Development
+</h2>
 
 <p>
 Modern responsive websites and digital experiences.
@@ -1430,20 +1783,31 @@ Modern responsive websites and digital experiences.
 <div class="projects">
 
 
+<!-- WEB 1 -->
+
 <div class="project">
 
 <div class="project-image">
-PROJECT
+
+<img
+src="web-1.jpg"
+alt="Web Development Project 1"
+>
+
 </div>
 
 <div class="project-info">
 
-<span>Web Development</span>
+<span>
+Web Development
+</span>
 
-<h3>Website Project</h3>
+<h3>
+Website Project
+</h3>
 
 <p>
-Add your website screenshot here.
+Modern responsive website.
 </p>
 
 </div>
@@ -1451,20 +1815,31 @@ Add your website screenshot here.
 </div>
 
 
+<!-- WEB 2 -->
+
 <div class="project">
 
 <div class="project-image">
-PROJECT
+
+<img
+src="web-2.jpg"
+alt="Web Development Project 2"
+>
+
 </div>
 
 <div class="project-info">
 
-<span>Web Development</span>
+<span>
+Web Development
+</span>
 
-<h3>Landing Page</h3>
+<h3>
+Landing Page
+</h3>
 
 <p>
-Add your landing page project here.
+Modern landing page project.
 </p>
 
 </div>
@@ -1472,20 +1847,31 @@ Add your landing page project here.
 </div>
 
 
+<!-- WEB 3 -->
+
 <div class="project">
 
 <div class="project-image">
-PROJECT
+
+<img
+src="web-3.jpg"
+alt="Web Development Project 3"
+>
+
 </div>
 
 <div class="project-info">
 
-<span>Web Development</span>
+<span>
+Web Development
+</span>
 
-<h3>Digital Experience</h3>
+<h3>
+Digital Experience
+</h3>
 
 <p>
-Add your website project here.
+Modern digital experience.
 </p>
 
 </div>
@@ -1500,7 +1886,9 @@ Add your website project here.
 </section>
 
 
-<!-- SKILLS -->
+<!-- ================================
+     SKILLS
+================================ -->
 
 <section id="skills">
 
@@ -1508,9 +1896,13 @@ Add your website project here.
 
 <div class="section-title">
 
-<span>My Skills</span>
+<span>
+My Skills
+</span>
 
-<h2>What I Work With</h2>
+<h2>
+What I Work With
+</h2>
 
 <p>
 Skills I use for digital projects.
@@ -1525,12 +1917,24 @@ Skills I use for digital projects.
 <div>
 
 <div class="skill-top">
-<span>Graphic Design</span>
-<span>90%</span>
+
+<span>
+Graphic Design
+</span>
+
+<span>
+90%
+</span>
+
 </div>
 
 <div class="bar">
-<div class="progress" style="width:90%"></div>
+
+<div
+class="progress"
+style="width:90%">
+</div>
+
 </div>
 
 </div>
@@ -1539,12 +1943,24 @@ Skills I use for digital projects.
 <div>
 
 <div class="skill-top">
-<span>Shopify</span>
-<span>85%</span>
+
+<span>
+Shopify
+</span>
+
+<span>
+85%
+</span>
+
 </div>
 
 <div class="bar">
-<div class="progress" style="width:85%"></div>
+
+<div
+class="progress"
+style="width:85%">
+</div>
+
 </div>
 
 </div>
@@ -1553,12 +1969,24 @@ Skills I use for digital projects.
 <div>
 
 <div class="skill-top">
-<span>E-Commerce</span>
-<span>85%</span>
+
+<span>
+E-Commerce
+</span>
+
+<span>
+85%
+</span>
+
 </div>
 
 <div class="bar">
-<div class="progress" style="width:85%"></div>
+
+<div
+class="progress"
+style="width:85%">
+</div>
+
 </div>
 
 </div>
@@ -1567,12 +1995,24 @@ Skills I use for digital projects.
 <div>
 
 <div class="skill-top">
-<span>Web Development</span>
-<span>80%</span>
+
+<span>
+Web Development
+</span>
+
+<span>
+80%
+</span>
+
 </div>
 
 <div class="bar">
-<div class="progress" style="width:80%"></div>
+
+<div
+class="progress"
+style="width:80%">
+</div>
+
 </div>
 
 </div>
@@ -1585,7 +2025,9 @@ Skills I use for digital projects.
 </section>
 
 
-<!-- CONTACT -->
+<!-- ================================
+     CONTACT
+================================ -->
 
 <section id="contact">
 
@@ -1611,7 +2053,9 @@ your@email.com
 <a
 href="mailto:your@email.com"
 class="btn primary">
+
 Contact Me
+
 </a>
 
 </div>
@@ -1621,7 +2065,9 @@ Contact Me
 </section>
 
 
-<!-- FOOTER -->
+<!-- ================================
+     FOOTER
+================================ -->
 
 <footer>
 
@@ -1630,7 +2076,10 @@ Contact Me
 <div class="footer">
 
 <strong>
-Muhammad Ahsan<span style="color:#8b5cf6">.</span>
+Muhammad Ahsan
+<span style="color:#8b5cf6">
+.
+</span>
 </strong>
 
 <p>
@@ -1644,6 +2093,34 @@ Muhammad Ahsan<span style="color:#8b5cf6">.</span>
 </footer>
 
 
+<!-- ================================
+     WHATSAPP
+================================ -->
+
+<!--
+BRO:
+Replace 923001234567 with your
+real WhatsApp number.
+
+Example:
+923001234567
+
+Do NOT put + or spaces.
+-->
+
+<a
+href="https://wa.me/923001234567"
+target="_blank"
+class="whatsapp"
+aria-label="WhatsApp">
+
+☘
+
+</a>
+
+
+<!-- TOP BUTTON -->
+
 <button class="top" id="top">
 ↑
 </button>
@@ -1651,7 +2128,10 @@ Muhammad Ahsan<span style="color:#8b5cf6">.</span>
 
 <script>
 
-/* MOBILE MENU */
+
+/* ================================
+   MOBILE MENU
+================================ */
 
 const menu =
 document.getElementById("menu");
@@ -1669,7 +2149,9 @@ menu.addEventListener("click",()=>{
 });
 
 
-/* SCROLL REVEAL */
+/* ================================
+   SCROLL REVEAL
+================================ */
 
 const reveals =
 document.querySelectorAll(".reveal");
@@ -1699,7 +2181,9 @@ reveals.forEach(el=>{
 });
 
 
-/* ACTIVE NAV */
+/* ================================
+   ACTIVE NAV
+================================ */
 
 const sections =
 document.querySelectorAll("section[id]");
@@ -1743,7 +2227,9 @@ window.addEventListener("scroll",()=>{
 });
 
 
-/* TOP BUTTON */
+/* ================================
+   TOP BUTTON
+================================ */
 
 document
 .getElementById("top")
