@@ -1,0 +1,1404 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Muhammad Ahsan | Digital Designer & Developer</title>
+
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&display=swap');
+
+:root{
+    --bg:#070812;
+    --bg2:#0d1020;
+    --card:rgba(255,255,255,.055);
+    --border:rgba(255,255,255,.10);
+    --text:#ffffff;
+    --muted:#9da3b7;
+    --blue:#6c63ff;
+    --cyan:#00d9ff;
+    --pink:#ff3cac;
+    --green:#25d366;
+}
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    background:
+        radial-gradient(circle at 80% 15%,rgba(108,99,255,.16),transparent 28%),
+        radial-gradient(circle at 10% 80%,rgba(0,217,255,.08),transparent 25%),
+        var(--bg);
+    color:var(--text);
+    font-family:Inter,sans-serif;
+    overflow-x:hidden;
+}
+
+a{
+    text-decoration:none;
+    color:inherit;
+}
+
+button{
+    font-family:inherit;
+}
+
+/* LOADER */
+
+.loader{
+    position:fixed;
+    inset:0;
+    background:#05060d;
+    z-index:99999;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    transition:opacity .8s,visibility .8s;
+}
+
+.loader.hide{
+    opacity:0;
+    visibility:hidden;
+}
+
+.loader-box{
+    text-align:center;
+}
+
+.loader-name{
+    font-family:"Space Grotesk";
+    font-size:clamp(30px,6vw,60px);
+    font-weight:800;
+    letter-spacing:3px;
+}
+
+.loader-line{
+    width:180px;
+    height:3px;
+    background:linear-gradient(90deg,var(--blue),var(--cyan),var(--pink));
+    margin:18px auto 0;
+    transform-origin:left;
+    animation:loading 1.6s infinite;
+}
+
+@keyframes loading{
+    0%{transform:scaleX(0)}
+    50%{transform:scaleX(1)}
+    100%{transform:scaleX(0)}
+}
+
+/* NAVBAR */
+
+.navbar{
+    position:fixed;
+    top:15px;
+    left:50%;
+    transform:translateX(-50%);
+    width:min(1100px,calc(100% - 30px));
+    height:64px;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    padding:0 20px;
+    background:rgba(8,9,20,.72);
+    border:1px solid var(--border);
+    border-radius:18px;
+    backdrop-filter:blur(20px);
+    z-index:1000;
+    box-shadow:0 15px 40px rgba(0,0,0,.25);
+}
+
+.logo{
+    font-family:"Space Grotesk";
+    font-size:20px;
+    font-weight:800;
+}
+
+.logo span{
+    color:var(--cyan);
+}
+
+.nav-links{
+    display:flex;
+    gap:25px;
+}
+
+.nav-links a{
+    font-size:14px;
+    color:#c5c8d6;
+    transition:.3s;
+}
+
+.nav-links a:hover{
+    color:white;
+}
+
+/* HERO */
+
+.hero{
+    min-height:100vh;
+    width:min(1150px,calc(100% - 40px));
+    margin:auto;
+    display:grid;
+    grid-template-columns:1.05fr .95fr;
+    align-items:center;
+    gap:40px;
+    padding-top:85px;
+}
+
+.hero-content{
+    animation:heroIn 1s .2s both;
+}
+
+@keyframes heroIn{
+    from{
+        opacity:0;
+        transform:translateY(35px);
+    }
+    to{
+        opacity:1;
+        transform:none;
+    }
+}
+
+.badge{
+    display:inline-flex;
+    align-items:center;
+    gap:8px;
+    padding:8px 13px;
+    border:1px solid var(--border);
+    background:rgba(255,255,255,.04);
+    border-radius:30px;
+    color:#bfc5d8;
+    font-size:13px;
+    margin-bottom:20px;
+}
+
+.dot{
+    width:7px;
+    height:7px;
+    border-radius:50%;
+    background:#29e87d;
+    box-shadow:0 0 12px #29e87d;
+}
+
+.hero h1{
+    font-family:"Space Grotesk";
+    font-size:clamp(46px,7vw,84px);
+    line-height:.95;
+    letter-spacing:-4px;
+}
+
+.gradient-text{
+    background:linear-gradient(100deg,var(--blue),var(--cyan),var(--pink));
+    -webkit-background-clip:text;
+    color:transparent;
+}
+
+.hero p{
+    color:var(--muted);
+    font-size:16px;
+    line-height:1.7;
+    max-width:580px;
+    margin:24px 0;
+}
+
+.hero-buttons{
+    display:flex;
+    flex-wrap:wrap;
+    gap:12px;
+}
+
+.btn{
+    border:0;
+    padding:14px 20px;
+    border-radius:12px;
+    font-weight:700;
+    cursor:pointer;
+    transition:.3s;
+    display:inline-flex;
+    align-items:center;
+    gap:8px;
+}
+
+.btn-primary{
+    color:white;
+    background:linear-gradient(100deg,var(--blue),#8b5cff);
+    box-shadow:0 10px 30px rgba(108,99,255,.25);
+}
+
+.btn-primary:hover{
+    transform:translateY(-3px);
+    box-shadow:0 15px 35px rgba(108,99,255,.4);
+}
+
+.btn-outline{
+    border:1px solid var(--border);
+    color:white;
+    background:rgba(255,255,255,.04);
+}
+
+.btn-outline:hover{
+    background:rgba(255,255,255,.09);
+    transform:translateY(-3px);
+}
+
+/* PROFILE */
+
+.profile-wrap{
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    position:relative;
+    animation:profileIn 1s .45s both;
+}
+
+@keyframes profileIn{
+    from{
+        opacity:0;
+        transform:translateX(50px) scale(.9);
+    }
+    to{
+        opacity:1;
+        transform:none;
+    }
+}
+
+.profile-ring{
+    width:min(420px,80vw);
+    aspect-ratio:1;
+    border-radius:50%;
+    padding:7px;
+    background:conic-gradient(
+        from 0deg,
+        var(--blue),
+        var(--cyan),
+        var(--pink),
+        var(--blue)
+    );
+    animation:spin 8s linear infinite;
+    box-shadow:
+        0 0 70px rgba(108,99,255,.18),
+        0 0 120px rgba(0,217,255,.08);
+}
+
+@keyframes spin{
+    to{transform:rotate(360deg)}
+}
+
+.profile-inner{
+    width:100%;
+    height:100%;
+    border-radius:50%;
+    overflow:hidden;
+    background:#111320;
+    border:7px solid #090a13;
+    animation:counterSpin 8s linear infinite;
+}
+
+@keyframes counterSpin{
+    to{transform:rotate(-360deg)}
+}
+
+.profile-inner img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    display:block;
+}
+
+.profile-glow{
+    position:absolute;
+    width:180px;
+    height:180px;
+    background:var(--pink);
+    filter:blur(100px);
+    opacity:.12;
+    z-index:-1;
+}
+
+/* FIREWORK CANVAS */
+
+#fireworks{
+    position:absolute;
+    inset:0;
+    pointer-events:none;
+    z-index:2;
+}
+
+/* SECTIONS */
+
+section{
+    width:min(1100px,calc(100% - 40px));
+    margin:auto;
+    padding:70px 0;
+}
+
+.section-title{
+    text-align:center;
+    margin-bottom:38px;
+}
+
+.section-title span{
+    color:var(--cyan);
+    font-size:13px;
+    text-transform:uppercase;
+    letter-spacing:3px;
+    font-weight:700;
+}
+
+.section-title h2{
+    font-family:"Space Grotesk";
+    font-size:clamp(32px,5vw,50px);
+    margin-top:8px;
+}
+
+/* SERVICES */
+
+.services{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:16px;
+}
+
+.service{
+    background:var(--card);
+    border:1px solid var(--border);
+    border-radius:20px;
+    padding:25px;
+    transition:.4s;
+    position:relative;
+    overflow:hidden;
+}
+
+.service::before{
+    content:"";
+    position:absolute;
+    width:120px;
+    height:120px;
+    background:var(--blue);
+    filter:blur(70px);
+    opacity:0;
+    top:-60px;
+    right:-60px;
+    transition:.4s;
+}
+
+.service:hover{
+    transform:translateY(-8px);
+    border-color:rgba(108,99,255,.45);
+}
+
+.service:hover::before{
+    opacity:.4;
+}
+
+.icon{
+    width:50px;
+    height:50px;
+    border-radius:14px;
+    display:grid;
+    place-items:center;
+    font-size:23px;
+    background:linear-gradient(135deg,rgba(108,99,255,.2),rgba(0,217,255,.1));
+    margin-bottom:18px;
+}
+
+.service h3{
+    margin-bottom:9px;
+}
+
+.service p{
+    color:var(--muted);
+    line-height:1.6;
+    font-size:14px;
+}
+
+/* PROJECTS */
+
+.filter{
+    display:flex;
+    justify-content:center;
+    gap:8px;
+    flex-wrap:wrap;
+    margin-bottom:25px;
+}
+
+.filter button{
+    padding:9px 15px;
+    border-radius:30px;
+    border:1px solid var(--border);
+    background:rgba(255,255,255,.04);
+    color:#b9bfd0;
+    cursor:pointer;
+    transition:.3s;
+}
+
+.filter button.active,
+.filter button:hover{
+    color:white;
+    background:linear-gradient(100deg,var(--blue),#8b5cff);
+}
+
+.projects{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:16px;
+}
+
+.project{
+    border:1px solid var(--border);
+    border-radius:18px;
+    overflow:hidden;
+    background:var(--card);
+    cursor:pointer;
+    transition:.4s;
+}
+
+.project:hover{
+    transform:translateY(-7px);
+    border-color:rgba(0,217,255,.4);
+    box-shadow:0 20px 50px rgba(0,0,0,.25);
+}
+
+.project-img{
+    height:210px;
+    overflow:hidden;
+    position:relative;
+}
+
+.project-img img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    transition:.6s;
+}
+
+.project:hover .project-img img{
+    transform:scale(1.08);
+}
+
+.project-info{
+    padding:17px;
+}
+
+.project-info small{
+    color:var(--cyan);
+}
+
+.project-info h3{
+    margin-top:6px;
+}
+
+/* CONTACT */
+
+.contact-box{
+    background:
+        radial-gradient(circle at 80% 20%,rgba(108,99,255,.18),transparent 30%),
+        var(--card);
+    border:1px solid var(--border);
+    border-radius:25px;
+    padding:45px;
+    text-align:center;
+}
+
+.contact-box h2{
+    font-family:"Space Grotesk";
+    font-size:clamp(30px,5vw,48px);
+}
+
+.contact-box p{
+    color:var(--muted);
+    max-width:550px;
+    margin:12px auto 25px;
+    line-height:1.6;
+}
+
+.contact-buttons{
+    display:flex;
+    justify-content:center;
+    flex-wrap:wrap;
+    gap:12px;
+}
+
+.whatsapp{
+    background:var(--green);
+    color:#07100a;
+}
+
+.email{
+    background:white;
+    color:#111;
+}
+
+/* FOOTER */
+
+footer{
+    border-top:1px solid var(--border);
+    padding:25px 20px;
+    text-align:center;
+    color:#747b91;
+    font-size:13px;
+}
+
+/* WHATSAPP FLOAT */
+
+.whatsapp-float{
+    position:fixed;
+    right:20px;
+    bottom:20px;
+    width:56px;
+    height:56px;
+    border-radius:50%;
+    display:grid;
+    place-items:center;
+    background:var(--green);
+    color:#061108;
+    font-size:25px;
+    z-index:900;
+    box-shadow:0 10px 30px rgba(37,211,102,.25);
+    animation:pulse 2s infinite;
+}
+
+@keyframes pulse{
+    0%,100%{box-shadow:0 0 0 0 rgba(37,211,102,.35)}
+    50%{box-shadow:0 0 0 12px rgba(37,211,102,0)}
+}
+
+/* MODAL */
+
+.modal{
+    position:fixed;
+    inset:0;
+    background:rgba(0,0,0,.78);
+    backdrop-filter:blur(12px);
+    z-index:5000;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    padding:20px;
+    opacity:0;
+    visibility:hidden;
+    transition:.35s;
+}
+
+.modal.show{
+    opacity:1;
+    visibility:visible;
+}
+
+.modal-box{
+    width:min(850px,100%);
+    max-height:90vh;
+    overflow:auto;
+    background:#10121f;
+    border:1px solid var(--border);
+    border-radius:22px;
+    transform:translateY(30px) scale(.94);
+    transition:.4s;
+    position:relative;
+}
+
+.modal.show .modal-box{
+    transform:none;
+}
+
+.modal-img{
+    width:100%;
+    max-height:480px;
+    object-fit:cover;
+    display:block;
+}
+
+.modal-content{
+    padding:25px;
+}
+
+.modal-content small{
+    color:var(--cyan);
+}
+
+.modal-content h2{
+    margin:7px 0 10px;
+    font-family:"Space Grotesk";
+}
+
+.modal-content p{
+    color:var(--muted);
+    line-height:1.7;
+}
+
+.close{
+    position:absolute;
+    right:15px;
+    top:15px;
+    width:40px;
+    height:40px;
+    border-radius:50%;
+    border:1px solid rgba(255,255,255,.2);
+    background:rgba(0,0,0,.55);
+    color:white;
+    font-size:22px;
+    cursor:pointer;
+    z-index:3;
+}
+
+/* SCROLL ANIMATION */
+
+.reveal{
+    opacity:0;
+    transform:translateY(35px);
+    transition:opacity .8s,transform .8s;
+}
+
+.reveal.visible{
+    opacity:1;
+    transform:none;
+}
+
+/* MOBILE */
+
+@media(max-width:850px){
+
+    .navbar{
+        height:58px;
+        padding:0 15px;
+    }
+
+    .nav-links{
+        display:none;
+    }
+
+    .hero{
+        grid-template-columns:1fr;
+        text-align:center;
+        padding-top:105px;
+        min-height:auto;
+        gap:35px;
+    }
+
+    .hero-content{
+        order:1;
+    }
+
+    .profile-wrap{
+        order:2;
+    }
+
+    .hero p{
+        margin:18px auto;
+        font-size:14px;
+    }
+
+    .hero-buttons{
+        justify-content:center;
+    }
+
+    .profile-ring{
+        width:min(310px,75vw);
+    }
+
+    section{
+        padding:55px 0;
+    }
+
+    .services{
+        grid-template-columns:1fr;
+        gap:12px;
+    }
+
+    .service{
+        padding:20px;
+    }
+
+    .projects{
+        grid-template-columns:1fr;
+        gap:13px;
+    }
+
+    .project-img{
+        height:210px;
+    }
+
+    .contact-box{
+        padding:30px 20px;
+    }
+
+    .whatsapp-float{
+        right:15px;
+        bottom:15px;
+    }
+}
+
+@media(max-width:450px){
+
+    .hero{
+        width:calc(100% - 28px);
+        padding-top:95px;
+        gap:28px;
+    }
+
+    .hero h1{
+        font-size:43px;
+        letter-spacing:-2.5px;
+    }
+
+    .hero p{
+        font-size:13px;
+        line-height:1.6;
+    }
+
+    section{
+        width:calc(100% - 28px);
+        padding:45px 0;
+    }
+
+    .section-title{
+        margin-bottom:25px;
+    }
+
+    .section-title h2{
+        font-size:32px;
+    }
+
+    .profile-ring{
+        width:250px;
+    }
+
+    .btn{
+        padding:12px 16px;
+        font-size:13px;
+    }
+
+    .project-img{
+        height:190px;
+    }
+
+    .contact-box{
+        border-radius:20px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<!-- LOADER -->
+<div class="loader" id="loader">
+    <div class="loader-box">
+        <div class="loader-name">AHsan<span style="color:#00d9ff">.</span></div>
+        <div class="loader-line"></div>
+    </div>
+</div>
+
+<!-- NAVBAR -->
+<nav class="navbar">
+    <a href="#home" class="logo">Ahsan<span>.</span></a>
+
+    <div class="nav-links">
+        <a href="#home">Home</a>
+        <a href="#services">Services</a>
+        <a href="#projects">Projects</a>
+        <a href="#contact">Contact</a>
+    </div>
+
+    <a href="#contact" class="btn btn-primary" style="padding:9px 14px;font-size:12px;">
+        Let's Talk
+    </a>
+</nav>
+
+<!-- HERO -->
+<main id="home">
+
+<section class="hero">
+
+    <canvas id="fireworks"></canvas>
+
+    <div class="hero-content">
+
+        <div class="badge">
+            <span class="dot"></span>
+            Available for Projects
+        </div>
+
+        <h1>
+            Hi, I'm<br>
+            <span class="gradient-text">Muhammad Ahsan</span>
+        </h1>
+
+        <p>
+            Creative Graphic Designer & Web Developer creating
+            modern designs, responsive websites and powerful
+            e-commerce experiences.
+        </p>
+
+        <div class="hero-buttons">
+
+            <a href="#projects" class="btn btn-primary">
+                View My Work →
+            </a>
+
+            <a href="mailto:your@email.com" class="btn btn-outline">
+                ✉ Email Me
+            </a>
+
+        </div>
+
+    </div>
+
+    <div class="profile-wrap">
+
+        <div class="profile-glow"></div>
+
+        <div class="profile-ring">
+            <div class="profile-inner">
+
+                <!-- CHANGE THIS TO YOUR PHOTO -->
+                <img src="profile.jpg" alt="Muhammad Ahsan">
+
+            </div>
+        </div>
+
+    </div>
+
+</section>
+
+<!-- SERVICES -->
+<section id="services" class="reveal">
+
+    <div class="section-title">
+        <span>What I Do</span>
+        <h2>My Services</h2>
+    </div>
+
+    <div class="services">
+
+        <div class="service">
+            <div class="icon">🎨</div>
+            <h3>Graphic Designing</h3>
+            <p>
+                Social media designs, posters, thumbnails,
+                branding, advertisements and creative visuals.
+            </p>
+        </div>
+
+        <div class="service">
+            <div class="icon">💻</div>
+            <h3>Web Development</h3>
+            <p>
+                Modern responsive websites with smooth
+                animations and clean user experiences.
+            </p>
+        </div>
+
+        <div class="service">
+            <div class="icon">🛒</div>
+            <h3>E-Commerce & Shopify</h3>
+            <p>
+                Professional Shopify stores, product pages,
+                store layouts and conversion-focused designs.
+            </p>
+        </div>
+
+    </div>
+
+</section>
+
+<!-- PROJECTS -->
+<section id="projects" class="reveal">
+
+    <div class="section-title">
+        <span>My Work</span>
+        <h2>Featured Projects</h2>
+    </div>
+
+    <div class="filter">
+        <button class="active" onclick="filterProjects('all',this)">All</button>
+        <button onclick="filterProjects('graphic',this)">Graphic Design</button>
+        <button onclick="filterProjects('web',this)">Web Development</button>
+        <button onclick="filterProjects('shopify',this)">Shopify</button>
+    </div>
+
+    <div class="projects">
+
+        <!-- PROJECT 1 -->
+        <div class="project" data-category="graphic"
+             onclick="openProject(
+             'Graphic Design',
+             'Social Media Design',
+             'project1.jpg',
+             'A modern creative social media design created for digital marketing and branding.'
+             )">
+
+            <div class="project-img">
+                <img src="project1.jpg" alt="Graphic Design">
+            </div>
+
+            <div class="project-info">
+                <small>Graphic Design</small>
+                <h3>Social Media Design</h3>
+            </div>
+
+        </div>
+
+
+        <!-- PROJECT 2 -->
+        <div class="project" data-category="graphic"
+             onclick="openProject(
+             'Graphic Design',
+             'Creative Poster',
+             'project2.jpg',
+             'Creative poster design with a modern visual style.'
+             )">
+
+            <div class="project-img">
+                <img src="project2.jpg" alt="Poster">
+            </div>
+
+            <div class="project-info">
+                <small>Graphic Design</small>
+                <h3>Creative Poster</h3>
+            </div>
+
+        </div>
+
+
+        <!-- PROJECT 3 -->
+        <div class="project" data-category="web"
+             onclick="openProject(
+             'Web Development',
+             'Modern Website',
+             'project3.jpg',
+             'Responsive website design focused on a clean interface and smooth user experience.'
+             )">
+
+            <div class="project-img">
+                <img src="project3.jpg" alt="Website">
+            </div>
+
+            <div class="project-info">
+                <small>Web Development</small>
+                <h3>Modern Website</h3>
+            </div>
+
+        </div>
+
+
+        <!-- PROJECT 4 -->
+        <div class="project" data-category="shopify"
+             onclick="openProject(
+             'Shopify',
+             'E-Commerce Store',
+             'project4.jpg',
+             'Professional Shopify store design with a modern product-focused layout.'
+             )">
+
+            <div class="project-img">
+                <img src="project4.jpg" alt="Shopify Store">
+            </div>
+
+            <div class="project-info">
+                <small>Shopify</small>
+                <h3>E-Commerce Store</h3>
+            </div>
+
+        </div>
+
+
+        <!-- PROJECT 5 -->
+        <div class="project" data-category="web"
+             onclick="openProject(
+             'Web Development',
+             'Portfolio Website',
+             'project5.jpg',
+             'A premium personal portfolio website with responsive layouts and animations.'
+             )">
+
+            <div class="project-img">
+                <img src="project5.jpg" alt="Portfolio">
+            </div>
+
+            <div class="project-info">
+                <small>Web Development</small>
+                <h3>Portfolio Website</h3>
+            </div>
+
+        </div>
+
+
+        <!-- PROJECT 6 -->
+        <div class="project" data-category="shopify"
+             onclick="openProject(
+             'Shopify',
+             'Product Store',
+             'project6.jpg',
+             'Clean and responsive e-commerce store interface designed for online products.'
+             )">
+
+            <div class="project-img">
+                <img src="project6.jpg" alt="Product Store">
+            </div>
+
+            <div class="project-info">
+                <small>Shopify</small>
+                <h3>Product Store</h3>
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- CONTACT -->
+<section id="contact" class="reveal">
+
+    <div class="contact-box">
+
+        <h2>Let's Create Something Amazing.</h2>
+
+        <p>
+            Have a project in mind? Contact me and let's turn
+            your idea into a beautiful digital experience.
+        </p>
+
+        <div class="contact-buttons">
+
+            <!-- CHANGE EMAIL -->
+            <a class="btn email"
+               href="mailto:your@email.com">
+               ✉ Email Me
+            </a>
+
+            <!-- CHANGE NUMBER -->
+            <a class="btn whatsapp"
+               href="https://wa.me/923001234567"
+               target="_blank">
+               💬 WhatsApp
+            </a>
+
+        </div>
+
+    </div>
+
+</section>
+
+</main>
+
+
+<footer>
+    © 2026 Muhammad Ahsan. Designed & Developed with creativity.
+</footer>
+
+
+<!-- FLOATING WHATSAPP -->
+
+<a class="whatsapp-float"
+   href="https://wa.me/923001234567"
+   target="_blank">
+   💬
+</a>
+
+
+<!-- PROJECT MODAL -->
+
+<div class="modal" id="projectModal">
+
+    <div class="modal-box">
+
+        <button class="close" onclick="closeProject()">×</button>
+
+        <img id="modalImage" class="modal-img" src="" alt="Project">
+
+        <div class="modal-content">
+
+            <small id="modalCategory"></small>
+
+            <h2 id="modalTitle"></h2>
+
+            <p id="modalDescription"></p>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+<script>
+
+/* LOADER */
+
+window.addEventListener("load",()=>{
+
+    setTimeout(()=>{
+        document.getElementById("loader").classList.add("hide");
+    },1200);
+
+});
+
+
+/* PROJECT FILTER */
+
+function filterProjects(category,button){
+
+    document.querySelectorAll(".filter button")
+        .forEach(btn=>btn.classList.remove("active"));
+
+    button.classList.add("active");
+
+    document.querySelectorAll(".project").forEach(project=>{
+
+        if(category==="all" ||
+           project.dataset.category===category){
+
+            project.style.display="block";
+
+            setTimeout(()=>{
+                project.style.opacity="1";
+                project.style.transform="scale(1)";
+            },20);
+
+        }else{
+
+            project.style.opacity="0";
+            project.style.transform="scale(.9)";
+
+            setTimeout(()=>{
+                project.style.display="none";
+            },250);
+
+        }
+
+    });
+
+}
+
+
+/* PROJECT MODAL */
+
+function openProject(category,title,image,description){
+
+    document.getElementById("modalCategory").textContent=category;
+
+    document.getElementById("modalTitle").textContent=title;
+
+    document.getElementById("modalDescription").textContent=description;
+
+    document.getElementById("modalImage").src=image;
+
+    document.getElementById("projectModal").classList.add("show");
+
+    document.body.style.overflow="hidden";
+}
+
+
+function closeProject(){
+
+    document.getElementById("projectModal").classList.remove("show");
+
+    document.body.style.overflow="";
+
+}
+
+
+document.getElementById("projectModal")
+.addEventListener("click",(e)=>{
+
+    if(e.target.id==="projectModal"){
+        closeProject();
+    }
+
+});
+
+
+document.addEventListener("keydown",(e)=>{
+
+    if(e.key==="Escape"){
+        closeProject();
+    }
+
+});
+
+
+/* SCROLL REVEAL */
+
+const observer=new IntersectionObserver(
+
+    entries=>{
+
+        entries.forEach(entry=>{
+
+            if(entry.isIntersecting){
+
+                entry.target.classList.add("visible");
+
+            }
+
+        });
+
+    },
+
+    {
+        threshold:.12
+    }
+
+);
+
+document.querySelectorAll(".reveal")
+    .forEach(el=>observer.observe(el));
+
+
+/* FIREWORKS */
+
+const canvas=document.getElementById("fireworks");
+const ctx=canvas.getContext("2d");
+
+let particles=[];
+let fireworks=[];
+
+function resizeCanvas(){
+
+    canvas.width=canvas.offsetWidth;
+    canvas.height=canvas.offsetHeight;
+
+}
+
+resizeCanvas();
+
+window.addEventListener("resize",resizeCanvas);
+
+
+function createFirework(){
+
+    const x=
+        canvas.width*.35+
+        Math.random()*canvas.width*.3;
+
+    const y=
+        80+
+        Math.random()*180;
+
+    fireworks.push({
+
+        x:x,
+        y:canvas.height+20,
+        targetY:y,
+        speed:5+Math.random()*2
+
+    });
+
+}
+
+
+function explode(x,y){
+
+    const amount=45;
+
+    for(let i=0;i<amount;i++){
+
+        const angle=
+            Math.PI*2*i/amount;
+
+        const speed=
+            1.5+Math.random()*3;
+
+        particles.push({
+
+            x:x,
+            y:y,
+
+            vx:Math.cos(angle)*speed,
+            vy:Math.sin(angle)*speed,
+
+            life:1
+
+        });
+
+    }
+
+}
+
+
+function animateFireworks(){
+
+    ctx.clearRect(
+        0,
+        0,
+        canvas.width,
+        canvas.height
+    );
+
+    fireworks.forEach((firework,index)=>{
+
+        firework.y-=firework.speed;
+
+        if(firework.y<=firework.targetY){
+
+            explode(
+                firework.x,
+                firework.y
+            );
+
+            fireworks.splice(index,1);
+
+        }
+
+    });
+
+
+    particles.forEach((p,index)=>{
+
+        p.x+=p.vx;
+
+        p.y+=p.vy;
+
+        p.vy+=.025;
+
+        p.life-=.018;
+
+        ctx.beginPath();
+
+        ctx.arc(
+            p.x,
+            p.y,
+            1.5,
+            0,
+            Math.PI*2
+        );
+
+        ctx.fillStyle=
+            `hsla(${Math.random()*360},100%,70%,${p.life})`;
+
+        ctx.fill();
+
+        if(p.life<=0){
+
+            particles.splice(index,1);
+
+        }
+
+    });
+
+    requestAnimationFrame(animateFireworks);
+
+}
+
+
+setInterval(createFirework,1700);
+
+animateFireworks();
+
+</script>
+
+</body>
+</html>
