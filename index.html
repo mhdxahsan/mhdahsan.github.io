@@ -2,6 +2,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
@@ -9,9 +10,9 @@
 
 <style>
 
-/* =========================
+/* =========================================================
    RESET
-========================= */
+========================================================= */
 
 *{
     margin:0;
@@ -30,14 +31,29 @@ body{
     overflow-x:hidden;
 }
 
+body,
+a,
+button{
+    -webkit-tap-highlight-color:transparent;
+}
+
 a{
     color:inherit;
     text-decoration:none;
 }
 
+button{
+    font-family:inherit;
+}
+
 img{
     max-width:100%;
 }
+
+
+/* =========================================================
+   CONTAINER
+========================================================= */
 
 .container{
     width:min(1180px,92%);
@@ -45,44 +61,58 @@ img{
 }
 
 section{
-    padding:100px 0;
+    padding:110px 0;
 }
 
 
-/* =========================
-   BACKGROUND
-========================= */
+/* =========================================================
+   ANIMATED BACKGROUND
+========================================================= */
 
-body:before,
-body:after{
+body::before,
+body::after{
     content:"";
     position:fixed;
-    width:450px;
-    height:450px;
+    width:500px;
+    height:500px;
     border-radius:50%;
-    filter:blur(120px);
+    filter:blur(130px);
     pointer-events:none;
-    z-index:-5;
+    z-index:-10;
+    animation:orbFloat 10s ease-in-out infinite alternate;
 }
 
-body:before{
-    background:#5b21b6;
+body::before{
+    left:-250px;
+    top:80px;
+    background:#6d28d9;
     opacity:.18;
-    left:-220px;
-    top:100px;
 }
 
-body:after{
+body::after{
+    right:-250px;
+    bottom:30px;
     background:#00d9ff;
-    opacity:.10;
-    right:-220px;
-    bottom:50px;
+    opacity:.11;
+    animation-delay:-5s;
+}
+
+@keyframes orbFloat{
+
+    0%{
+        transform:translate(0,0) scale(1);
+    }
+
+    100%{
+        transform:translate(80px,-50px) scale(1.15);
+    }
+
 }
 
 
-/* =========================
+/* =========================================================
    LOADER
-========================= */
+========================================================= */
 
 .loader{
     position:fixed;
@@ -91,14 +121,16 @@ body:after{
     display:flex;
     align-items:center;
     justify-content:center;
-    z-index:99999;
-    animation:hideLoader 1s forwards 1.5s;
+    z-index:999999;
+    animation:loaderOut 1s ease forwards;
+    animation-delay:1.4s;
 }
 
-.loader span{
-    font-size:45px;
+.loader-logo{
+    font-size:50px;
     font-weight:900;
     letter-spacing:5px;
+
     background:linear-gradient(
         90deg,
         #fff,
@@ -106,41 +138,78 @@ body:after{
         #00e5ff,
         #fff
     );
+
     background-size:300%;
+
     -webkit-background-clip:text;
     -webkit-text-fill-color:transparent;
-    animation:gradient 2s linear infinite;
+
+    animation:
+        loaderGradient 2s linear infinite,
+        loaderPulse 1s ease-in-out infinite alternate;
 }
 
-@keyframes hideLoader{
+@keyframes loaderOut{
+
     to{
         opacity:0;
         visibility:hidden;
+        pointer-events:none;
     }
+
 }
 
-@keyframes gradient{
-    from{background-position:0;}
-    to{background-position:300%;}
+@keyframes loaderGradient{
+
+    from{
+        background-position:0;
+    }
+
+    to{
+        background-position:300%;
+    }
+
+}
+
+@keyframes loaderPulse{
+
+    from{
+        transform:scale(.95);
+    }
+
+    to{
+        transform:scale(1.05);
+    }
+
 }
 
 
-/* =========================
-   NAVBAR
-========================= */
+/* =========================================================
+   NAVIGATION
+========================================================= */
 
 .navbar{
     position:fixed;
     top:18px;
     left:50%;
     transform:translateX(-50%);
+
     width:min(1100px,92%);
-    padding:13px 20px;
+
+    padding:12px 18px;
+
     border:1px solid rgba(255,255,255,.09);
     border-radius:50px;
-    background:rgba(10,10,15,.78);
-    backdrop-filter:blur(20px);
+
+    background:rgba(8,8,13,.72);
+
+    backdrop-filter:blur(22px);
+    -webkit-backdrop-filter:blur(22px);
+
     z-index:9999;
+
+    box-shadow:
+        0 15px 50px rgba(0,0,0,.25);
 }
 
 .nav-inner{
@@ -152,6 +221,7 @@ body:after{
 .logo{
     font-size:22px;
     font-weight:900;
+    letter-spacing:-1px;
 }
 
 .logo span{
@@ -160,89 +230,130 @@ body:after{
 
 .nav-links{
     display:flex;
-    list-style:none;
+    align-items:center;
     gap:4px;
+    list-style:none;
 }
 
 .nav-links a{
+    display:block;
+
     padding:9px 12px;
-    color:#9999a5;
+
+    color:#8d8d9a;
+
     font-size:12px;
+
     border-radius:30px;
-    transition:.3s;
+
+    transition:
+        color .3s ease,
+        background .3s ease,
+        transform .3s ease;
 }
 
 .nav-links a:hover,
 .nav-links a.active{
     color:#fff;
-    background:rgba(255,255,255,.07);
+    background:rgba(255,255,255,.08);
+}
+
+.nav-links a:hover{
+    transform:translateY(-2px);
 }
 
 .menu{
     display:none;
+
     border:0;
     background:transparent;
+
     color:#fff;
+
     font-size:25px;
+
     cursor:pointer;
 }
 
 
-/* =========================
+/* =========================================================
    HERO
-========================= */
+========================================================= */
 
 .hero{
     min-height:100vh;
+
     display:flex;
     align-items:center;
-    padding-top:120px;
+
+    padding-top:130px;
 }
 
 .hero-grid{
     display:grid;
-    grid-template-columns:1.1fr .9fr;
-    gap:50px;
+
+    grid-template-columns:
+        minmax(0,1.1fr)
+        minmax(300px,.9fr);
+
+    gap:55px;
+
     align-items:center;
 }
 
 .hero-small{
-    color:#9999a5;
+    color:#9a9aa6;
+
     text-transform:uppercase;
+
     letter-spacing:3px;
+
     font-size:13px;
+
     margin-bottom:20px;
 }
 
-.hero-small:before{
+.hero-small::before{
     content:"";
+
     display:inline-block;
+
     width:30px;
     height:1px;
+
     background:#8b5cf6;
+
     vertical-align:middle;
+
     margin-right:10px;
 }
 
 
-/* =========================
+/* =========================================================
    NAME
-========================= */
+========================================================= */
 
 .name-area{
     position:relative;
+
     display:inline-block;
-    z-index:10;
+
     padding:35px 45px;
+
     margin:-35px -45px;
 }
 
 .name{
     position:relative;
-    z-index:20;
+
+    z-index:10;
+
     font-size:clamp(55px,8vw,100px);
+
     line-height:.9;
+
     letter-spacing:-6px;
+
     font-weight:900;
 }
 
@@ -254,36 +365,63 @@ body:after{
         #00e5ff,
         #fff
     );
+
     background-size:300%;
+
     -webkit-background-clip:text;
     -webkit-text-fill-color:transparent;
-    animation:gradient 5s linear infinite;
+
+    animation:
+        nameGradient 5s linear infinite;
+}
+
+@keyframes nameGradient{
+
+    from{
+        background-position:0;
+    }
+
+    to{
+        background-position:300%;
+    }
+
 }
 
 
-/* =========================
+/* =========================================================
    FIREWORKS
-========================= */
+========================================================= */
 
 .firework{
     position:absolute;
+
     width:6px;
     height:6px;
+
     border-radius:50%;
-    z-index:5;
+
     pointer-events:none;
-    animation:fireworkGlow 1.8s infinite;
+
+    z-index:2;
+
+    animation:firework 2s ease-in-out infinite;
 }
 
-.firework:before{
+.firework::before{
     content:"";
+
     position:absolute;
+
     left:50%;
     top:50%;
+
     width:5px;
     height:5px;
+
     border-radius:50%;
+
     background:#fff;
+
     transform:translate(-50%,-50%);
 
     box-shadow:
@@ -297,15 +435,21 @@ body:after{
         -25px 25px 2px #ff4fd8;
 }
 
-.firework:after{
+.firework::after{
     content:"";
+
     position:absolute;
+
     left:50%;
     top:50%;
-    width:80px;
-    height:80px;
+
+    width:90px;
+    height:90px;
+
     border-radius:50%;
+
     transform:translate(-50%,-50%);
+
     background:radial-gradient(
         circle,
         rgba(255,255,255,.2),
@@ -320,81 +464,88 @@ body:after{
 }
 
 .firework.two{
-    right:2%;
+    right:0;
     top:10%;
     animation-delay:.7s;
 }
 
 .firework.three{
     left:45%;
-    top:75%;
+    bottom:0;
     animation-delay:1.2s;
 }
 
 .firework.four{
     right:15%;
-    bottom:0;
+    bottom:-10px;
     animation-delay:.35s;
 }
 
-@keyframes fireworkGlow{
+@keyframes firework{
 
     0%,100%{
-        opacity:.25;
-        transform:scale(.65);
+        opacity:.2;
+        transform:scale(.6);
     }
 
     50%{
         opacity:1;
-        transform:scale(1.15);
+        transform:scale(1.1);
+
         filter:
             drop-shadow(0 0 8px #fff)
-            drop-shadow(0 0 18px #8b5cf6);
+            drop-shadow(0 0 20px #8b5cf6);
     }
+
 }
 
 
-/* =========================
+/* =========================================================
    SPARKS
-========================= */
+========================================================= */
 
-.sparks{
+.spark{
     position:absolute;
+
     width:4px;
     height:4px;
-    background:#fff;
+
     border-radius:50%;
-    box-shadow:0 0 10px #fff;
-    z-index:6;
+
+    background:#fff;
+
+    box-shadow:0 0 12px #fff;
+
     pointer-events:none;
-    animation:sparkMove 2.5s infinite;
+
+    animation:spark 2.8s ease-in-out infinite;
 }
 
-.spark1{
+.spark.one{
     left:10%;
     top:70%;
 }
 
-.spark2{
+.spark.two{
     left:80%;
     top:25%;
     animation-delay:.8s;
 }
 
-.spark3{
+.spark.three{
     left:55%;
     top:5%;
     animation-delay:1.5s;
 }
 
-@keyframes sparkMove{
+@keyframes spark{
 
     0%{
         opacity:0;
         transform:translate(0,30px) scale(.3);
     }
 
-    25%{
+    30%{
         opacity:1;
     }
 
@@ -406,30 +557,55 @@ body:after{
         opacity:0;
         transform:translate(40px,-50px) scale(1.2);
     }
+
 }
 
 
+/* =========================================================
+   HERO TEXT
+========================================================= */
+
 .hero-description{
-    max-width:600px;
-    color:#9999a5;
-    line-height:1.8;
+    max-width:610px;
+
     margin-top:25px;
+
+    color:#9999a5;
+
+    line-height:1.8;
+
+    font-size:15px;
 }
 
 .buttons{
     display:flex;
-    gap:15px;
+
+    gap:14px;
+
     margin-top:30px;
+
     flex-wrap:wrap;
 }
 
 .btn{
-    display:inline-block;
-    padding:14px 24px;
+    display:inline-flex;
+
+    align-items:center;
+    justify-content:center;
+
+    min-height:48px;
+
+    padding:0 23px;
+
     border-radius:50px;
+
     font-size:14px;
+
     font-weight:bold;
-    transition:.3s;
+
+    transition:
+        transform .3s ease,
+        box-shadow .3s ease;
 }
 
 .primary{
@@ -438,20 +614,28 @@ body:after{
         #7c3aed,
         #00bfff
     );
+
+    box-shadow:
+        0 10px 35px rgba(124,58,237,.2);
 }
 
 .outline{
     border:1px solid rgba(255,255,255,.15);
+
+    background:rgba(255,255,255,.02);
 }
 
 .btn:hover{
-    transform:translateY(-4px);
+    transform:translateY(-5px);
+
+    box-shadow:
+        0 12px 30px rgba(139,92,246,.2);
 }
 
 
-/* =========================
+/* =========================================================
    PROFILE
-========================= */
+========================================================= */
 
 .profile-area{
     display:flex;
@@ -460,92 +644,100 @@ body:after{
 
 .profile-card{
     width:min(390px,100%);
+
     aspect-ratio:.82;
+
+    position:relative;
+
+    overflow:hidden;
+
     border-radius:35px;
+
     border:1px solid rgba(255,255,255,.1);
 
     background:
         radial-gradient(
             circle at 30% 20%,
-            rgba(139,92,246,.25),
+            rgba(139,92,246,.28),
             transparent 40%
         ),
         rgba(255,255,255,.03);
 
-    position:relative;
-    overflow:hidden;
-    animation:float 5s ease-in-out infinite;
+    animation:
+        profileFloat 5s ease-in-out infinite;
 }
 
-.profile-card:before{
+.profile-card::before{
     content:"";
+
     position:absolute;
-    inset:-2px;
+
+    inset:-100%;
+
     background:linear-gradient(
         120deg,
         transparent,
-        rgba(139,92,246,.35),
+        rgba(139,92,246,.3),
         transparent,
         rgba(0,229,255,.3),
         transparent
     );
-    background-size:300% 300%;
-    animation:profileGlow 6s linear infinite;
-    pointer-events:none;
+
+    animation:profileLight 7s linear infinite;
 }
 
-@keyframes profileGlow{
-    0%{background-position:0 50%;}
-    50%{background-position:100% 50%;}
-    100%{background-position:0 50%;}
+@keyframes profileLight{
+
+    from{
+        transform:rotate(0deg);
+    }
+
+    to{
+        transform:rotate(360deg);
+    }
+
 }
 
 .profile-inner{
     position:absolute;
+
     inset:12px;
-    border:1px dashed rgba(255,255,255,.15);
-    border-radius:27px;
+
+    overflow:hidden;
+
     display:flex;
+
     align-items:center;
     justify-content:center;
-    flex-direction:column;
-    text-align:center;
-    padding:20px;
-    overflow:hidden;
+
+    border-radius:27px;
+
+    border:1px dashed rgba(255,255,255,.15);
+
+    background:#0b0b10;
 }
 
 .profile-photo{
-    width:82%;
-    height:82%;
+    width:100%;
+    height:100%;
+
     object-fit:cover;
-    object-position:center;
-    border-radius:25px;
-    border:1px solid rgba(255,255,255,.15);
 
-    box-shadow:
-        0 0 30px rgba(139,92,246,.25),
-        0 0 70px rgba(0,229,255,.08);
+    border-radius:24px;
 
-    transition:.5s;
+    opacity:.98;
+
+    transition:
+        transform .6s ease,
+        filter .6s ease;
 }
 
 .profile-card:hover .profile-photo{
     transform:scale(1.04);
+    filter:saturate(1.1);
 }
 
-.profile-inner strong{
-    font-size:22px;
-    margin-top:15px;
-}
-
-.profile-inner p{
-    color:#777783;
-    font-size:13px;
-    margin-top:8px;
-    line-height:1.6;
-}
-
-@keyframes float{
+@keyframes profileFloat{
 
     0%,100%{
         transform:translateY(0);
@@ -554,109 +746,157 @@ body:after{
     50%{
         transform:translateY(-12px);
     }
+
 }
 
 
-/* =========================
-   SECTION TITLES
-========================= */
+/* =========================================================
+   SECTION TITLE
+========================================================= */
 
 .section-title{
     text-align:center;
+
     margin-bottom:55px;
 }
 
 .section-title span{
+    display:block;
+
     color:#8b5cf6;
+
     text-transform:uppercase;
+
     letter-spacing:4px;
-    font-size:12px;
+
+    font-size:11px;
 }
 
 .section-title h2{
-    font-size:clamp(38px,5vw,65px);
     margin-top:12px;
+
+    font-size:clamp(38px,5vw,65px);
+
+    line-height:1;
 }
 
 .section-title p{
-    color:#888894;
     max-width:600px;
+
     margin:18px auto 0;
+
+    color:#888894;
+
     line-height:1.7;
+
+    font-size:14px;
 }
 
 
-/* =========================
+/* =========================================================
    SERVICES
-========================= */
+========================================================= */
 
 .services{
     display:grid;
-    grid-template-columns:repeat(4,1fr);
+
+    grid-template-columns:
+        repeat(4,minmax(0,1fr));
+
     gap:18px;
 }
 
 .card{
-    padding:30px;
     min-height:260px;
+
+    padding:30px;
+
     border:1px solid rgba(255,255,255,.08);
+
     border-radius:25px;
+
     background:rgba(255,255,255,.025);
-    transition:.4s;
+
+    transition:
+        transform .4s ease,
+        border-color .4s ease,
+        background .4s ease;
 }
 
 .card:hover{
     transform:translateY(-10px);
-    border-color:rgba(139,92,246,.4);
+
+    border-color:rgba(139,92,246,.45);
+
+    background:rgba(255,255,255,.04);
 }
 
 .number{
     color:#666674;
+
     font-size:12px;
 }
 
 .icon{
     font-size:35px;
+
     margin:30px 0 20px;
 }
 
 .card h3{
     font-size:21px;
+
     margin-bottom:12px;
 }
 
 .card p{
     color:#777783;
+
     line-height:1.7;
+
     font-size:14px;
 }
 
 
-/* =========================
+/* =========================================================
    PROJECTS
-========================= */
+========================================================= */
 
 .projects{
     display:grid;
-    grid-template-columns:repeat(3,1fr);
+
+    grid-template-columns:
+        repeat(3,minmax(0,1fr));
+
     gap:22px;
 }
 
 .project{
-    border-radius:25px;
     overflow:hidden;
+
     border:1px solid rgba(255,255,255,.08);
+
+    border-radius:25px;
+
     background:rgba(255,255,255,.025);
-    transition:.4s;
+
+    transition:
+        transform .4s ease,
+        border-color .4s ease;
 }
 
 .project:hover{
-    transform:translateY(-8px);
-    border-color:rgba(139,92,246,.35);
+    transform:translateY(-9px);
+
+    border-color:rgba(139,92,246,.4);
 }
 
 .project-image{
+    width:100%;
     height:240px;
+
+    overflow:hidden;
+
     background:
         radial-gradient(
             circle at 30% 30%,
@@ -669,19 +909,18 @@ body:after{
             transparent 35%
         ),
         #111117;
-
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    overflow:hidden;
 }
 
 .project-image img{
     width:100%;
     height:100%;
-    object-fit:cover;
+
     display:block;
-    transition:.6s;
+
+    object-fit:cover;
+
+    transition:
+        transform .6s ease;
 }
 
 .project:hover .project-image img{
@@ -689,68 +928,92 @@ body:after{
 }
 
 .project-info{
-    padding:25px;
+    padding:24px;
 }
 
 .project-info span{
     color:#8b5cf6;
-    font-size:10px;
-    letter-spacing:2px;
+
     text-transform:uppercase;
+
+    letter-spacing:2px;
+
+    font-size:10px;
 }
 
 .project-info h3{
     margin-top:8px;
+
     font-size:21px;
 }
 
 .project-info p{
     color:#777783;
+
     margin-top:10px;
+
     line-height:1.6;
+
     font-size:13px;
 }
 
 
-/* =========================
+/* =========================================================
    ABOUT
-========================= */
+========================================================= */
 
 .about-grid{
     display:grid;
+
     grid-template-columns:1fr 1fr;
+
     gap:40px;
 }
 
 .about-box{
     padding:40px;
+
     border:1px solid rgba(255,255,255,.08);
+
     border-radius:30px;
+
     background:rgba(255,255,255,.025);
 }
 
 .about-box h3{
     font-size:32px;
+
+    line-height:1.15;
+
     margin-bottom:20px;
 }
 
 .about-box p{
     color:#92929e;
+
     line-height:1.8;
+
     margin-bottom:15px;
 }
 
 .about-list{
-    list-style:none;
     display:grid;
+
     gap:12px;
+
+    list-style:none;
 }
 
 .about-list li{
     padding:18px;
+
     border-radius:15px;
+
     background:rgba(255,255,255,.035);
+
     color:#9999a5;
+
+    line-height:1.5;
 }
 
 .about-list strong{
@@ -758,20 +1021,25 @@ body:after{
 }
 
 
-/* =========================
+/* =========================================================
    SKILLS
-========================= */
+========================================================= */
 
 .skills{
     display:grid;
+
     grid-template-columns:1fr 1fr;
+
     gap:25px 50px;
 }
 
 .skill-top{
     display:flex;
+
     justify-content:space-between;
+
     margin-bottom:10px;
+
     font-size:14px;
 }
 
@@ -781,30 +1049,48 @@ body:after{
 
 .bar{
     height:7px;
-    background:rgba(255,255,255,.07);
-    border-radius:20px;
+
     overflow:hidden;
+
+    border-radius:20px;
+
+    background:rgba(255,255,255,.07);
 }
 
 .progress{
     height:100%;
+
+    border-radius:20px;
+
     background:linear-gradient(
         90deg,
         #7c3aed,
         #00d9ff
     );
-    border-radius:20px;
+
+    animation:skillLoad 1.5s ease;
+}
+
+@keyframes skillLoad{
+
+    from{
+        width:0 !important;
+    }
+
 }
 
 
-/* =========================
+/* =========================================================
    CONTACT
-========================= */
+========================================================= */
 
 .contact{
+    padding:75px 30px;
+
     text-align:center;
-    padding:70px 30px;
+
     border:1px solid rgba(255,255,255,.08);
+
     border-radius:35px;
 
     background:
@@ -818,20 +1104,28 @@ body:after{
 
 .contact h2{
     font-size:clamp(40px,6vw,75px);
+
+    line-height:1;
 }
 
 .contact p{
     max-width:600px;
-    color:#888894;
-    line-height:1.8;
+
     margin:20px auto 25px;
+
+    color:#888894;
+
+    line-height:1.8;
 }
 
 .email{
     display:block;
-    font-size:24px;
-    font-weight:bold;
+
     margin-bottom:25px;
+
+    font-size:24px;
+
+    font-weight:bold;
 
     background:linear-gradient(
         90deg,
@@ -845,66 +1139,55 @@ body:after{
 }
 
 
-/* =========================
+/* =========================================================
    WHATSAPP
-========================= */
+========================================================= */
 
 .whatsapp{
     position:fixed;
+
     left:25px;
     bottom:25px;
+
     width:55px;
     height:55px;
-    border-radius:50%;
 
     display:flex;
+
     align-items:center;
     justify-content:center;
 
+    border-radius:50%;
+
     background:#25D366;
+
     color:#fff;
 
-    font-size:26px;
-    z-index:999;
+    font-size:25px;
+
+    z-index:9000;
 
     box-shadow:
-        0 0 20px rgba(37,211,102,.35);
+        0 0 25px rgba(37,211,102,.35);
 
-    transition:.3s;
+    transition:
+        transform .3s ease;
 }
 
 .whatsapp:hover{
-    transform:translateY(-5px) scale(1.05);
+    transform:
+        translateY(-5px)
+        scale(1.08);
 }
 
 
-/* =========================
-   FOOTER
-========================= */
-
-footer{
-    padding:40px 0;
-    border-top:1px solid rgba(255,255,255,.06);
-}
-
-.footer{
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
-}
-
-.footer p{
-    color:#666674;
-    font-size:13px;
-}
-
-
-/* =========================
+/* =========================================================
    TOP BUTTON
-========================= */
+========================================================= */
 
 .top{
     position:fixed;
+
     right:25px;
     bottom:25px;
 
@@ -912,35 +1195,84 @@ footer{
     height:50px;
 
     border-radius:50%;
+
     border:1px solid rgba(255,255,255,.1);
 
     background:#15151c;
+
     color:#fff;
 
+    font-size:20px;
+
     cursor:pointer;
-    z-index:999;
+
+    z-index:9000;
+
+    transition:
+        transform .3s ease,
+        background .3s ease;
+}
+
+.top:hover{
+    transform:translateY(-5px);
+
+    background:#22222c;
 }
 
 
-/* =========================
-   REVEAL
-========================= */
+/* =========================================================
+   FOOTER
+========================================================= */
+
+footer{
+    padding:40px 0;
+
+    border-top:1px solid rgba(255,255,255,.06);
+}
+
+.footer{
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+}
+
+.footer p{
+    color:#666674;
+
+    font-size:13px;
+}
+
+
+/* =========================================================
+   SCROLL REVEAL
+========================================================= */
 
 .reveal{
     opacity:0;
-    transform:translateY(30px);
-    transition:1s;
+
+    transform:translateY(35px);
+
+    transition:
+        opacity .9s ease,
+        transform .9s ease;
 }
 
 .reveal.show{
     opacity:1;
+
     transform:translateY(0);
 }
 
 
-/* =========================
-   CUSTOM CURSOR
-========================= */
+/* =========================================================
+   CUSTOM CURSOR — LAPTOP ONLY
+========================================================= */
+
+.custom-cursor{
+    display:none;
+}
 
 @media(min-width:701px){
 
@@ -949,53 +1281,63 @@ footer{
     }
 
     .custom-cursor{
+        display:block;
+
         position:fixed;
+
+        left:0;
+        top:0;
+
         width:18px;
         height:18px;
+
         border:2px solid #8b5cf6;
+
         border-radius:50%;
+
         pointer-events:none;
+
         z-index:999999;
+
         transform:translate(-50%,-50%);
+
         box-shadow:
             0 0 10px #8b5cf6,
             0 0 25px rgba(0,229,255,.5);
+
         transition:
-            width .2s,
-            height .2s,
-            background .2s,
-            border-color .2s;
+            width .2s ease,
+            height .2s ease,
+            background .2s ease,
+            border-color .2s ease;
     }
 
     .custom-cursor.active{
         width:38px;
         height:38px;
+
         background:rgba(139,92,246,.15);
+
         border-color:#00e5ff;
     }
-}
 
-@media(max-width:700px){
-
-    .custom-cursor{
-        display:none;
-    }
 }
 
 
-/* =========================
+/* =========================================================
    TABLET
-========================= */
+========================================================= */
 
 @media(max-width:1000px){
 
-    .nav-links{
-        gap:0;
+    .nav-links a{
+        padding:8px 7px;
+
+        font-size:10px;
     }
 
-    .nav-links a{
-        padding:8px 8px;
-        font-size:11px;
+    .hero-grid{
+        gap:35px;
     }
 
     .services{
@@ -1005,14 +1347,17 @@ footer{
     .projects{
         grid-template-columns:repeat(2,1fr);
     }
+
 }
 
 
-/* =========================
+/* =========================================================
    MOBILE
-========================= */
+========================================================= */
 
 @media(max-width:700px){
+
+    /* GENERAL */
 
     section{
         padding:65px 0;
@@ -1022,43 +1367,60 @@ footer{
         width:90%;
     }
 
+
     /* NAV */
 
     .navbar{
         top:10px;
+
         width:94%;
-        padding:11px 15px;
+
+        padding:10px 14px;
+
+        border-radius:25px;
     }
 
     .logo{
         font-size:20px;
     }
 
+    .menu{
+        display:block;
+    }
+
     .nav-links{
         display:none;
+
         position:absolute;
-        top:58px;
+
+        top:57px;
         left:0;
+
         width:100%;
-        padding:10px;
+
+        padding:8px;
+
         flex-direction:column;
+
         gap:3px;
+
         border:1px solid rgba(255,255,255,.08);
+
         border-radius:20px;
-        background:rgba(10,10,15,.96);
+
+        background:rgba(7,7,12,.97);
+
         backdrop-filter:blur(20px);
     }
 
     .nav-links a{
-        display:block;
         width:100%;
-        padding:12px;
-        text-align:center;
-        font-size:12px;
-    }
 
-    .menu{
-        display:block;
+        padding:12px;
+
+        text-align:center;
+
+        font-size:12px;
     }
 
 
@@ -1066,50 +1428,67 @@ footer{
 
     .hero{
         min-height:auto;
+
         padding-top:105px;
+
         padding-bottom:45px;
     }
 
     .hero-grid{
-        grid-template-columns:1.2fr .8fr;
+        grid-template-columns:
+            minmax(0,1.25fr)
+            minmax(105px,.75fr);
+
         gap:12px;
+
         align-items:center;
     }
 
     .hero-small{
         font-size:8px;
-        letter-spacing:1.5px;
+
+        letter-spacing:1.2px;
+
         margin-bottom:12px;
     }
 
-    .hero-small:before{
-        width:18px;
+    .hero-small::before{
+        width:17px;
+
         margin-right:5px;
     }
 
     .name-area{
-        padding:18px 20px;
-        margin:-18px -20px;
+        padding:20px 22px;
+
+        margin:-20px -22px;
     }
 
     .name{
         font-size:clamp(35px,10vw,52px);
+
         letter-spacing:-3px;
     }
 
     .hero-description{
-        font-size:10px;
-        line-height:1.55;
         margin-top:17px;
+
+        font-size:10px;
+
+        line-height:1.55;
     }
 
     .buttons{
-        margin-top:18px;
         gap:7px;
+
+        margin-top:18px;
     }
 
     .btn{
-        padding:9px 13px;
+        min-height:37px;
+
+        padding:0 12px;
+
         font-size:9px;
     }
 
@@ -1118,11 +1497,1551 @@ footer{
 
     .profile-card{
         width:100%;
+
         border-radius:20px;
     }
 
     .profile-inner{
         inset:5px;
+
         border-radius:15px;
-        pad
+    }
+
+    .profile-photo{
+        width:100%;
+        height:100%;
+
+        border-radius:12px;
+    }
+
+
+    /* TITLES */
+
+    .section-title{
+        margin-bottom:30px;
+    }
+
+    .section-title span{
+        font-size:9px;
+
+        letter-spacing:3px;
+    }
+
+    .section-title h2{
+        font-size:34px;
+
+        line-height:1.05;
+
+        margin-top:8px;
+    }
+
+    .section-title p{
+        margin-top:11px;
+
+        font-size:12px;
+
+        line-height:1.6;
+    }
+
+
+    /* SERVICES */
+
+    .services{
+        grid-template-columns:1fr;
+
+        gap:12px;
+    }
+
+    .card{
+        min-height:auto;
+
+        padding:22px;
+
+        border-radius:20px;
+    }
+
+    .icon{
+        margin:18px 0 12px;
+
+        font-size:28px;
+    }
+
+    .card h3{
+        font-size:19px;
+    }
+
+    .card p{
+        font-size:13px;
+
+        line-height:1.6;
+    }
+
+
+    /* PROJECTS */
+
+    .projects{
+        grid-template-columns:1fr;
+
+        gap:15px;
+    }
+
+    .project{
+        border-radius:20px;
+    }
+
+    .project-image{
+        height:210px;
+    }
+
+    .project-info{
+        padding:18px;
+    }
+
+    .project-info h3{
+        font-size:19px;
+    }
+
+    .project-info p{
+        font-size:12px;
+    }
+
+
+    /* ABOUT */
+
+    .about-grid{
+        grid-template-columns:1fr;
+
+        gap:15px;
+    }
+
+    .about-box{
+        padding:25px;
+
+        border-radius:22px;
+    }
+
+    .about-box h3{
+        font-size:26px;
+    }
+
+    .about-box p{
+        font-size:13px;
+
+        line-height:1.65;
+    }
+
+    .about-list{
+        gap:8px;
+    }
+
+    .about-list li{
+        padding:14px;
+
+        font-size:13px;
+    }
+
+
+    /* SKILLS */
+
+    .skills{
+        grid-template-columns:1fr;
+
+        gap:20px;
+    }
+
+
+    /* CONTACT */
+
+    .contact{
+        padding:45px 18px;
+
+        border-radius:25px;
+    }
+
+    .contact h2{
+        font-size:38px;
+    }
+
+    .contact p{
+        font-size:13px;
+
+        line-height:1.6;
+    }
+
+    .email{
+        font-size:17px;
+
+        word-break:break-word;
+    }
+
+
+    /* FOOTER */
+
+    footer{
+        padding:28px 0;
+    }
+
+    .footer{
+        flex-direction:column;
+
+        gap:10px;
+
+        text-align:center;
+    }
+
+
+    /* FLOATING BUTTONS */
+
+    .whatsapp{
+        left:13px;
+        bottom:13px;
+
+        width:46px;
+        height:46px;
+
+        font-size:20px;
+    }
+
+    .top{
+        right:13px;
+        bottom:13px;
+
+        width:46px;
+        height:46px;
+    }
+
+
+    /* FIREWORK SIZE */
+
+    .firework::before{
+        box-shadow:
+            0 -22px 2px #8b5cf6,
+            0 22px 2px #8b5cf6,
+            22px 0 2px #00e5ff,
+            -22px 0 2px #00e5ff,
+            16px 16px 2px #fff,
+            -16px -16px 2px #fff,
+            16px -16px 2px #ff4fd8,
+            -16px 16px 2px #ff4fd8;
+    }
+
+}
+
+
+/* =========================================================
+   VERY SMALL PHONES
+========================================================= */
+
+@media(max-width:380px){
+
+    .hero-grid{
+        grid-template-columns:
+            minmax(0,1.3fr)
+            minmax(90px,.7fr);
+
+        gap:8px;
+    }
+
+    .name{
+        font-size:34px;
+    }
+
+    .hero-description{
+        font-size:9px;
+    }
+
+    .btn{
+        font-size:8px;
+
+        padding:0 10px;
+    }
+
+    .section-title h2{
+        font-size:30px;
+    }
+
+}
+
+</style>
+
+</head>
+
+
+<body>
+
+
+<!-- =========================================================
+     LOADER
+========================================================= -->
+
+<div class="loader">
+    <div class="loader-logo">MA.</div>
+</div>
+
+
+<!-- =========================================================
+     NAVIGATION
+========================================================= -->
+
+<header class="navbar">
+
+    <div class="nav-inner">
+
+        <a href="#home" class="logo">
+            MA<span>.</span>
+        </a>
+
+        <nav>
+
+            <ul class="nav-links">
+
+                <li>
+                    <a href="#home" class="active">
+                        Home
+                    </a>
+                </li>
+
+                <li>
+                    <a href="#about">
+                        About
+                    </a>
+                </li>
+
+                <li>
+                    <a href="#services">
+                        Services
+                    </a>
+                </li>
+
+                <li>
+                    <a href="#graphic">
+                        Graphic Design
+                    </a>
+                </li>
+
+                <li>
+                    <a href="#shopify">
+                        Shopify
+                    </a>
+                </li>
+
+                <li>
+                    <a href="#web">
+                        Web Development
+                    </a>
+                </li>
+
+                <li>
+                    <a href="#skills">
+                        Skills
+                    </a>
+                </li>
+
+                <li>
+                    <a href="#contact">
+                        Contact
+                    </a>
+                </li>
+
+            </ul>
+
+        </nav>
+
+        <button
+            class="menu"
+            id="menu"
+            aria-label="Open menu">
+            ☰
+        </button>
+
+    </div>
+
+</header>
+
+
+<!-- =========================================================
+     HERO
+========================================================= -->
+
+<section
+    class="hero"
+    id="home">
+
+<div class="container">
+
+<div class="hero-grid">
+
+
+<!-- HERO LEFT -->
+
+<div>
+
+    <div class="hero-small">
+        Creative Digital Designer
+    </div>
+
+
+    <div class="name-area">
+
+        <div class="firework one"></div>
+        <div class="firework two"></div>
+        <div class="firework three"></div>
+        <div class="firework four"></div>
+
+        <div class="spark one"></div>
+        <div class="spark two"></div>
+        <div class="spark three"></div>
+
+        <h1 class="name">
+
+            Muhammad<br>
+
+            <span class="gradient-name">
+                Ahsan.
+            </span>
+
+        </h1>
+
+    </div>
+
+
+    <p class="hero-description">
+
+        I create modern digital experiences through
+        Graphic Design, Shopify, E-Commerce and
+        Web Development.
+
+    </p>
+
+
+    <div class="buttons">
+
+        <a
+            href="#graphic"
+            class="btn primary">
+
+            View My Work
+
+        </a>
+
+        <a
+            href="#contact"
+            class="btn outline">
+
+            Let's Talk
+
+        </a>
+
+    </div>
+
+</div>
+
+
+<!-- HERO PROFILE -->
+
+<div class="profile-area">
+
+    <div class="profile-card">
+
+        <div class="profile-inner">
+
+            <img
+                src="Gemini_Generated_Image_q3ucymq3ucymq3uc.jpg"
+                alt="Muhammad Ahsan"
+                class="profile-photo"
+            >
+
+        </div>
+
+    </div>
+
+</div>
+
+
+</div>
+</div>
+
+</section>
+
+
+<!-- =========================================================
+     ABOUT
+========================================================= -->
+
+<section id="about">
+
+<div class="container reveal">
+
+<div class="section-title">
+
+    <span>
+        About Me
+    </span>
+
+    <h2>
+        Creative. Digital. Modern.
+    </h2>
+
+    <p>
+        I create clean, modern and engaging
+        digital experiences.
+    </p>
+
+</div>
+
+
+<div class="about-grid">
+
+
+<div class="about-box">
+
+    <h3>
+        Turning ideas into digital experiences.
+    </h3>
+
+    <p>
+        I work across design, e-commerce and
+        web development to create modern
+        digital experiences.
+    </p>
+
+    <p>
+        My goal is to make every project
+        visually impressive, useful and easy
+        to understand.
+    </p>
+
+</div>
+
+
+<ul class="about-list">
+
+    <li>
+        <strong>Graphic Design</strong>
+        — Modern visual design and branding
+    </li>
+
+    <li>
+        <strong>Shopify</strong>
+        — Professional online stores
+    </li>
+
+    <li>
+        <strong>E-Commerce</strong>
+        — Digital shopping experiences
+    </li>
+
+    <li>
+        <strong>Web Development</strong>
+        — Modern responsive websites
+    </li>
+
+</ul>
+
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- =========================================================
+     SERVICES
+========================================================= -->
+
+<section id="services">
+
+<div class="container reveal">
+
+<div class="section-title">
+
+    <span>
+        What I Do
+    </span>
+
+    <h2>
+        My Services
+    </h2>
+
+    <p>
+        Four core areas where I create digital work.
+    </p>
+
+</div>
+
+
+<div class="services">
+
+
+<div class="card">
+
+    <div class="number">
+        01
+    </div>
+
+    <div class="icon">
+        🎨
+    </div>
+
+    <h3>
+        Graphic Design
+    </h3>
+
+    <p>
+        Social media graphics, branding,
+        posters, thumbnails and modern
+        visual designs.
+    </p>
+
+</div>
+
+
+<div class="card">
+
+    <div class="number">
+        02
+    </div>
+
+    <div class="icon">
+        🛍️
+    </div>
+
+    <h3>
+        Shopify
+    </h3>
+
+    <p>
+        Clean, modern and professional
+        Shopify stores for online businesses.
+    </p>
+
+</div>
+
+
+<div class="card">
+
+    <div class="number">
+        03
+    </div>
+
+    <div class="icon">
+        🚀
+    </div>
+
+    <h3>
+        E-Commerce
+    </h3>
+
+    <p>
+        Product-focused online shopping
+        experiences for modern brands.
+    </p>
+
+</div>
+
+
+<div class="card">
+
+    <div class="number">
+        04
+    </div>
+
+    <div class="icon">
+        💻
+    </div>
+
+    <h3>
+        Web Development
+    </h3>
+
+    <p>
+        Responsive websites with modern
+        layouts, animations and interactions.
+    </p>
+
+</div>
+
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- =========================================================
+     GRAPHIC DESIGN
+========================================================= -->
+
+<section id="graphic">
+
+<div class="container reveal">
+
+<div class="section-title">
+
+    <span>
+        Portfolio
+    </span>
+
+    <h2>
+        Graphic Design
+    </h2>
+
+    <p>
+        Creative visual projects and modern designs.
+    </p>
+
+</div>
+
+
+<div class="projects">
+
+
+<!-- PROJECT 1 -->
+
+<div class="project">
+
+    <div class="project-image">
+
+        <img
+            src="image 5.jpeg"
+            alt="Graphic Design Project 1"
+        >
+
+    </div>
+
+    <div class="project-info">
+
+        <span>
+            Graphic Design
+        </span>
+
+        <h3>
+            Project One
+        </h3>
+
+        <p>
+            Modern graphic design project.
+        </p>
+
+    </div>
+
+</div>
+
+
+<!-- PROJECT 2 -->
+
+<div class="project">
+
+    <div class="project-image">
+
+        <img
+            src="graphic-2.jpg"
+            alt="Graphic Design Project 2"
+        >
+
+    </div>
+
+    <div class="project-info">
+
+        <span>
+            Graphic Design
+        </span>
+
+        <h3>
+            Project Two
+        </h3>
+
+        <p>
+            Modern graphic design project.
+        </p>
+
+    </div>
+
+</div>
+
+
+<!-- PROJECT 3 -->
+
+<div class="project">
+
+    <div class="project-image">
+
+        <img
+            src="graphic-3.jpg"
+            alt="Graphic Design Project 3"
+        >
+
+    </div>
+
+    <div class="project-info">
+
+        <span>
+            Graphic Design
+        </span>
+
+        <h3>
+            Project Three
+        </h3>
+
+        <p>
+            Modern graphic design project.
+        </p>
+
+    </div>
+
+</div>
+
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- =========================================================
+     SHOPIFY
+========================================================= -->
+
+<section id="shopify">
+
+<div class="container reveal">
+
+<div class="section-title">
+
+    <span>
+        Portfolio
+    </span>
+
+    <h2>
+        Shopify & E-Commerce
+    </h2>
+
+    <p>
+        Showcase your Shopify and e-commerce projects.
+    </p>
+
+</div>
+
+
+<div class="projects">
+
+
+<div class="project">
+
+    <div class="project-image">
+
+        <img
+            src="shopify-1.jpg"
+            alt="Shopify Project 1"
+        >
+
+    </div>
+
+    <div class="project-info">
+
+        <span>
+            Shopify
+        </span>
+
+        <h3>
+            Online Store
+        </h3>
+
+        <p>
+            Modern Shopify store project.
+        </p>
+
+    </div>
+
+</div>
+
+
+<div class="project">
+
+    <div class="project-image">
+
+        <img
+            src="shopify-2.jpg"
+            alt="E-Commerce Project 2"
+        >
+
+    </div>
+
+    <div class="project-info">
+
+        <span>
+            E-Commerce
+        </span>
+
+        <h3>
+            Product Store
+        </h3>
+
+        <p>
+            Modern e-commerce project.
+        </p>
+
+    </div>
+
+</div>
+
+
+<div class="project">
+
+    <div class="project-image">
+
+        <img
+            src="shopify-3.jpg"
+            alt="Shopify Project 3"
+        >
+
+    </div>
+
+    <div class="project-info">
+
+        <span>
+            Shopify
+        </span>
+
+        <h3>
+            Modern Store
+        </h3>
+
+        <p>
+            Modern Shopify project.
+        </p>
+
+    </div>
+
+</div>
+
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- =========================================================
+     WEB DEVELOPMENT
+========================================================= -->
+
+<section id="web">
+
+<div class="container reveal">
+
+<div class="section-title">
+
+    <span>
+        Portfolio
+    </span>
+
+    <h2>
+        Web Development
+    </h2>
+
+    <p>
+        Modern responsive websites and digital experiences.
+    </p>
+
+</div>
+
+
+<div class="projects">
+
+
+<div class="project">
+
+    <div class="project-image">
+
+        <img
+            src="web-1.jpg"
+            alt="Web Development Project 1"
+        >
+
+    </div>
+
+    <div class="project-info">
+
+        <span>
+            Web Development
+        </span>
+
+        <h3>
+            Website Project
+        </h3>
+
+        <p>
+            Modern responsive website.
+        </p>
+
+    </div>
+
+</div>
+
+
+<div class="project">
+
+    <div class="project-image">
+
+        <img
+            src="web-2.jpg"
+            alt="Web Development Project 2"
+        >
+
+    </div>
+
+    <div class="project-info">
+
+        <span>
+            Web Development
+        </span>
+
+        <h3>
+            Landing Page
+        </h3>
+
+        <p>
+            Modern landing page project.
+        </p>
+
+    </div>
+
+</div>
+
+
+<div class="project">
+
+    <div class="project-image">
+
+        <img
+            src="web-3.jpg"
+            alt="Web Development Project 3"
+        >
+
+    </div>
+
+    <div class="project-info">
+
+        <span>
+            Web Development
+        </span>
+
+        <h3>
+            Digital Experience
+        </h3>
+
+        <p>
+            Modern digital experience.
+        </p>
+
+    </div>
+
+</div>
+
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- =========================================================
+     SKILLS
+========================================================= -->
+
+<section id="skills">
+
+<div class="container reveal">
+
+<div class="section-title">
+
+    <span>
+        My Skills
+    </span>
+
+    <h2>
+        What I Work With
+    </h2>
+
+    <p>
+        Skills I use for digital projects.
+    </p>
+
+</div>
+
+
+<div class="skills">
+
+
+<div>
+
+    <div class="skill-top">
+
+        <span>
+            Graphic Design
+        </span>
+
+        <span>
+            90%
+        </span>
+
+    </div>
+
+    <div class="bar">
+
+        <div
+            class="progress"
+            style="width:90%">
+        </div>
+
+    </div>
+
+</div>
+
+
+<div>
+
+    <div class="skill-top">
+
+        <span>
+            Shopify
+        </span>
+
+        <span>
+            85%
+        </span>
+
+    </div>
+
+    <div class="bar">
+
+        <div
+            class="progress"
+            style="width:85%">
+        </div>
+
+    </div>
+
+</div>
+
+
+<div>
+
+    <div class="skill-top">
+
+        <span>
+            E-Commerce
+        </span>
+
+        <span>
+            85%
+        </span>
+
+    </div>
+
+    <div class="bar">
+
+        <div
+            class="progress"
+            style="width:85%">
+        </div>
+
+    </div>
+
+</div>
+
+
+<div>
+
+    <div class="skill-top">
+
+        <span>
+            Web Development
+        </span>
+
+        <span>
+            80%
+        </span>
+
+    </div>
+
+    <div class="bar">
+
+        <div
+            class="progress"
+            style="width:80%">
+        </div>
+
+    </div>
+
+</div>
+
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- =========================================================
+     CONTACT
+========================================================= -->
+
+<section id="contact">
+
+<div class="container reveal">
+
+<div class="contact">
+
+    <h2>
+        Let's Create<br>
+        Something Amazing.
+    </h2>
+
+    <p>
+        Have an idea, project or business that
+        needs a modern digital presence?
+        Let's work together.
+    </p>
+
+    <span class="email">
+        your@email.com
+    </span>
+
+    <a
+        href="mailto:your@email.com"
+        class="btn primary">
+
+        Contact Me
+
+    </a>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- =========================================================
+     FOOTER
+========================================================= -->
+
+<footer>
+
+<div class="container">
+
+<div class="footer">
+
+    <strong>
+        Muhammad Ahsan
+        <span style="color:#8b5cf6">.</span>
+    </strong>
+
+    <p>
+        © 2026 Muhammad Ahsan. All rights reserved.
+    </p>
+
+</div>
+
+</div>
+
+</footer>
+
+
+<!-- =========================================================
+     WHATSAPP
+========================================================= -->
+
+<a
+    href="https://wa.me/923319333080"
+    target="_blank"
+    class="whatsapp"
+    aria-label="WhatsApp">
+
+    ☘
+
+</a>
+
+
+<!-- =========================================================
+     TOP BUTTON
+========================================================= -->
+
+<button
+    class="top"
+    id="top"
+    aria-label="Back to top">
+
+    ↑
+
+</button>
+
+
+<!-- =========================================================
+     CUSTOM CURSOR
+========================================================= -->
+
+<div class="custom-cursor"></div>
+
+
+<!-- =========================================================
+     JAVASCRIPT
+========================================================= -->
+
+<script>
+
+/* =========================================================
+   MOBILE MENU
+========================================================= */
+
+const menu =
+document.getElementById("menu");
+
+const nav =
+document.querySelector(".nav-links");
+
+menu.addEventListener("click",()=>{
+
+    const open =
+        nav.style.display === "flex";
+
+    nav.style.display =
+        open ? "none" : "flex";
+
+});
+
+
+/* CLOSE MENU AFTER CLICK */
+
+document
+.querySelectorAll(".nav-links a")
+.forEach(link=>{
+
+    link.addEventListener("click",()=>{
+
+        if(window.innerWidth <= 700){
+
+            nav.style.display = "none";
+
+        }
+
+    });
+
+});
+
+
+/* =========================================================
+   SCROLL REVEAL
+========================================================= */
+
+const revealElements =
+document.querySelectorAll(".reveal");
+
+const revealObserver =
+new IntersectionObserver(
+(entries)=>{
+
+    entries.forEach(entry=>{
+
+        if(entry.isIntersecting){
+
+            entry.target.classList.add("show");
+
+            revealObserver.unobserve(
+                entry.target
+            );
+
+        }
+
+    });
+
+},
+{
+    threshold:.08
+});
+
+
+revealElements.forEach(element=>{
+
+    revealObserver.observe(element);
+
+});
+
+
+/* =========================================================
+   ACTIVE NAV
+========================================================= */
+
+const sections =
+document.querySelectorAll(
+    "section[id]"
+);
+
+const navLinks =
+document.querySelectorAll(
+    ".nav-links a"
+);
+
+window.addEventListener(
+    "scroll",
+    ()=>{
+
+        let current = "";
+
+        sections.forEach(section=>{
+
+            const top =
+                section.offsetTop - 220;
+
+            if(
+                window.scrollY >= top
+            ){
+
+                current =
+                    section.id;
+
+            }
+
+        });
+
+
+        navLinks.forEach(link=>{
+
+            link.classList.remove(
+                "active"
+            );
+
+            if(
+                link.getAttribute("href")
+                ===
+                "#" + current
+            ){
+
+                link.classList.add(
+                    "active"
+                );
+
+            }
+
+        });
+
+    }
+);
+
+
+/* =========================================================
+   TOP BUTTON
+========================================================= */
+
+document
+.getElementById("top")
+.addEventListener(
+    "click",
+    ()=>{
+
+        window.scrollTo({
+
+            top:0,
+
+            behavior:"smooth"
+
+        });
+
+    }
+);
+
+
+/* =========================================================
+   CUSTOM CURSOR
+   LAPTOP ONLY
+========================================================= */
+
+const cursor =
+document.querySelector(
+    ".custom-cursor"
+);
+
+if(cursor){
+
+    document.addEventListener(
+        "mousemove",
+        event=>{
+
+            if(
+                window.innerWidth > 700
+            ){
+
+                cursor.style.left =
+                    event.clientX + "px";
+
+                cursor.style.top =
+                    event.clientY + "px";
+
+            }
+
+        }
+    );
+
+
+    document
+    .querySelectorAll(
+        "a,button,.card,.project"
+    )
+    .forEach(element=>{
+
+        element.addEventListener(
+            "mouseenter",
+            ()=>{
+                cursor.classList.add(
+                    "active"
+                );
+            }
+        );
+
+        element.addEventListener(
+            "mouseleave",
+            ()=>{
+                cursor.classList.remove(
+                    "active"
+                );
+            }
+        );
+
+    });
+
+}
+
+
+/* =========================================================
+   FIX MOBILE RESIZE
+========================================================= */
+
+window.addEventListener(
+    "resize",
+    ()=>{
+
+        if(
+            window.innerWidth > 700
+        ){
+
+            nav.style.display = "";
+
+        }
+
+    }
+);
+
+</script>
+
+
+</body>
+</html>
 ```
