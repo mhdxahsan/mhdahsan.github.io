@@ -1,3 +1,4 @@
+```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -7,6 +8,10 @@
 <title>Muhammad Ahsan | Creative Digital Designer</title>
 
 <style>
+
+/* =========================
+   RESET
+========================= */
 
 *{
     margin:0;
@@ -30,19 +35,23 @@ a{
     text-decoration:none;
 }
 
+img{
+    max-width:100%;
+}
+
 .container{
-    width:min(1180px,90%);
+    width:min(1180px,92%);
     margin:auto;
 }
 
 section{
-    padding:110px 0;
+    padding:100px 0;
 }
 
 
-/* ================================
+/* =========================
    BACKGROUND
-================================ */
+========================= */
 
 body:before,
 body:after{
@@ -59,21 +68,21 @@ body:after{
 body:before{
     background:#5b21b6;
     opacity:.18;
-    left:-200px;
+    left:-220px;
     top:100px;
 }
 
 body:after{
     background:#00d9ff;
     opacity:.10;
-    right:-200px;
+    right:-220px;
     bottom:50px;
 }
 
 
-/* ================================
+/* =========================
    LOADER
-================================ */
+========================= */
 
 .loader{
     position:fixed;
@@ -111,19 +120,14 @@ body:after{
 }
 
 @keyframes gradient{
-    from{
-        background-position:0;
-    }
-
-    to{
-        background-position:300%;
-    }
+    from{background-position:0;}
+    to{background-position:300%;}
 }
 
 
-/* ================================
-   NAV
-================================ */
+/* =========================
+   NAVBAR
+========================= */
 
 .navbar{
     position:fixed;
@@ -134,7 +138,7 @@ body:after{
     padding:13px 20px;
     border:1px solid rgba(255,255,255,.09);
     border-radius:50px;
-    background:rgba(10,10,15,.75);
+    background:rgba(10,10,15,.78);
     backdrop-filter:blur(20px);
     z-index:9999;
 }
@@ -157,11 +161,11 @@ body:after{
 .nav-links{
     display:flex;
     list-style:none;
-    gap:5px;
+    gap:4px;
 }
 
 .nav-links a{
-    padding:9px 13px;
+    padding:9px 12px;
     color:#9999a5;
     font-size:12px;
     border-radius:30px;
@@ -184,9 +188,9 @@ body:after{
 }
 
 
-/* ================================
+/* =========================
    HERO
-================================ */
+========================= */
 
 .hero{
     min-height:100vh;
@@ -221,9 +225,9 @@ body:after{
 }
 
 
-/* ================================
-   NAME + FIREWORKS
-================================ */
+/* =========================
+   NAME
+========================= */
 
 .name-area{
     position:relative;
@@ -257,7 +261,9 @@ body:after{
 }
 
 
-/* FIREWORKS */
+/* =========================
+   FIREWORKS
+========================= */
 
 .firework{
     position:absolute;
@@ -300,7 +306,6 @@ body:after{
     height:80px;
     border-radius:50%;
     transform:translate(-50%,-50%);
-
     background:radial-gradient(
         circle,
         rgba(255,255,255,.2),
@@ -312,28 +317,24 @@ body:after{
 .firework.one{
     left:5%;
     top:15%;
-    animation-delay:0s;
 }
 
 .firework.two{
     right:2%;
     top:10%;
     animation-delay:.7s;
-    transform:scale(.8);
 }
 
 .firework.three{
     left:45%;
     top:75%;
     animation-delay:1.2s;
-    transform:scale(.65);
 }
 
 .firework.four{
     right:15%;
     bottom:0;
     animation-delay:.35s;
-    transform:scale(.55);
 }
 
 @keyframes fireworkGlow{
@@ -346,7 +347,6 @@ body:after{
     50%{
         opacity:1;
         transform:scale(1.15);
-
         filter:
             drop-shadow(0 0 8px #fff)
             drop-shadow(0 0 18px #8b5cf6);
@@ -354,7 +354,9 @@ body:after{
 }
 
 
-/* SPARKS */
+/* =========================
+   SPARKS
+========================= */
 
 .sparks{
     position:absolute;
@@ -422,6 +424,7 @@ body:after{
 }
 
 .btn{
+    display:inline-block;
     padding:14px 24px;
     border-radius:50px;
     font-size:14px;
@@ -446,9 +449,9 @@ body:after{
 }
 
 
-/* ================================
+/* =========================
    PROFILE
-================================ */
+========================= */
 
 .profile-area{
     display:flex;
@@ -492,17 +495,9 @@ body:after{
 }
 
 @keyframes profileGlow{
-    0%{
-        background-position:0 50%;
-    }
-
-    50%{
-        background-position:100% 50%;
-    }
-
-    100%{
-        background-position:0 50%;
-    }
+    0%{background-position:0 50%;}
+    50%{background-position:100% 50%;}
+    100%{background-position:0 50%;}
 }
 
 .profile-inner{
@@ -538,10 +533,6 @@ body:after{
     transform:scale(1.04);
 }
 
-.profile-icon{
-    display:none;
-}
-
 .profile-inner strong{
     font-size:22px;
     margin-top:15px;
@@ -566,13 +557,13 @@ body:after{
 }
 
 
-/* ================================
+/* =========================
    SECTION TITLES
-================================ */
+========================= */
 
 .section-title{
     text-align:center;
-    margin-bottom:60px;
+    margin-bottom:55px;
 }
 
 .section-title span{
@@ -595,9 +586,9 @@ body:after{
 }
 
 
-/* ================================
+/* =========================
    SERVICES
-================================ */
+========================= */
 
 .services{
     display:grid;
@@ -641,9 +632,9 @@ body:after{
 }
 
 
-/* ================================
+/* =========================
    PROJECTS
-================================ */
+========================= */
 
 .projects{
     display:grid;
@@ -664,9 +655,6 @@ body:after{
     border-color:rgba(139,92,246,.35);
 }
 
-
-/* PROJECT IMAGE */
-
 .project-image{
     height:240px;
     background:
@@ -685,11 +673,6 @@ body:after{
     display:flex;
     align-items:center;
     justify-content:center;
-
-    color:#555563;
-    letter-spacing:4px;
-    font-size:12px;
-
     overflow:hidden;
 }
 
@@ -704,7 +687,6 @@ body:after{
 .project:hover .project-image img{
     transform:scale(1.07);
 }
-
 
 .project-info{
     padding:25px;
@@ -730,9 +712,9 @@ body:after{
 }
 
 
-/* ================================
+/* =========================
    ABOUT
-================================ */
+========================= */
 
 .about-grid{
     display:grid;
@@ -776,9 +758,9 @@ body:after{
 }
 
 
-/* ================================
+/* =========================
    SKILLS
-================================ */
+========================= */
 
 .skills{
     display:grid;
@@ -815,9 +797,9 @@ body:after{
 }
 
 
-/* ================================
+/* =========================
    CONTACT
-================================ */
+========================= */
 
 .contact{
     text-align:center;
@@ -863,9 +845,9 @@ body:after{
 }
 
 
-/* ================================
+/* =========================
    WHATSAPP
-================================ */
+========================= */
 
 .whatsapp{
     position:fixed;
@@ -883,7 +865,6 @@ body:after{
     color:#fff;
 
     font-size:26px;
-
     z-index:999;
 
     box-shadow:
@@ -897,9 +878,9 @@ body:after{
 }
 
 
-/* ================================
+/* =========================
    FOOTER
-================================ */
+========================= */
 
 footer{
     padding:40px 0;
@@ -918,9 +899,9 @@ footer{
 }
 
 
-/* ================================
-   TOP
-================================ */
+/* =========================
+   TOP BUTTON
+========================= */
 
 .top{
     position:fixed;
@@ -941,9 +922,9 @@ footer{
 }
 
 
-/* ================================
+/* =========================
    REVEAL
-================================ */
+========================= */
 
 .reveal{
     opacity:0;
@@ -957,11 +938,65 @@ footer{
 }
 
 
-/* ================================
-   MOBILE
-================================ */
+/* =========================
+   CUSTOM CURSOR
+========================= */
 
-@media(max-width:900px){
+@media(min-width:701px){
+
+    body{
+        cursor:none;
+    }
+
+    .custom-cursor{
+        position:fixed;
+        width:18px;
+        height:18px;
+        border:2px solid #8b5cf6;
+        border-radius:50%;
+        pointer-events:none;
+        z-index:999999;
+        transform:translate(-50%,-50%);
+        box-shadow:
+            0 0 10px #8b5cf6,
+            0 0 25px rgba(0,229,255,.5);
+        transition:
+            width .2s,
+            height .2s,
+            background .2s,
+            border-color .2s;
+    }
+
+    .custom-cursor.active{
+        width:38px;
+        height:38px;
+        background:rgba(139,92,246,.15);
+        border-color:#00e5ff;
+    }
+}
+
+@media(max-width:700px){
+
+    .custom-cursor{
+        display:none;
+    }
+}
+
+
+/* =========================
+   TABLET
+========================= */
+
+@media(max-width:1000px){
+
+    .nav-links{
+        gap:0;
+    }
+
+    .nav-links a{
+        padding:8px 8px;
+        font-size:11px;
+    }
 
     .services{
         grid-template-columns:repeat(2,1fr);
@@ -970,1337 +1005,124 @@ footer{
     .projects{
         grid-template-columns:repeat(2,1fr);
     }
+}
+
+
+/* =========================
+   MOBILE
+========================= */
+
+@media(max-width:700px){
+
+    section{
+        padding:65px 0;
+    }
+
+    .container{
+        width:90%;
+    }
+
+    /* NAV */
+
+    .navbar{
+        top:10px;
+        width:94%;
+        padding:11px 15px;
+    }
+
+    .logo{
+        font-size:20px;
+    }
 
     .nav-links{
         display:none;
+        position:absolute;
+        top:58px;
+        left:0;
+        width:100%;
+        padding:10px;
+        flex-direction:column;
+        gap:3px;
+        border:1px solid rgba(255,255,255,.08);
+        border-radius:20px;
+        background:rgba(10,10,15,.96);
+        backdrop-filter:blur(20px);
+    }
+
+    .nav-links a{
+        display:block;
+        width:100%;
+        padding:12px;
+        text-align:center;
+        font-size:12px;
     }
 
     .menu{
         display:block;
     }
-}
 
 
-@media(max-width:700px){
-
-    section{
-        padding:80px 0;
-    }
-
-    /* TWO COLUMNS ON MOBILE */
-
-    .hero-grid{
-        grid-template-columns:minmax(0,1.25fr) minmax(115px,.75fr);
-        gap:12px;
-    }
+    /* HERO */
 
     .hero{
-        padding-top:100px;
+        min-height:auto;
+        padding-top:105px;
+        padding-bottom:45px;
+    }
+
+    .hero-grid{
+        grid-template-columns:1.2fr .8fr;
+        gap:12px;
+        align-items:center;
     }
 
     .hero-small{
         font-size:8px;
-        letter-spacing:1px;
+        letter-spacing:1.5px;
+        margin-bottom:12px;
+    }
+
+    .hero-small:before{
+        width:18px;
+        margin-right:5px;
     }
 
     .name-area{
-        padding:25px 30px;
-        margin:-25px -30px;
+        padding:18px 20px;
+        margin:-18px -20px;
     }
 
     .name{
-        font-size:clamp(37px,10vw,58px);
+        font-size:clamp(35px,10vw,52px);
         letter-spacing:-3px;
     }
 
     .hero-description{
         font-size:10px;
-        line-height:1.6;
+        line-height:1.55;
+        margin-top:17px;
     }
 
     .buttons{
+        margin-top:18px;
         gap:7px;
     }
 
     .btn{
-        padding:9px 12px;
+        padding:9px 13px;
         font-size:9px;
     }
 
+
+    /* PROFILE */
+
     .profile-card{
+        width:100%;
         border-radius:20px;
     }
 
     .profile-inner{
-        inset:6px;
+        inset:5px;
         border-radius:15px;
-        padding:6px;
-    }
-
-    .profile-photo{
-        width:100%;
-        height:100%;
-        border-radius:12px;
-    }
-
-    .profile-inner strong,
-    .profile-inner p{
-        display:none;
-    }
-
-    .services,
-    .projects,
-    .about-grid,
-    .skills{
-        grid-template-columns:1fr;
-    }
-
-    .footer{
-        flex-direction:column;
-        gap:15px;
-        text-align:center;
-    }
-
-    .firework:before{
-        box-shadow:
-            0 -25px 2px #8b5cf6,
-            0 25px 2px #8b5cf6,
-            25px 0 2px #00e5ff,
-            -25px 0 2px #00e5ff,
-            18px 18px 2px #fff,
-            -18px -18px 2px #fff,
-            18px -18px 2px #ff4fd8,
-            -18px 18px 2px #ff4fd8;
-    }
-
-    .whatsapp{
-        left:15px;
-        bottom:15px;
-        width:48px;
-        height:48px;
-        font-size:22px;
-    }
-
-    .top{
-        right:15px;
-        bottom:15px;
-        width:48px;
-        height:48px;
-    }
-}
-
-</style>
-</head>
-
-<body>
-
-
-<!-- ================================
-     LOADER
-================================ -->
-
-<div class="loader">
-    <span>MA.</span>
-</div>
-
-
-<!-- ================================
-     NAVIGATION
-================================ -->
-
-<header class="navbar">
-
-    <div class="nav-inner">
-
-        <a href="#home" class="logo">
-            MA<span>.</span>
-        </a>
-
-        <nav>
-
-            <ul class="nav-links">
-
-                <li>
-                    <a href="#home" class="active">
-                        Home
-                    </a>
-                </li>
-
-                <li>
-                    <a href="#about">
-                        About
-                    </a>
-                </li>
-
-                <li>
-                    <a href="#services">
-                        Services
-                    </a>
-                </li>
-
-                <li>
-                    <a href="#graphic">
-                        Graphic Design
-                    </a>
-                </li>
-
-                <li>
-                    <a href="#shopify">
-                        Shopify
-                    </a>
-                </li>
-
-                <li>
-                    <a href="#web">
-                        Web Development
-                    </a>
-                </li>
-
-                <li>
-                    <a href="#skills">
-                        Skills
-                    </a>
-                </li>
-
-                <li>
-                    <a href="#contact">
-                        Contact
-                    </a>
-                </li>
-
-            </ul>
-
-        </nav>
-
-        <button class="menu" id="menu">
-            ☰
-        </button>
-
-    </div>
-
-</header>
-
-
-<!-- ================================
-     HERO
-================================ -->
-
-<section class="hero" id="home">
-
-<div class="container">
-
-<div class="hero-grid">
-
-
-<!-- LEFT -->
-
-<div>
-
-    <div class="hero-small">
-        Creative Digital Designer
-    </div>
-
-
-    <!-- NAME + FIREWORKS -->
-
-    <div class="name-area">
-
-        <div class="firework one"></div>
-        <div class="firework two"></div>
-        <div class="firework three"></div>
-        <div class="firework four"></div>
-
-        <div class="sparks spark1"></div>
-        <div class="sparks spark2"></div>
-        <div class="sparks spark3"></div>
-
-
-        <h1 class="name">
-
-            Muhammad<br>
-
-            <span class="gradient-name">
-                Ahsan.
-            </span>
-
-        </h1>
-
-    </div>
-
-
-    <p class="hero-description">
-
-        I create modern digital experiences through
-        Graphic Design, Shopify, E-Commerce and
-        Web Development.
-
-    </p>
-
-
-    <div class="buttons">
-
-        <a href="#graphic" class="btn primary">
-            View My Work
-        </a>
-
-        <a href="#contact" class="btn outline">
-            Let's Talk
-        </a>
-
-    </div>
-
-</div>
-
-
-<!-- RIGHT PROFILE -->
-
-<div class="profile-area">
-
-    <div class="profile-card">
-
-        <div class="profile-inner">
-
-            <!-- YOUR PROFILE PHOTO -->
-
-            <img
-                src="Gemini_Generated_Image_q3ucymq3ucymq3uc.jpg"
-                alt="Muhammad Ahsan"
-                class="profile-photo"
-            >
-
-            <strong>
-                Muhammad Ahsan
-            </strong>
-
-            <p>
-                Creative Digital Designer
-            </p>
-
-        </div>
-
-    </div>
-
-</div>
-
-
-</div>
-</div>
-
-</section>
-
-
-<!-- ================================
-     ABOUT
-================================ -->
-
-<section id="about">
-
-<div class="container reveal">
-
-<div class="section-title">
-
-<span>
-About Me
-</span>
-
-<h2>
-Creative. Digital. Modern.
-</h2>
-
-<p>
-I create clean, modern and engaging
-digital experiences.
-</p>
-
-</div>
-
-
-<div class="about-grid">
-
-<div class="about-box">
-
-<h3>
-Turning ideas into digital experiences.
-</h3>
-
-<p>
-I work across design, e-commerce and
-web development to create modern
-digital experiences.
-</p>
-
-<p>
-My goal is to make every project
-visually impressive, useful and easy
-to understand.
-</p>
-
-</div>
-
-
-<ul class="about-list">
-
-<li>
-<strong>Graphic Design</strong>
-— Modern visual design and branding
-</li>
-
-<li>
-<strong>Shopify</strong>
-— Professional online stores
-</li>
-
-<li>
-<strong>E-Commerce</strong>
-— Digital shopping experiences
-</li>
-
-<li>
-<strong>Web Development</strong>
-— Modern responsive websites
-</li>
-
-</ul>
-
-</div>
-
-</div>
-
-</section>
-
-
-<!-- ================================
-     SERVICES
-================================ -->
-
-<section id="services">
-
-<div class="container reveal">
-
-<div class="section-title">
-
-<span>
-What I Do
-</span>
-
-<h2>
-My Services
-</h2>
-
-<p>
-Four core areas where I create digital work.
-</p>
-
-</div>
-
-
-<div class="services">
-
-
-<div class="card">
-
-<div class="number">
-01
-</div>
-
-<div class="icon">
-🎨
-</div>
-
-<h3>
-Graphic Design
-</h3>
-
-<p>
-Social media graphics, branding,
-posters, thumbnails and modern
-visual designs.
-</p>
-
-</div>
-
-
-<div class="card">
-
-<div class="number">
-02
-</div>
-
-<div class="icon">
-🛍️
-</div>
-
-<h3>
-Shopify
-</h3>
-
-<p>
-Clean, modern and professional
-Shopify stores for online businesses.
-</p>
-
-</div>
-
-
-<div class="card">
-
-<div class="number">
-03
-</div>
-
-<div class="icon">
-🚀
-</div>
-
-<h3>
-E-Commerce
-</h3>
-
-<p>
-Product-focused online shopping
-experiences for modern brands.
-</p>
-
-</div>
-
-
-<div class="card">
-
-<div class="number">
-04
-</div>
-
-<div class="icon">
-💻
-</div>
-
-<h3>
-Web Development
-</h3>
-
-<p>
-Responsive websites with modern
-layouts, animations and interactions.
-</p>
-
-</div>
-
-
-</div>
-
-</div>
-
-</section>
-
-
-<!-- ================================
-     GRAPHIC DESIGN
-================================ -->
-
-<section id="graphic">
-
-<div class="container reveal">
-
-<div class="section-title">
-
-<span>
-Portfolio
-</span>
-
-<h2>
-Graphic Design
-</h2>
-
-<p>
-Your graphic design projects will appear here.
-</p>
-
-</div>
-
-
-<div class="projects">
-
-
-<!-- GRAPHIC PROJECT 1 -->
-
-<div class="project">
-
-<div class="project-image">
-
-<img
-src="image 5.jpeg" alt="Graphic Design Project 1"
-alt="Graphic Design Project 1"
->
-
-</div>
-
-<div class="project-info">
-
-<span>
-Graphic Design
-</span>
-
-<h3>
-Project One
-</h3>
-
-<p>
-Modern graphic design project.
-</p>
-
-</div>
-
-</div>
-
-
-<!-- GRAPHIC PROJECT 2 -->
-
-<div class="project">
-
-<div class="project-image">
-
-<img
-src="graphic-2.jpg"
-alt="Graphic Design Project 2"
->
-
-</div>
-
-<div class="project-info">
-
-<span>
-Graphic Design
-</span>
-
-<h3>
-Project Two
-</h3>
-
-<p>
-Modern graphic design project.
-</p>
-
-</div>
-
-</div>
-
-
-<!-- GRAPHIC PROJECT 3 -->
-
-<div class="project">
-
-<div class="project-image">
-
-<img
-src="graphic-3.jpg"
-alt="Graphic Design Project 3"
->
-
-</div>
-
-<div class="project-info">
-
-<span>
-Graphic Design
-</span>
-
-<h3>
-Project Three
-</h3>
-
-<p>
-Modern graphic design project.
-</p>
-
-</div>
-
-</div>
-
-
-</div>
-
-</div>
-
-</section>
-
-
-<!-- ================================
-     SHOPIFY
-================================ -->
-
-<section id="shopify">
-
-<div class="container reveal">
-
-<div class="section-title">
-
-<span>
-Portfolio
-</span>
-
-<h2>
-Shopify & E-Commerce
-</h2>
-
-<p>
-Showcase your Shopify and e-commerce projects here.
-</p>
-
-</div>
-
-
-<div class="projects">
-
-
-<!-- SHOPIFY 1 -->
-
-<div class="project">
-
-<div class="project-image">
-
-<img
-src="shopify-1.jpg"
-alt="Shopify Project 1"
->
-
-</div>
-
-<div class="project-info">
-
-<span>
-Shopify
-</span>
-
-<h3>
-Online Store
-</h3>
-
-<p>
-Modern Shopify store project.
-</p>
-
-</div>
-
-</div>
-
-
-<!-- SHOPIFY 2 -->
-
-<div class="project">
-
-<div class="project-image">
-
-<img
-src="shopify-2.jpg"
-alt="E-Commerce Project 2"
->
-
-</div>
-
-<div class="project-info">
-
-<span>
-E-Commerce
-</span>
-
-<h3>
-Product Store
-</h3>
-
-<p>
-Modern e-commerce project.
-</p>
-
-</div>
-
-</div>
-
-
-<!-- SHOPIFY 3 -->
-
-<div class="project">
-
-<div class="project-image">
-
-<img
-src="shopify-3.jpg"
-alt="Shopify Project 3"
->
-
-</div>
-
-<div class="project-info">
-
-<span>
-Shopify
-</span>
-
-<h3>
-Modern Store
-</h3>
-
-<p>
-Modern Shopify project.
-</p>
-
-</div>
-
-</div>
-
-
-</div>
-
-</div>
-
-</section>
-
-
-<!-- ================================
-     WEB DEVELOPMENT
-================================ -->
-
-<section id="web">
-
-<div class="container reveal">
-
-<div class="section-title">
-
-<span>
-Portfolio
-</span>
-
-<h2>
-Web Development
-</h2>
-
-<p>
-Modern responsive websites and digital experiences.
-</p>
-
-</div>
-
-
-<div class="projects">
-
-
-<!-- WEB 1 -->
-
-<div class="project">
-
-<div class="project-image">
-
-<img
-src="web-1.jpg"
-alt="Web Development Project 1"
->
-
-</div>
-
-<div class="project-info">
-
-<span>
-Web Development
-</span>
-
-<h3>
-Website Project
-</h3>
-
-<p>
-Modern responsive website.
-</p>
-
-</div>
-
-</div>
-
-
-<!-- WEB 2 -->
-
-<div class="project">
-
-<div class="project-image">
-
-<img
-src="web-2.jpg"
-alt="Web Development Project 2"
->
-
-</div>
-
-<div class="project-info">
-
-<span>
-Web Development
-</span>
-
-<h3>
-Landing Page
-</h3>
-
-<p>
-Modern landing page project.
-</p>
-
-</div>
-
-</div>
-
-
-<!-- WEB 3 -->
-
-<div class="project">
-
-<div class="project-image">
-
-<img
-src="web-3.jpg"
-alt="Web Development Project 3"
->
-
-</div>
-
-<div class="project-info">
-
-<span>
-Web Development
-</span>
-
-<h3>
-Digital Experience
-</h3>
-
-<p>
-Modern digital experience.
-</p>
-
-</div>
-
-</div>
-
-
-</div>
-
-</div>
-
-</section>
-
-
-<!-- ================================
-     SKILLS
-================================ -->
-
-<section id="skills">
-
-<div class="container reveal">
-
-<div class="section-title">
-
-<span>
-My Skills
-</span>
-
-<h2>
-What I Work With
-</h2>
-
-<p>
-Skills I use for digital projects.
-</p>
-
-</div>
-
-
-<div class="skills">
-
-
-<div>
-
-<div class="skill-top">
-
-<span>
-Graphic Design
-</span>
-
-<span>
-90%
-</span>
-
-</div>
-
-<div class="bar">
-
-<div
-class="progress"
-style="width:90%">
-</div>
-
-</div>
-
-</div>
-
-
-<div>
-
-<div class="skill-top">
-
-<span>
-Shopify
-</span>
-
-<span>
-85%
-</span>
-
-</div>
-
-<div class="bar">
-
-<div
-class="progress"
-style="width:85%">
-</div>
-
-</div>
-
-</div>
-
-
-<div>
-
-<div class="skill-top">
-
-<span>
-E-Commerce
-</span>
-
-<span>
-85%
-</span>
-
-</div>
-
-<div class="bar">
-
-<div
-class="progress"
-style="width:85%">
-</div>
-
-</div>
-
-</div>
-
-
-<div>
-
-<div class="skill-top">
-
-<span>
-Web Development
-</span>
-
-<span>
-80%
-</span>
-
-</div>
-
-<div class="bar">
-
-<div
-class="progress"
-style="width:80%">
-</div>
-
-</div>
-
-</div>
-
-
-</div>
-
-</div>
-
-</section>
-
-
-<!-- ================================
-     CONTACT
-================================ -->
-
-<section id="contact">
-
-<div class="container reveal">
-
-<div class="contact">
-
-<h2>
-Let's Create<br>
-Something Amazing.
-</h2>
-
-<p>
-Have an idea, project or business that
-needs a modern digital presence?
-Let's work together.
-</p>
-
-<span class="email">
-your@email.com
-</span>
-
-<a
-href="mailto:your@email.com"
-class="btn primary">
-
-Contact Me
-
-</a>
-
-</div>
-
-</div>
-
-</section>
-
-
-<!-- ================================
-     FOOTER
-================================ -->
-
-<footer>
-
-<div class="container">
-
-<div class="footer">
-
-<strong>
-Muhammad Ahsan
-<span style="color:#8b5cf6">
-.
-</span>
-</strong>
-
-<p>
-© 2026 Muhammad Ahsan. All rights reserved.
-</p>
-
-</div>
-
-</div>
-
-</footer>
-
-
-<!-- ================================
-     WHATSAPP
-================================ -->
-
-<!--
-BRO:
-Replace 92123456789 with your
-real WhatsApp number.
-
-Example:
-92123456789
-
-Do NOT put + or spaces.
--->
-
-<a
-href="https://wa.me/923319333080"
-target="_blank"
-class="whatsapp"
-aria-label="WhatsApp">
-
-☘
-
-</a>
-
-
-<!-- TOP BUTTON -->
-
-<button class="top" id="top">
-↑
-</button>
-
-
-<script>
-
-
-/* ================================
-   MOBILE MENU
-================================ */
-
-const menu =
-document.getElementById("menu");
-
-const nav =
-document.querySelector(".nav-links");
-
-menu.addEventListener("click",()=>{
-
-    nav.style.display =
-        nav.style.display === "flex"
-        ? "none"
-        : "flex";
-
-});
-
-
-/* ================================
-   SCROLL REVEAL
-================================ */
-
-const reveals =
-document.querySelectorAll(".reveal");
-
-const observer =
-new IntersectionObserver(
-(entries)=>{
-
-    entries.forEach(entry=>{
-
-        if(entry.isIntersecting){
-
-            entry.target.classList.add("show");
-
-        }
-
-    });
-
-},
-{
-    threshold:.12
-});
-
-
-reveals.forEach(el=>{
-    observer.observe(el);
-});
-
-
-/* ================================
-   ACTIVE NAV
-================================ */
-
-const sections =
-document.querySelectorAll("section[id]");
-
-const links =
-document.querySelectorAll(".nav-links a");
-
-window.addEventListener("scroll",()=>{
-
-    let current="";
-
-    sections.forEach(section=>{
-
-        if(
-            window.scrollY >=
-            section.offsetTop - 200
-        ){
-
-            current =
-                section.getAttribute("id");
-
-        }
-
-    });
-
-    links.forEach(link=>{
-
-        link.classList.remove("active");
-
-        if(
-            link.getAttribute("href") ===
-            "#" + current
-        ){
-
-            link.classList.add("active");
-
-        }
-
-    });
-
-});
-
-
-/* ================================
-   TOP BUTTON
-================================ */
-
-document
-.getElementById("top")
-.addEventListener("click",()=>{
-
-    window.scrollTo({
-        top:0,
-        behavior:"smooth"
-    });
-
-});
-
-</script>
-
-</body>
-    <!-- CUSTOM CURSOR -->
-
-<style>
-body{
-    cursor:none;
-}
-
-.custom-cursor{
-    position:fixed;
-    width:18px;
-    height:18px;
-    border:2px solid #8b5cf6;
-    border-radius:50%;
-    pointer-events:none;
-    z-index:999999;
-    transform:translate(-50%,-50%);
-    box-shadow:0 0 10px #8b5cf6,0 0 25px rgba(0,229,255,.5);
-    transition:.2s;
-}
-
-.custom-cursor.active{
-    width:38px;
-    height:38px;
-    background:rgba(139,92,246,.15);
-    border-color:#00e5ff;
-}
-
-@media(max-width:700px){
-    body{
-        cursor:auto;
-    }
-
-    .custom-cursor{
-        display:none;
-    }
-}
-</style>
-
-<div class="custom-cursor"></div>
-
-<script>
-const customCursor=document.querySelector(".custom-cursor");
-
-document.addEventListener("mousemove",(e)=>{
-    customCursor.style.left=e.clientX+"px";
-    customCursor.style.top=e.clientY+"px";
-});
-
-document.querySelectorAll("a,button,.card,.project").forEach(item=>{
-    item.addEventListener("mouseenter",()=>{
-        customCursor.classList.add("active");
-    });
-
-    item.addEventListener("mouseleave",()=>{
-        customCursor.classList.remove("active");
-    });
-});
-</script>
-</html>
+        pad
+```
