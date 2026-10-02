@@ -1,17 +1,17 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
 
 <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<meta name="viewport"
-      content="width=device-width, initial-scale=1.0">
+<title>Muhammad Ahsan | Creative Digital Designer</title>
 
-<meta name="description"
-      content="Muhammad Ahsan - Graphic Designer, Web Developer and Shopify Designer">
-
-<title>Muhammad Ahsan | Creative Designer & Developer</title>
-
+<meta
+name="description"
+content="Muhammad Ahsan - Creative Digital Designer specializing in Graphic Design, Web Development and Shopify Design."
+>
 
 <style>
 
@@ -30,36 +30,17 @@ html{
 }
 
 body{
-    background:
-        radial-gradient(
-            circle at 80% 10%,
-            rgba(118,87,255,.14),
-            transparent 30%
-        ),
-        radial-gradient(
-            circle at 10% 60%,
-            rgba(39,191,255,.08),
-            transparent 27%
-        ),
-        #060711;
-
-    color:#f4f6ff;
 
     font-family:
-        Arial,
-        Inter,
-        sans-serif;
+    Arial,
+    Helvetica,
+    sans-serif;
+
+    background:#080a12;
+    color:#ffffff;
 
     overflow-x:hidden;
-}
 
-body.modal-open{
-    overflow:hidden;
-}
-
-img{
-    max-width:100%;
-    display:block;
 }
 
 a{
@@ -69,9 +50,7 @@ a{
 
 button{
     font-family:inherit;
-    cursor:pointer;
 }
-
 
 /* =========================================================
    VARIABLES
@@ -79,65 +58,52 @@ button{
 
 :root{
 
-    --white:#fff;
-
-    --text:#f4f6ff;
-
-    --muted:#9da4ba;
+    --bg:#080a12;
+    --bg2:#0d101c;
+    --card:#111522;
 
     --purple:#7657ff;
-
     --blue:#27bfff;
+    --pink:#d85cff;
 
-    --pink:#ff3ea5;
+    --text:#ffffff;
+    --muted:#9da5ba;
 
-    --green:#22d66f;
-
-    --border:
-        rgba(255,255,255,.09);
-
-    --radius:22px;
+    --border:rgba(255,255,255,.09);
 
 }
-
 
 /* =========================================================
    LOADER
 ========================================================= */
 
-#loader{
+.loader{
 
     position:fixed;
-
     inset:0;
 
     z-index:99999;
 
     display:flex;
-
     align-items:center;
-
     justify-content:center;
 
-    background:#05060c;
+    background:#080a12;
 
     transition:
-        opacity .6s ease,
-        visibility .6s ease;
+    opacity .7s ease,
+    visibility .7s ease;
 
 }
 
-#loader.loaded{
+.loader.hide{
 
     opacity:0;
-
     visibility:hidden;
-
-    pointer-events:none;
 
 }
 
-.loader-content{
+.loader-box{
 
     text-align:center;
 
@@ -145,330 +111,304 @@ button{
 
 .loader-logo{
 
-    font-size:46px;
+    font-size:42px;
+    font-weight:900;
 
-    font-weight:800;
+    background:
+    linear-gradient(
+        135deg,
+        var(--purple),
+        var(--blue)
+    );
 
-    letter-spacing:-2px;
+    -webkit-background-clip:text;
+    color:transparent;
+
+    animation:loaderPulse 1.5s infinite;
 
 }
 
-.loader-logo span{
-
-    color:var(--blue);
-
-}
-
-.loader-bar{
+.loader-line{
 
     width:180px;
-
     height:3px;
 
-    margin:18px auto 0;
+    margin:20px auto 0;
 
-    border-radius:20px;
+    background:rgba(255,255,255,.1);
 
     overflow:hidden;
-
-    background:#191c2a;
+    border-radius:20px;
 
 }
 
-.loader-bar span{
+.loader-line span{
 
     display:block;
 
-    width:0;
-
+    width:50%;
     height:100%;
 
     background:
-        linear-gradient(
-            90deg,
-            var(--purple),
-            var(--blue),
-            var(--pink)
-        );
+    linear-gradient(
+        90deg,
+        var(--purple),
+        var(--blue)
+    );
 
-    animation:
-        loaderBar 1.2s ease forwards;
+    animation:loaderMove 1.2s infinite;
 
 }
 
-@keyframes loaderBar{
+@keyframes loaderMove{
 
-    to{
-        width:100%;
+    0%{
+        transform:translateX(-180px);
+    }
+
+    100%{
+        transform:translateX(180px);
     }
 
 }
 
+@keyframes loaderPulse{
+
+    50%{
+        transform:scale(1.08);
+    }
+
+}
 
 /* =========================================================
-   NAVIGATION
+   BACKGROUND
 ========================================================= */
 
-.nav{
+.bg-glow{
 
     position:fixed;
 
-    top:15px;
+    width:450px;
+    height:450px;
 
-    left:50%;
+    border-radius:50%;
 
-    transform:translateX(-50%);
+    filter:blur(100px);
 
-    width:min(
-        1160px,
-        calc(100% - 30px)
-    );
+    opacity:.12;
 
-    height:65px;
+    pointer-events:none;
 
-    padding:0 20px;
+    z-index:-2;
+
+}
+
+.glow-one{
+
+    background:var(--purple);
+
+    top:-180px;
+    left:-120px;
+
+}
+
+.glow-two{
+
+    background:var(--blue);
+
+    right:-150px;
+    top:45%;
+
+}
+
+.glow-three{
+
+    background:var(--pink);
+
+    bottom:-200px;
+    left:35%;
+
+}
+
+/* =========================================================
+   PARTICLES
+========================================================= */
+
+.particles{
+
+    position:fixed;
+    inset:0;
+
+    pointer-events:none;
+
+    z-index:-1;
+
+}
+
+.particle{
+
+    position:absolute;
+
+    width:3px;
+    height:3px;
+
+    border-radius:50%;
+
+    background:#ffffff;
+
+    opacity:.35;
+
+    animation:
+    particleFloat
+    linear
+    infinite;
+
+}
+
+@keyframes particleFloat{
+
+    0%{
+        transform:translateY(110vh);
+        opacity:0;
+    }
+
+    20%{
+        opacity:.4;
+    }
+
+    80%{
+        opacity:.4;
+    }
+
+    100%{
+        transform:translateY(-20vh);
+        opacity:0;
+    }
+
+}
+
+/* =========================================================
+   NAVBAR
+========================================================= */
+
+nav{
+
+    position:fixed;
+
+    top:0;
+    left:0;
+    right:0;
+
+    height:78px;
 
     display:flex;
-
     align-items:center;
-
     justify-content:space-between;
 
-    z-index:5000;
-
-    border:1px solid var(--border);
-
-    border-radius:18px;
+    padding:0 7%;
 
     background:
-        rgba(7,8,17,.82);
+    rgba(8,10,18,.72);
 
-    backdrop-filter:blur(14px);
+    backdrop-filter:blur(18px);
 
-    -webkit-backdrop-filter:blur(14px);
+    border-bottom:
+    1px solid
+    rgba(255,255,255,.06);
+
+    z-index:1000;
 
 }
 
 .logo{
 
-    font-size:21px;
+    font-size:23px;
+    font-weight:900;
 
-    font-weight:800;
+    background:
+    linear-gradient(
+        135deg,
+        var(--purple),
+        var(--blue)
+    );
 
-}
-
-.logo span{
-
-    color:var(--blue);
+    -webkit-background-clip:text;
+    color:transparent;
 
 }
 
 .nav-links{
 
     display:flex;
-
     align-items:center;
-
-    gap:27px;
+    gap:32px;
 
 }
 
 .nav-links a{
 
-    font-size:13px;
+    color:#c9cede;
 
-    color:#aeb4c8;
+    font-size:14px;
+    font-weight:600;
 
-    transition:
-        color .2s ease;
+    transition:.3s;
+
+    position:relative;
+
+}
+
+.nav-links a::after{
+
+    content:"";
+
+    position:absolute;
+
+    left:50%;
+    bottom:-8px;
+
+    width:0;
+    height:2px;
+
+    transform:translateX(-50%);
+
+    background:
+    linear-gradient(
+        90deg,
+        var(--purple),
+        var(--blue)
+    );
+
+    transition:.3s;
 
 }
 
 .nav-links a:hover{
 
-    color:white;
+    color:#fff;
 
 }
 
-.nav-cta{
+.nav-links a:hover::after{
 
-    padding:10px 16px;
-
-    border-radius:10px;
-
-    background:
-        linear-gradient(
-            100deg,
-            var(--purple),
-            #8b63ff
-        );
-
-    font-size:13px;
-
-    font-weight:700;
+    width:100%;
 
 }
 
-.menu-button{
+.menu-btn{
 
     display:none;
 
     border:0;
-
     background:none;
 
     color:white;
 
-    font-size:25px;
+    font-size:28px;
+
+    cursor:pointer;
 
 }
-
-
-/* =========================================================
-   MOBILE MENU
-========================================================= */
-
-.mobile-menu{
-
-    position:fixed;
-
-    top:89px;
-
-    left:15px;
-
-    right:15px;
-
-    z-index:4900;
-
-    padding:15px;
-
-    border:1px solid var(--border);
-
-    border-radius:17px;
-
-    background:#0c0e1a;
-
-    transform:translateY(-15px);
-
-    opacity:0;
-
-    pointer-events:none;
-
-    transition:
-        transform .25s ease,
-        opacity .25s ease;
-
-}
-
-.mobile-menu.open{
-
-    transform:none;
-
-    opacity:1;
-
-    pointer-events:auto;
-
-}
-
-.mobile-menu a{
-
-    display:block;
-
-    padding:14px;
-
-    border-radius:10px;
-
-    color:#c6cad8;
-
-}
-
-.mobile-menu a:hover{
-
-    background:#151827;
-
-    color:white;
-
-}
-
-
-/* =========================================================
-   GENERAL
-========================================================= */
-
-.container{
-
-    width:min(
-        1140px,
-        calc(100% - 40px)
-    );
-
-    margin:auto;
-
-}
-
-section{
-
-    padding:90px 0;
-
-}
-
-.section-heading{
-
-    margin-bottom:42px;
-
-}
-
-.section-heading.center{
-
-    text-align:center;
-
-}
-
-.section-label{
-
-    display:inline-block;
-
-    margin-bottom:10px;
-
-    color:var(--blue);
-
-    font-size:12px;
-
-    font-weight:800;
-
-    letter-spacing:3px;
-
-    text-transform:uppercase;
-
-}
-
-.section-heading h2{
-
-    font-size:
-        clamp(
-            34px,
-            5vw,
-            55px
-        );
-
-    line-height:1;
-
-    letter-spacing:-2px;
-
-}
-
-.section-heading p{
-
-    color:var(--muted);
-
-    max-width:620px;
-
-    margin-top:15px;
-
-    line-height:1.7;
-
-}
-
 
 /* =========================================================
    HERO
@@ -478,133 +418,146 @@ section{
 
     min-height:100vh;
 
-    padding-top:130px;
+    display:flex;
+    align-items:center;
 
-    padding-bottom:70px;
+    padding:
+    130px 8% 80px;
+
+    position:relative;
+
+}
+
+.hero-container{
+
+    width:100%;
+    max-width:1250px;
+
+    margin:auto;
 
     display:grid;
 
     grid-template-columns:
-        1.05fr .95fr;
+    1.1fr
+    .9fr;
 
     align-items:center;
 
-    gap:60px;
+    gap:70px;
 
 }
 
-.hero-left{
+.hero-content{
 
     animation:
-        heroLeft .8s ease both;
+    heroText
+    1s
+    ease
+    both;
 
 }
 
-@keyframes heroLeft{
+@keyframes heroText{
 
     from{
 
         opacity:0;
-
-        transform:
-            translateY(25px);
+        transform:translateY(35px);
 
     }
 
     to{
 
         opacity:1;
-
-        transform:none;
+        transform:translateY(0);
 
     }
 
 }
 
-.status{
+.hero-small{
 
     display:inline-flex;
 
     align-items:center;
 
-    gap:9px;
+    gap:8px;
 
-    padding:8px 13px;
+    padding:9px 14px;
 
-    border:1px solid var(--border);
-
-    background:
-        rgba(255,255,255,.035);
+    border:
+    1px solid
+    rgba(118,87,255,.3);
 
     border-radius:50px;
 
-    color:#bfc5d6;
+    color:#b9b0ff;
+
+    background:
+    rgba(118,87,255,.07);
 
     font-size:12px;
+    font-weight:700;
 
-    margin-bottom:23px;
+    margin-bottom:20px;
 
 }
 
-.status-dot{
+.hero-small span{
 
     width:7px;
-
     height:7px;
 
     border-radius:50%;
 
-    background:#2ae77c;
+    background:#35e39b;
 
     box-shadow:
-        0 0 10px #2ae77c;
+    0 0 15px #35e39b;
 
 }
 
 .hero h1{
 
     font-size:
-        clamp(
-            50px,
-            7vw,
-            83px
-        );
+    clamp(
+        48px,
+        6vw,
+        82px
+    );
 
-    line-height:.93;
+    line-height:.98;
 
     letter-spacing:-4px;
 
 }
 
-.gradient{
+.hero h1 .gradient{
 
     background:
-        linear-gradient(
-            100deg,
-            #7d5cff,
-            #2ac8ff 48%,
-            #ff42a7
-        );
+    linear-gradient(
+        120deg,
+        #ffffff,
+        #a891ff,
+        #27bfff
+    );
 
     -webkit-background-clip:text;
-
-    background-clip:text;
-
     color:transparent;
 
 }
 
 .hero-description{
 
+    max-width:650px;
+
+    margin-top:25px;
+
     color:var(--muted);
 
-    max-width:600px;
+    font-size:17px;
 
-    margin-top:24px;
-
-    font-size:16px;
-
-    line-height:1.75;
+    line-height:1.8;
 
 }
 
@@ -612,152 +565,102 @@ section{
 
     display:flex;
 
+    gap:15px;
+
+    margin-top:32px;
+
     flex-wrap:wrap;
-
-    gap:12px;
-
-    margin-top:27px;
 
 }
 
-.button{
+.btn{
 
-    display:inline-flex;
-
-    align-items:center;
-
-    justify-content:center;
-
-    gap:9px;
-
-    min-height:48px;
-
-    padding:0 19px;
+    padding:14px 22px;
 
     border-radius:12px;
 
-    border:1px solid transparent;
+    font-size:14px;
+    font-weight:800;
 
-    font-size:13px;
+    border:1px solid var(--border);
 
-    font-weight:700;
+    cursor:pointer;
 
-    transition:
-        transform .2s ease,
-        border-color .2s ease,
-        background .2s ease;
+    transition:.3s;
 
 }
 
-.button:hover{
+.btn-primary{
 
-    transform:translateY(-3px);
-
-}
-
-.button-primary{
+    color:white;
 
     background:
-        linear-gradient(
-            100deg,
-            var(--purple),
-            #895cff
-        );
+    linear-gradient(
+        135deg,
+        var(--purple),
+        #5542d7
+    );
 
     box-shadow:
-        0 10px 30px
-        rgba(118,87,255,.18);
+    0 12px 35px
+    rgba(118,87,255,.2);
 
 }
 
-.button-secondary{
+.btn-primary:hover{
+
+    transform:translateY(-4px);
+
+    box-shadow:
+    0 18px 45px
+    rgba(118,87,255,.35);
+
+}
+
+.btn-secondary{
 
     background:
-        rgba(255,255,255,.035);
+    rgba(255,255,255,.03);
 
-    border-color:var(--border);
+    color:white;
 
 }
 
-.button-secondary:hover{
+.btn-secondary:hover{
+
+    transform:translateY(-4px);
 
     border-color:
-        rgba(255,255,255,.2);
+    rgba(39,191,255,.5);
 
 }
 
-
 /* =========================================================
-   PROFILE
+   HERO IMAGE
 ========================================================= */
 
-.hero-right{
-
-    position:relative;
+.hero-visual{
 
     display:flex;
 
     justify-content:center;
-
     align-items:center;
 
-    animation:
-        heroRight .9s .1s ease both;
-
-}
-
-@keyframes heroRight{
-
-    from{
-
-        opacity:0;
-
-        transform:
-            translateX(30px);
-
-    }
-
-    to{
-
-        opacity:1;
-
-        transform:none;
-
-    }
+    position:relative;
 
 }
 
 .profile-area{
 
+    width:400px;
+    height:400px;
+
     position:relative;
 
-    width:min(
-        430px,
-        82vw
-    );
+    display:flex;
 
-    aspect-ratio:1;
-
-}
-
-.profile-glow{
-
-    position:absolute;
-
-    inset:12%;
-
-    border-radius:50%;
-
-    background:
-        linear-gradient(
-            135deg,
-            var(--purple),
-            var(--blue)
-        );
-
-    filter:blur(60px);
-
-    opacity:.15;
+    align-items:center;
+    justify-content:center;
 
 }
 
@@ -765,178 +668,197 @@ section{
 
     position:absolute;
 
-    inset:4%;
-
-    padding:6px;
+    inset:15px;
 
     border-radius:50%;
-
-    background:
-        conic-gradient(
-            var(--purple),
-            var(--blue),
-            var(--pink),
-            var(--purple)
-        );
-
-    animation:
-        rotateRing 8s linear infinite;
-
-}
-
-@keyframes rotateRing{
-
-    to{
-        transform:rotate(360deg);
-    }
-
-}
-
-.profile-ring-inner{
-
-    width:100%;
-
-    height:100%;
-
-    padding:7px;
-
-    border-radius:50%;
-
-    background:#070811;
-
-    animation:
-        counterRotate 8s linear infinite;
-
-}
-
-@keyframes counterRotate{
-
-    to{
-        transform:rotate(-360deg);
-    }
-
-}
-
-.profile-photo{
-
-    width:100%;
-
-    height:100%;
-
-    border-radius:50%;
-
-    object-fit:contain;
-
-    background:#111423;
-
-}
-
-.profile-orbit{
-
-    position:absolute;
-
-    inset:-3%;
 
     border:
-        1px solid
-        rgba(255,255,255,.1);
-
-    border-radius:50%;
+    1px solid
+    rgba(118,87,255,.45);
 
     animation:
-        orbitRotate 12s linear infinite;
+    ringRotate
+    12s
+    linear
+    infinite;
 
 }
 
-@keyframes orbitRotate{
-
-    to{
-        transform:rotate(360deg);
-    }
-
-}
-
-.profile-orbit::before{
+.profile-ring::before{
 
     content:"";
 
     position:absolute;
 
-    width:9px;
-
-    height:9px;
+    width:13px;
+    height:13px;
 
     border-radius:50%;
 
     background:var(--blue);
 
     box-shadow:
-        0 0 15px var(--blue);
+    0 0 25px
+    var(--blue);
 
-    top:8%;
-
-    left:20%;
+    top:30px;
+    left:50%;
 
 }
 
-.profile-badge{
+.profile-ring-two{
 
     position:absolute;
 
-    bottom:9%;
+    inset:42px;
 
-    left:-3%;
-
-    padding:12px 16px;
-
-    border-radius:14px;
+    border-radius:50%;
 
     border:
-        1px solid
-        var(--border);
+    1px dashed
+    rgba(39,191,255,.35);
 
-    background:
-        rgba(12,14,26,.88);
-
-    backdrop-filter:blur(10px);
-
-    font-size:12px;
-
-    color:#d6daea;
+    animation:
+    ringRotate
+    18s
+    linear
+    infinite
+    reverse;
 
 }
 
-.profile-badge strong{
+@keyframes ringRotate{
 
-    display:block;
-
-    color:white;
-
-    margin-bottom:3px;
+    to{
+        transform:rotate(360deg);
+    }
 
 }
 
+.profile-image{
 
-/* =========================================================
-   FIREWORKS
-========================================================= */
+    width:280px;
+    height:280px;
 
-#fireworks{
+    object-fit:cover;
+
+    border-radius:50%;
+
+    border:
+    5px solid
+    rgba(255,255,255,.08);
+
+    box-shadow:
+
+    0 0 0 12px
+    rgba(118,87,255,.04),
+
+    0 0 80px
+    rgba(118,87,255,.25);
+
+    position:relative;
+    z-index:4;
+
+    animation:
+    profileFloat
+    4s
+    ease-in-out
+    infinite;
+
+}
+
+@keyframes profileFloat{
+
+    0%,100%{
+        transform:translateY(0);
+    }
+
+    50%{
+        transform:translateY(-10px);
+    }
+
+}
+
+.orbit-dot{
 
     position:absolute;
 
-    inset:0;
+    width:10px;
+    height:10px;
 
-    width:100%;
+    border-radius:50%;
 
-    height:100%;
-
-    pointer-events:none;
-
-    z-index:3;
+    z-index:5;
 
 }
 
+.orbit-one{
+
+    background:var(--purple);
+
+    box-shadow:
+    0 0 25px
+    var(--purple);
+
+    animation:
+    orbitOne
+    6s
+    linear
+    infinite;
+
+}
+
+.orbit-two{
+
+    background:var(--blue);
+
+    box-shadow:
+    0 0 25px
+    var(--blue);
+
+    animation:
+    orbitTwo
+    8s
+    linear
+    infinite;
+
+}
+
+@keyframes orbitOne{
+
+    0%{
+        transform:
+        rotate(0deg)
+        translateX(180px)
+        rotate(0deg);
+    }
+
+    100%{
+        transform:
+        rotate(360deg)
+        translateX(180px)
+        rotate(-360deg);
+    }
+
+}
+
+@keyframes orbitTwo{
+
+    0%{
+        transform:
+        rotate(180deg)
+        translateX(145px)
+        rotate(-180deg);
+    }
+
+    100%{
+        transform:
+        rotate(540deg)
+        translateX(145px)
+        rotate(-540deg);
+    }
+
+}
 
 /* =========================================================
    STATS
@@ -944,67 +866,165 @@ section{
 
 .stats{
 
+    padding:
+    10px 8% 80px;
+
+}
+
+.stats-grid{
+
+    max-width:1100px;
+
+    margin:auto;
+
     display:grid;
 
     grid-template-columns:
-        repeat(4,1fr);
+    repeat(4,1fr);
 
-    gap:14px;
+    gap:18px;
 
 }
 
 .stat{
 
-    padding:24px;
-
-    border:
-        1px solid
-        var(--border);
-
-    border-radius:17px;
+    padding:25px;
 
     background:
-        rgba(255,255,255,.025);
+    linear-gradient(
+        145deg,
+        rgba(255,255,255,.045),
+        rgba(255,255,255,.015)
+    );
 
-    transition:
-        transform .25s ease,
-        border-color .25s ease;
+    border:
+    1px solid
+    var(--border);
+
+    border-radius:18px;
+
+    text-align:center;
+
+    transition:.4s;
 
 }
 
 .stat:hover{
 
-    transform:translateY(-5px);
+    transform:translateY(-8px);
 
     border-color:
-        rgba(39,191,255,.3);
+    rgba(118,87,255,.4);
 
 }
 
-.stat-number{
+.stat h3{
 
-    font-size:32px;
+    font-size:30px;
 
-    font-weight:700;
+    background:
+    linear-gradient(
+        135deg,
+        var(--purple),
+        var(--blue)
+    );
+
+    -webkit-background-clip:text;
+    color:transparent;
 
 }
 
-.stat-number span{
-
-    color:var(--blue);
-
-}
-
-.stat-text{
-
-    margin-top:5px;
+.stat p{
 
     color:var(--muted);
 
     font-size:12px;
 
+    margin-top:7px;
+
 }
 
+/* =========================================================
+   SECTIONS
+========================================================= */
+
+section{
+
+    padding:
+    100px 8%;
+
+}
+
+.section-heading{
+
+    max-width:700px;
+
+    margin-bottom:55px;
+
+}
+
+.section-label{
+
+    color:var(--blue);
+
+    font-size:11px;
+
+    font-weight:900;
+
+    letter-spacing:3px;
+
+    text-transform:uppercase;
+
+    margin-bottom:12px;
+
+}
+
+.section-heading h2{
+
+    font-size:
+    clamp(
+        35px,
+        5vw,
+        55px
+    );
+
+    letter-spacing:-2px;
+
+}
+
+.section-heading p{
+
+    margin-top:15px;
+
+    color:var(--muted);
+
+    line-height:1.7;
+
+}
+
+/* =========================================================
+   REVEAL
+========================================================= */
+
+.reveal{
+
+    opacity:0;
+
+    transform:translateY(45px);
+
+    transition:
+    opacity .8s ease,
+    transform .8s ease;
+
+}
+
+.reveal.show{
+
+    opacity:1;
+
+    transform:translateY(0);
+
+}
 
 /* =========================================================
    ABOUT
@@ -1012,189 +1032,159 @@ section{
 
 .about-grid{
 
+    max-width:1150px;
+
+    margin:auto;
+
     display:grid;
 
     grid-template-columns:
-        .9fr 1.1fr;
+    1fr
+    1fr;
 
-    gap:55px;
+    gap:50px;
 
     align-items:center;
 
 }
 
-.about-image{
+.about-text{
 
-    position:relative;
+    color:var(--muted);
 
-    min-height:450px;
+    line-height:1.9;
 
-    border-radius:25px;
-
-    overflow:hidden;
-
-    border:
-        1px solid
-        var(--border);
-
-    background:#111422;
+    font-size:15px;
 
 }
 
-.about-image img{
+.about-text strong{
 
-    width:100%;
-
-    height:100%;
-
-    min-height:450px;
-
-    object-fit:contain;
+    color:white;
 
 }
 
-.about-image::after{
+.about-card{
 
-    content:"";
+    padding:35px;
 
-    position:absolute;
-
-    inset:0;
+    border-radius:24px;
 
     background:
-        linear-gradient(
-            180deg,
-            transparent 50%,
-            rgba(0,0,0,.55)
-        );
+    linear-gradient(
+        145deg,
+        rgba(118,87,255,.12),
+        rgba(39,191,255,.04)
+    );
 
-    pointer-events:none;
+    border:
+    1px solid
+    var(--border);
 
 }
 
-.about-content p{
+.about-card h3{
+
+    font-size:25px;
+
+}
+
+.about-card p{
 
     color:var(--muted);
 
     line-height:1.8;
 
-    margin-bottom:18px;
+    margin-top:12px;
 
 }
-
-.about-points{
-
-    display:grid;
-
-    grid-template-columns:1fr 1fr;
-
-    gap:12px;
-
-    margin-top:25px;
-
-}
-
-.about-point{
-
-    padding:15px;
-
-    border:
-        1px solid
-        var(--border);
-
-    border-radius:14px;
-
-    background:
-        rgba(255,255,255,.025);
-
-}
-
-.about-point strong{
-
-    display:block;
-
-    font-size:13px;
-
-    margin-bottom:5px;
-
-}
-
-.about-point span{
-
-    color:var(--muted);
-
-    font-size:12px;
-
-}
-
 
 /* =========================================================
    SERVICES
 ========================================================= */
 
-.services{
+.services-grid{
+
+    max-width:1150px;
+
+    margin:auto;
 
     display:grid;
 
     grid-template-columns:
-        repeat(3,1fr);
+    repeat(3,1fr);
 
-    gap:16px;
+    gap:20px;
 
 }
 
-.service{
+.service-card{
 
-    padding:28px;
-
-    min-height:245px;
-
-    border:
-        1px solid
-        var(--border);
-
-    border-radius:var(--radius);
+    padding:32px;
 
     background:
-        linear-gradient(
-            145deg,
-            rgba(255,255,255,.045),
-            rgba(255,255,255,.015)
-        );
+    rgba(255,255,255,.025);
 
-    transition:
-        transform .25s ease,
-        border-color .25s ease;
+    border:
+    1px solid
+    var(--border);
+
+    border-radius:22px;
+
+    transition:.4s;
+
+    position:relative;
+
+    overflow:hidden;
 
 }
 
-.service:hover{
+.service-card::before{
 
-    transform:translateY(-7px);
+    content:"";
+
+    position:absolute;
+
+    width:130px;
+    height:130px;
+
+    border-radius:50%;
+
+    background:
+    var(--purple);
+
+    filter:blur(70px);
+
+    opacity:.12;
+
+    right:-60px;
+    top:-60px;
+
+}
+
+.service-card:hover{
+
+    transform:translateY(-10px);
 
     border-color:
-        rgba(118,87,255,.4);
+    rgba(118,87,255,.4);
 
 }
 
 .service-icon{
 
-    width:54px;
-
-    height:54px;
+    width:55px;
+    height:55px;
 
     display:grid;
-
     place-items:center;
 
     border-radius:15px;
 
     background:
-        linear-gradient(
-            135deg,
-            rgba(118,87,255,.2),
-            rgba(39,191,255,.1)
-        );
+    rgba(118,87,255,.12);
+
+    color:var(--blue);
 
     font-size:25px;
 
@@ -1202,15 +1192,13 @@ section{
 
 }
 
-.service h3{
+.service-card h3{
 
-    font-size:21px;
-
-    margin-bottom:11px;
+    font-size:20px;
 
 }
 
-.service p{
+.service-card p{
 
     color:var(--muted);
 
@@ -1218,8 +1206,9 @@ section{
 
     line-height:1.7;
 
-}
+    margin-top:10px;
 
+}
 
 /* =========================================================
    SKILLS
@@ -1227,26 +1216,15 @@ section{
 
 .skills-grid{
 
-    display:grid;
+    max-width:900px;
 
-    grid-template-columns:1fr 1fr;
-
-    gap:18px;
+    margin:auto;
 
 }
 
 .skill{
 
-    padding:22px;
-
-    border:
-        1px solid
-        var(--border);
-
-    border-radius:18px;
-
-    background:
-        rgba(255,255,255,.025);
+    margin-bottom:25px;
 
 }
 
@@ -1256,7 +1234,7 @@ section{
 
     justify-content:space-between;
 
-    margin-bottom:10px;
+    margin-bottom:9px;
 
     font-size:13px;
 
@@ -1272,7 +1250,8 @@ section{
 
     height:7px;
 
-    background:#191c2a;
+    background:
+    rgba(255,255,255,.07);
 
     border-radius:20px;
 
@@ -1280,7 +1259,7 @@ section{
 
 }
 
-.skill-progress{
+.skill-fill{
 
     height:100%;
 
@@ -1289,131 +1268,139 @@ section{
     border-radius:20px;
 
     background:
-        linear-gradient(
-            90deg,
-            var(--purple),
-            var(--blue)
-        );
+    linear-gradient(
+        90deg,
+        var(--purple),
+        var(--blue)
+    );
 
     transition:
-        width 1s ease;
+    width
+    1.5s
+    cubic-bezier(.2,.8,.2,1);
 
 }
-
-
-/* =========================================================
-   FILTER
-========================================================= */
-
-.filter{
-
-    display:flex;
-
-    justify-content:center;
-
-    gap:8px;
-
-    flex-wrap:wrap;
-
-    margin-bottom:28px;
-
-}
-
-.filter button{
-
-    padding:10px 16px;
-
-    border:
-        1px solid
-        var(--border);
-
-    border-radius:30px;
-
-    color:#aeb5c9;
-
-    background:
-        rgba(255,255,255,.03);
-
-    font-size:12px;
-
-}
-
-.filter button.active{
-
-    color:white;
-
-    border-color:transparent;
-
-    background:
-        linear-gradient(
-            100deg,
-            var(--purple),
-            #8a60ff
-        );
-
-}
-
 
 /* =========================================================
    PROJECTS
 ========================================================= */
 
-.projects{
+.projects-section{
+
+    background:
+    linear-gradient(
+        180deg,
+        transparent,
+        rgba(118,87,255,.025),
+        transparent
+    );
+
+}
+
+.filter-buttons{
+
+    display:flex;
+
+    justify-content:center;
+
+    gap:10px;
+
+    flex-wrap:wrap;
+
+    margin-bottom:45px;
+
+}
+
+.filter-btn{
+
+    border:
+    1px solid
+    var(--border);
+
+    background:
+    rgba(255,255,255,.025);
+
+    color:#aeb5c7;
+
+    padding:10px 17px;
+
+    border-radius:50px;
+
+    cursor:pointer;
+
+    font-size:12px;
+    font-weight:700;
+
+    transition:.3s;
+
+}
+
+.filter-btn:hover,
+.filter-btn.active{
+
+    color:white;
+
+    background:
+    linear-gradient(
+        135deg,
+        rgba(118,87,255,.25),
+        rgba(39,191,255,.1)
+    );
+
+    border-color:
+    rgba(118,87,255,.4);
+
+}
+
+.projects-grid{
+
+    max-width:1200px;
+
+    margin:auto;
 
     display:grid;
 
     grid-template-columns:
-        repeat(
-            3,
-            minmax(0,1fr)
-        );
+    repeat(3,1fr);
 
-    gap:17px;
-
-    align-items:start;
+    gap:22px;
 
 }
 
 .project{
 
-    overflow:hidden;
+    background:
+    #10131f;
 
     border:
-        1px solid
-        var(--border);
+    1px solid
+    var(--border);
 
-    border-radius:19px;
+    border-radius:20px;
 
-    background:#0e101c;
+    overflow:hidden;
 
     cursor:pointer;
 
     transition:
-        transform .25s ease,
-        border-color .25s ease;
+    transform .4s ease,
+    border-color .4s ease,
+    box-shadow .4s ease;
 
 }
 
 .project:hover{
 
-    transform:translateY(-7px);
+    transform:translateY(-9px);
 
     border-color:
-        rgba(39,191,255,.35);
+    rgba(118,87,255,.45);
+
+    box-shadow:
+    0 20px 60px
+    rgba(0,0,0,.25);
 
 }
-
-.project.hidden{
-
-    display:none;
-
-}
-
-
-/* =========================================================
-   PROJECT IMAGE
-   FIXED FOR LAPTOP + MOBILE
-========================================================= */
 
 .project-image{
 
@@ -1421,18 +1408,11 @@ section{
 
     width:100%;
 
-    /*
-       IMPORTANT:
-       No fixed height here.
-       The image controls its own height.
-    */
-
     min-height:225px;
 
     display:flex;
 
     align-items:center;
-
     justify-content:center;
 
     overflow:hidden;
@@ -1441,13 +1421,9 @@ section{
 
 }
 
-
-/* FULL ORIGINAL IMAGE */
-
 .project-image img{
 
     width:100%;
-
     height:auto;
 
     max-width:100%;
@@ -1456,32 +1432,7 @@ section{
 
     object-fit:contain;
 
-    /*
-       Prevents image from becoming
-       artificially cropped.
-    */
-
-    transform:none !important;
-
-    transition:
-        opacity .3s ease;
-
 }
-
-
-/*
-   Do NOT zoom project image.
-   This keeps the complete image visible.
-*/
-
-.project:hover .project-image img{
-
-    transform:none !important;
-
-}
-
-
-/* PROJECT OVERLAY */
 
 .project-overlay{
 
@@ -1492,16 +1443,14 @@ section{
     display:flex;
 
     align-items:center;
-
     justify-content:center;
 
     background:
-        rgba(5,6,13,.45);
+    rgba(8,10,18,.72);
 
     opacity:0;
 
-    transition:
-        opacity .25s ease;
+    transition:.35s;
 
 }
 
@@ -1513,16 +1462,18 @@ section{
 
 .view-project{
 
-    padding:10px 14px;
+    padding:11px 18px;
 
-    border-radius:10px;
+    border-radius:50px;
 
-    background:white;
-
-    color:#080912;
+    background:
+    linear-gradient(
+        135deg,
+        var(--purple),
+        var(--blue)
+    );
 
     font-size:12px;
-
     font-weight:800;
 
 }
@@ -1539,69 +1490,263 @@ section{
 
     font-size:10px;
 
+    font-weight:900;
+
     text-transform:uppercase;
 
     letter-spacing:1.5px;
-
-    font-weight:800;
 
 }
 
 .project-info h3{
 
-    margin-top:6px;
+    margin-top:7px;
 
     font-size:18px;
 
 }
 
+/* =========================================================
+   COMING SOON CARDS
+========================================================= */
+
+.coming-soon-card{
+
+    cursor:default;
+
+}
+
+.coming-soon-card:hover{
+
+    transform:translateY(-9px);
+
+}
+
+.coming-soon-image{
+
+    min-height:225px;
+
+    position:relative;
+
+    display:flex;
+
+    align-items:center;
+    justify-content:center;
+
+    overflow:hidden;
+
+    background:
+    radial-gradient(
+        circle at center,
+        rgba(118,87,255,.18),
+        transparent 58%
+    ),
+    #10131f;
+
+}
+
+.coming-soon-image::before{
+
+    content:"";
+
+    position:absolute;
+
+    width:180px;
+    height:180px;
+
+    border-radius:50%;
+
+    border:
+    1px solid
+    rgba(118,87,255,.22);
+
+    animation:
+    comingRotate
+    8s
+    linear
+    infinite;
+
+}
+
+.coming-soon-image::after{
+
+    content:"";
+
+    position:absolute;
+
+    width:120px;
+    height:120px;
+
+    border-radius:50%;
+
+    border:
+    1px dashed
+    rgba(39,191,255,.25);
+
+    animation:
+    comingRotate
+    5s
+    linear
+    infinite
+    reverse;
+
+}
+
+@keyframes comingRotate{
+
+    to{
+        transform:rotate(360deg);
+    }
+
+}
+
+.coming-soon-content{
+
+    position:relative;
+
+    z-index:2;
+
+    text-align:center;
+
+    padding:25px;
+
+}
+
+.coming-soon-icon{
+
+    width:55px;
+    height:55px;
+
+    margin:
+    0 auto 15px;
+
+    display:grid;
+    place-items:center;
+
+    border-radius:50%;
+
+    background:
+    linear-gradient(
+        135deg,
+        rgba(118,87,255,.25),
+        rgba(39,191,255,.15)
+    );
+
+    color:var(--blue);
+
+    font-size:25px;
+
+    box-shadow:
+    0 0 35px
+    rgba(118,87,255,.15);
+
+    animation:
+    comingFloat
+    2.5s
+    ease-in-out
+    infinite;
+
+}
+
+@keyframes comingFloat{
+
+    0%,100%{
+        transform:translateY(0);
+    }
+
+    50%{
+        transform:translateY(-7px);
+    }
+
+}
+
+.coming-soon-label{
+
+    display:block;
+
+    color:var(--blue);
+
+    font-size:11px;
+
+    font-weight:900;
+
+    letter-spacing:2.5px;
+
+}
+
+.coming-soon-content h3{
+
+    margin-top:8px;
+
+    font-size:19px;
+
+}
+
+.coming-soon-content p{
+
+    margin-top:8px;
+
+    color:var(--muted);
+
+    font-size:12px;
+
+    line-height:1.5;
+
+}
 
 /* =========================================================
    PROCESS
 ========================================================= */
 
-.process{
+.process-grid{
+
+    max-width:1050px;
+
+    margin:auto;
 
     display:grid;
 
     grid-template-columns:
-        repeat(4,1fr);
+    repeat(4,1fr);
 
-    gap:14px;
+    gap:18px;
 
 }
 
-.process-item{
+.process{
 
-    padding:25px;
-
-    border:
-        1px solid
-        var(--border);
-
-    border-radius:18px;
+    padding:28px;
 
     background:
-        rgba(255,255,255,.025);
+    rgba(255,255,255,.025);
+
+    border:
+    1px solid
+    var(--border);
+
+    border-radius:20px;
+
+    position:relative;
 
 }
 
 .process-number{
 
-    font-size:42px;
+    font-size:12px;
 
-    color:
-        rgba(255,255,255,.08);
+    color:var(--blue);
 
-    font-weight:800;
+    font-weight:900;
+
+    letter-spacing:2px;
 
 }
 
 .process h3{
 
-    margin-top:7px;
+    margin-top:18px;
 
-    font-size:16px;
+    font-size:18px;
 
 }
 
@@ -1611,12 +1756,11 @@ section{
 
     font-size:12px;
 
-    line-height:1.6;
+    line-height:1.7;
 
-    margin-top:8px;
+    margin-top:9px;
 
 }
-
 
 /* =========================================================
    HIGHLIGHT
@@ -1624,141 +1768,78 @@ section{
 
 .highlight{
 
-    display:grid;
+    max-width:1100px;
 
-    grid-template-columns:
-        1.2fr .8fr;
+    margin:auto;
 
-    gap:18px;
+    padding:55px;
 
-}
+    border-radius:30px;
 
-.highlight-card{
-
-    padding:32px;
-
-    border:
-        1px solid
-        var(--border);
-
-    border-radius:22px;
+    text-align:center;
 
     background:
-        radial-gradient(
-            circle at 90% 10%,
-            rgba(118,87,255,.14),
-            transparent 35%
-        ),
-        rgba(255,255,255,.025);
+    linear-gradient(
+        135deg,
+        rgba(118,87,255,.15),
+        rgba(39,191,255,.07)
+    );
+
+    border:
+    1px solid
+    rgba(118,87,255,.2);
+
+    position:relative;
+
+    overflow:hidden;
 
 }
 
-.highlight-card h3{
+.highlight::before{
 
-    font-size:28px;
+    content:"";
 
-    margin-bottom:12px;
+    position:absolute;
 
-}
-
-.highlight-card p{
-
-    color:var(--muted);
-
-    line-height:1.75;
-
-}
-
-.mini-list{
-
-    display:grid;
-
-    gap:10px;
-
-    margin-top:22px;
-
-}
-
-.mini-list div{
-
-    display:flex;
-
-    align-items:center;
-
-    gap:10px;
-
-    color:#cdd2e2;
-
-    font-size:13px;
-
-}
-
-.check{
-
-    width:20px;
-
-    height:20px;
-
-    display:grid;
-
-    place-items:center;
+    width:300px;
+    height:300px;
 
     border-radius:50%;
 
     background:
-        rgba(39,191,255,.12);
+    var(--purple);
 
-    color:var(--blue);
+    filter:blur(100px);
 
-    font-size:11px;
+    opacity:.1;
 
-}
+    left:50%;
+    top:50%;
 
-
-/* =========================================================
-   CONTACT
-========================================================= */
-
-.contact-box{
-
-    text-align:center;
-
-    padding:65px 25px;
-
-    border:
-        1px solid
-        var(--border);
-
-    border-radius:27px;
-
-    background:
-        radial-gradient(
-            circle at 50% 0%,
-            rgba(118,87,255,.18),
-            transparent 45%
-        ),
-        rgba(255,255,255,.025);
+    transform:translate(-50%,-50%);
 
 }
 
-.contact-box h2{
+.highlight h2{
+
+    position:relative;
 
     font-size:
-        clamp(
-            35px,
-            5vw,
-            58px
-        );
-
-    letter-spacing:-2px;
+    clamp(
+        30px,
+        5vw,
+        50px
+    );
 
 }
 
-.contact-box p{
+.highlight p{
 
-    max-width:600px;
+    position:relative;
 
-    margin:15px auto 27px;
+    max-width:650px;
+
+    margin:15px auto 25px;
 
     color:var(--muted);
 
@@ -1766,34 +1847,101 @@ section{
 
 }
 
-.contact-buttons{
+/* =========================================================
+   CONTACT
+========================================================= */
+
+.contact-grid{
+
+    max-width:1050px;
+
+    margin:auto;
+
+    display:grid;
+
+    grid-template-columns:
+    1fr
+    1fr;
+
+    gap:25px;
+
+}
+
+.contact-card{
+
+    padding:30px;
+
+    background:
+    rgba(255,255,255,.025);
+
+    border:
+    1px solid
+    var(--border);
+
+    border-radius:22px;
+
+}
+
+.contact-card h3{
+
+    font-size:23px;
+
+}
+
+.contact-card p{
+
+    color:var(--muted);
+
+    margin-top:10px;
+
+    line-height:1.7;
+
+}
+
+.contact-item{
 
     display:flex;
 
-    justify-content:center;
+    align-items:center;
 
-    flex-wrap:wrap;
+    gap:15px;
 
-    gap:12px;
-
-}
-
-.whatsapp{
-
-    background:var(--green);
-
-    color:#06120a;
+    margin-top:22px;
 
 }
 
-.email{
+.contact-icon{
 
-    background:white;
+    width:45px;
+    height:45px;
 
-    color:#090a11;
+    display:grid;
+    place-items:center;
+
+    border-radius:13px;
+
+    background:
+    rgba(118,87,255,.1);
+
+    color:var(--blue);
 
 }
 
+.contact-item small{
+
+    color:var(--muted);
+
+    display:block;
+
+    margin-bottom:4px;
+
+}
+
+.contact-item strong{
+
+    font-size:14px;
+
+}
 
 /* =========================================================
    FOOTER
@@ -1801,103 +1949,71 @@ section{
 
 footer{
 
-    padding:35px 20px;
+    padding:
+    35px 8%;
 
     border-top:
-        1px solid
-        var(--border);
+    1px solid
+    var(--border);
 
-}
+    text-align:center;
 
-.footer-inner{
-
-    width:min(
-        1140px,
-        100%
-    );
-
-    margin:auto;
-
-    display:flex;
-
-    justify-content:space-between;
-
-    align-items:center;
-
-    gap:20px;
-
-}
-
-.footer-inner p{
-
-    color:#71788e;
+    color:var(--muted);
 
     font-size:12px;
 
 }
 
-.footer-links{
+.footer-name{
 
-    display:flex;
+    color:white;
 
-    gap:17px;
-
-}
-
-.footer-links a{
-
-    color:#8e95a9;
-
-    font-size:12px;
+    font-weight:800;
 
 }
-
 
 /* =========================================================
    WHATSAPP
 ========================================================= */
 
-.whatsapp-float{
+.whatsapp{
 
     position:fixed;
 
-    right:20px;
+    right:25px;
+    bottom:25px;
 
-    bottom:20px;
-
-    z-index:4000;
-
-    width:57px;
-
-    height:57px;
+    width:58px;
+    height:58px;
 
     display:grid;
-
     place-items:center;
 
     border-radius:50%;
 
-    background:var(--green);
+    background:#25D366;
 
-    color:#06120a;
+    color:white;
 
-    font-size:24px;
+    font-size:25px;
 
     box-shadow:
-        0 12px 30px
-        rgba(34,214,111,.25);
+    0 10px 35px
+    rgba(37,211,102,.3);
 
-    transition:
-        transform .2s ease;
+    z-index:900;
 
-}
-
-.whatsapp-float:hover{
-
-    transform:scale(1.08);
+    transition:.3s;
 
 }
 
+.whatsapp:hover{
+
+    transform:
+    translateY(-5px)
+    scale(1.05);
+
+}
 
 /* =========================================================
    MODAL
@@ -1909,80 +2025,94 @@ footer{
 
     inset:0;
 
-    z-index:9000;
+    background:
+    rgba(3,5,10,.88);
+
+    backdrop-filter:blur(15px);
 
     display:flex;
 
     align-items:center;
-
     justify-content:center;
 
-    padding:20px;
+    padding:25px;
 
-    background:
-        rgba(0,0,0,.78);
+    z-index:5000;
 
     opacity:0;
-
     visibility:hidden;
 
-    pointer-events:none;
-
-    transition:
-        opacity .25s ease,
-        visibility .25s ease;
+    transition:.35s;
 
 }
 
 .modal.show{
 
     opacity:1;
-
     visibility:visible;
-
-    pointer-events:auto;
-
-}
-
-.modal-wrap{
-
-    position:relative;
-
-    width:min(
-        900px,
-        100%
-    );
 
 }
 
 .modal-box{
 
-    width:100%;
+    width:
+    min(900px,100%);
 
     max-height:90vh;
 
     overflow:auto;
 
+    background:
+    #10131f;
+
     border:
-        1px solid
-        var(--border);
+    1px solid
+    var(--border);
 
-    border-radius:23px;
+    border-radius:25px;
 
-    background:#0d0f1b;
+    position:relative;
 
     transform:
-        translateY(25px)
-        scale(.96);
+    scale(.92)
+    translateY(20px);
 
-    transition:
-        transform .3s ease;
+    transition:.35s;
 
 }
 
 .modal.show .modal-box{
 
-    transform:none;
+    transform:
+    scale(1)
+    translateY(0);
+
+}
+
+.modal-close{
+
+    position:absolute;
+
+    top:15px;
+    right:15px;
+
+    width:38px;
+    height:38px;
+
+    border:0;
+
+    border-radius:50%;
+
+    background:
+    rgba(0,0,0,.6);
+
+    color:white;
+
+    cursor:pointer;
+
+    font-size:20px;
+
+    z-index:5;
 
 }
 
@@ -1992,181 +2122,69 @@ footer{
 
     max-height:500px;
 
-    height:auto;
-
     object-fit:contain;
 
-    background:#111423;
+    background:#080a12;
+
+    display:block;
 
 }
 
 .modal-content{
 
-    padding:28px;
+    padding:30px;
 
 }
 
-.modal-category{
+.modal-content .category{
 
     color:var(--blue);
 
     font-size:11px;
 
+    font-weight:900;
+
     text-transform:uppercase;
 
     letter-spacing:2px;
 
-    font-weight:800;
+}
+
+.modal-content h2{
+
+    margin-top:8px;
+
+    font-size:30px;
 
 }
 
-.modal-title{
+.modal-content p{
 
-    font-size:32px;
-
-    margin:8px 0 12px;
-
-}
-
-.modal-description{
+    margin-top:12px;
 
     color:var(--muted);
 
-    line-height:1.75;
+    line-height:1.8;
 
 }
-
-.modal-actions{
-
-    margin-top:22px;
-
-}
-
-.modal-close{
-
-    position:absolute;
-
-    top:17px;
-
-    right:17px;
-
-    width:42px;
-
-    height:42px;
-
-    border:
-        1px solid
-        rgba(255,255,255,.15);
-
-    border-radius:50%;
-
-    background:
-        rgba(0,0,0,.55);
-
-    color:white;
-
-    font-size:22px;
-
-    z-index:5;
-
-}
-
 
 /* =========================================================
-   REVEAL
+   MOBILE
 ========================================================= */
 
-.reveal{
+@media(max-width:900px){
 
-    opacity:0;
+    .hero-container{
 
-    transform:
-        translateY(22px);
-
-    transition:
-        opacity .65s ease,
-        transform .65s ease;
-
-}
-
-.reveal.visible{
-
-    opacity:1;
-
-    transform:none;
-
-}
-
-
-/* =========================================================
-   TABLET
-========================================================= */
-
-@media(max-width:950px){
-
-    .nav-links,
-    .nav-cta{
-
-        display:none;
-
-    }
-
-    .menu-button{
-
-        display:block;
-
-    }
-
-    .hero{
-
-        display:flex;
-
-        flex-direction:column;
-
-        min-height:auto;
+        grid-template-columns:1fr;
 
         text-align:center;
-
-        gap:28px;
-
-        padding-top:120px;
-
-        padding-bottom:45px;
-
-    }
-
-    .hero-right{
-
-        order:1;
-
-        width:100%;
-
-        display:flex;
-
-        justify-content:center;
-
-        align-items:center;
-
-    }
-
-    .hero-left{
-
-        order:2;
-
-        width:100%;
-
-        display:flex;
-
-        flex-direction:column;
-
-        align-items:center;
 
     }
 
     .hero-description{
 
         margin-left:auto;
-
         margin-right:auto;
 
     }
@@ -2177,169 +2195,126 @@ footer{
 
     }
 
-    .stats{
+    .hero-visual{
 
-        grid-template-columns:
-            repeat(2,1fr);
-
-    }
-
-    .about-grid{
-
-        grid-template-columns:1fr;
-
-        gap:30px;
-
-    }
-
-    .about-image{
-
-        min-height:350px;
-
-    }
-
-    .about-image img{
-
-        min-height:350px;
-
-    }
-
-    .services{
-
-        grid-template-columns:1fr 1fr;
-
-    }
-
-    .projects{
-
-        grid-template-columns:1fr 1fr;
-
-    }
-
-    .process{
-
-        grid-template-columns:1fr 1fr;
-
-    }
-
-    .highlight{
-
-        grid-template-columns:1fr;
-
-    }
-
-}
-
-
-/* =========================================================
-   MOBILE
-========================================================= */
-
-@media(max-width:600px){
-
-    .container{
-
-        width:
-            calc(100% - 28px);
-
-    }
-
-    section{
-
-        padding:62px 0;
-
-    }
-
-    .nav{
-
-        top:10px;
-
-        width:
-            calc(100% - 20px);
-
-        height:58px;
-
-        padding:0 15px;
-
-    }
-
-    .hero{
-
-        display:flex;
-
-        flex-direction:column;
-
-        min-height:auto;
-
-        padding-top:92px;
-
-        padding-bottom:35px;
-
-        gap:25px;
-
-        text-align:center;
-
-    }
-
-    /* PICTURE FIRST */
-
-    .hero-right{
-
-        order:1;
-
-        width:100%;
-
-        display:flex;
-
-        justify-content:center;
-
-        margin:0;
+        order:-1;
 
     }
 
     .profile-area{
 
-        width:
-            min(
-                290px,
-                78vw
-            );
-
-        aspect-ratio:1;
+        width:330px;
+        height:330px;
 
     }
 
-    /* TEXT SECOND */
+    .profile-image{
 
-    .hero-left{
+        width:235px;
+        height:235px;
 
-        order:2;
+    }
 
-        width:100%;
+    .stats-grid{
+
+        grid-template-columns:
+        repeat(2,1fr);
+
+    }
+
+    .services-grid{
+
+        grid-template-columns:
+        1fr;
+
+    }
+
+    .projects-grid{
+
+        grid-template-columns:
+        repeat(2,1fr);
+
+    }
+
+    .process-grid{
+
+        grid-template-columns:
+        repeat(2,1fr);
+
+    }
+
+}
+
+@media(max-width:650px){
+
+    nav{
+
+        height:70px;
+
+    }
+
+    .nav-links{
+
+        position:absolute;
+
+        top:70px;
+        left:0;
+        right:0;
+
+        padding:25px;
+
+        background:
+        rgba(8,10,18,.97);
+
+        backdrop-filter:blur(20px);
 
         display:flex;
 
         flex-direction:column;
 
-        align-items:center;
+        align-items:flex-start;
+
+        gap:20px;
+
+        border-bottom:
+        1px solid
+        var(--border);
+
+        transform:
+        translateY(-20px);
+
+        opacity:0;
+        visibility:hidden;
+
+        transition:.3s;
 
     }
 
-    .status{
+    .nav-links.open{
 
-        margin-bottom:17px;
+        transform:translateY(0);
 
-        font-size:10px;
+        opacity:1;
+        visibility:visible;
 
-        padding:7px 11px;
+    }
+
+    .menu-btn{
+
+        display:block;
+
+    }
+
+    .hero{
+
+        padding:
+        120px 6% 60px;
 
     }
 
     .hero h1{
 
-        font-size:45px;
-
-        line-height:.96;
+        font-size:48px;
 
         letter-spacing:-2.5px;
 
@@ -2349,159 +2324,82 @@ footer{
 
         font-size:14px;
 
-        line-height:1.65;
+    }
 
-        max-width:500px;
+    .profile-area{
 
-        margin-top:18px;
+        width:280px;
+        height:280px;
 
     }
 
-    .hero-buttons{
+    .profile-image{
 
-        width:100%;
-
-        justify-content:center;
-
-        margin-top:21px;
-
-        gap:9px;
+        width:200px;
+        height:200px;
 
     }
 
-    .button{
+    .profile-ring{
 
-        min-height:46px;
-
-        padding:0 16px;
-
-        font-size:12px;
+        inset:5px;
 
     }
 
-    .profile-badge{
+    .profile-ring-two{
 
-        left:-5px;
+        inset:25px;
 
-        bottom:5%;
+    }
 
-        padding:10px 12px;
+    section{
 
-        font-size:10px;
+        padding:
+        75px 6%;
 
     }
 
     .stats{
 
-        grid-template-columns:1fr 1fr;
-
-        gap:9px;
-
-    }
-
-    .stat{
-
-        padding:17px 12px;
+        padding:
+        10px 6% 60px;
 
     }
 
-    .stat-number{
+    .stats-grid{
 
-        font-size:25px;
-
-    }
-
-    .stat-text{
-
-        font-size:10px;
+        grid-template-columns:
+        repeat(2,1fr);
 
     }
 
-    .services{
+    .about-grid{
 
         grid-template-columns:1fr;
 
     }
 
-    .service{
-
-        min-height:auto;
-
-        padding:23px;
-
-    }
-
-    .skills-grid{
+    .projects-grid{
 
         grid-template-columns:1fr;
 
     }
 
-    .projects{
+    .process-grid{
 
         grid-template-columns:1fr;
 
     }
 
-
-    /* IMPORTANT:
-       NO FIXED PROJECT IMAGE HEIGHT
-    */
-
-    .project-image{
-
-        min-height:0;
-
-        height:auto;
-
-    }
-
-    .project-image img{
-
-        width:100%;
-
-        height:auto;
-
-        object-fit:contain;
-
-    }
-
-
-    .process{
+    .contact-grid{
 
         grid-template-columns:1fr;
 
     }
 
-    .about-points{
+    .highlight{
 
-        grid-template-columns:1fr;
-
-    }
-
-    .contact-box{
-
-        padding:45px 20px;
-
-    }
-
-    .footer-inner{
-
-        flex-direction:column;
-
-        text-align:center;
-
-    }
-
-    .whatsapp-float{
-
-        right:15px;
-
-        bottom:15px;
-
-        width:53px;
-
-        height:53px;
+        padding:35px 20px;
 
     }
 
@@ -2511,44 +2409,63 @@ footer{
 
     }
 
-    .modal-title{
-
-        font-size:27px;
-
-    }
-
     .modal-content{
 
-        padding:21px;
+        padding:22px;
 
     }
 
-    .profile-glow{
+    .modal-content h2{
 
-        filter:blur(35px);
+        font-size:24px;
 
     }
 
 }
 
+@media(max-width:400px){
 
-/* =========================================================
-   REDUCED MOTION
-========================================================= */
+    .hero h1{
 
-@media(prefers-reduced-motion:reduce){
-
-    *{
-
-        animation-duration:.01ms !important;
-
-        animation-iteration-count:1 !important;
-
-        transition-duration:.01ms !important;
-
-        scroll-behavior:auto !important;
+        font-size:41px;
 
     }
+
+    .profile-area{
+
+        width:250px;
+        height:250px;
+
+    }
+
+    .profile-image{
+
+        width:180px;
+        height:180px;
+
+    }
+
+}
+
+/* =========================================================
+   HIDE COMING SOON FROM MODAL CLICK
+========================================================= */
+
+.coming-soon-card{
+
+    cursor:default;
+
+}
+
+/* =========================================================
+   IMAGE DRAG PREVENTION
+========================================================= */
+
+img{
+
+    -webkit-user-drag:none;
+
+    user-select:none;
 
 }
 
@@ -2556,23 +2473,21 @@ footer{
 
 </head>
 
-
 <body>
 
-
-<!-- =====================================================
+<!-- =======================================================
      LOADER
-===================================================== -->
+======================================================== -->
 
-<div id="loader">
+<div class="loader" id="loader">
 
-    <div class="loader-content">
+    <div class="loader-box">
 
         <div class="loader-logo">
-            Ahsan<span>.</span>
+            MA
         </div>
 
-        <div class="loader-bar">
+        <div class="loader-line">
             <span></span>
         </div>
 
@@ -2580,419 +2495,312 @@ footer{
 
 </div>
 
+<!-- BACKGROUND -->
 
-<!-- =====================================================
+<div class="bg-glow glow-one"></div>
+<div class="bg-glow glow-two"></div>
+<div class="bg-glow glow-three"></div>
+
+<div class="particles" id="particles"></div>
+
+
+<!-- =======================================================
      NAVIGATION
-===================================================== -->
+======================================================== -->
 
-<nav class="nav">
+<nav>
 
     <a href="#home" class="logo">
-        Ahsan<span>.</span>
+        MA.
     </a>
 
-    <div class="nav-links">
+    <div class="nav-links" id="navLinks">
 
         <a href="#home">Home</a>
-
         <a href="#about">About</a>
-
         <a href="#services">Services</a>
-
-        <a href="#projects">Projects</a>
-
         <a href="#skills">Skills</a>
-
+        <a href="#projects">Projects</a>
         <a href="#contact">Contact</a>
 
     </div>
 
-    <a href="#contact" class="nav-cta">
-        Let's Talk
-    </a>
-
-    <button
-        class="menu-button"
-        id="menuButton"
-        aria-label="Open menu"
-    >
+    <button class="menu-btn" id="menuBtn">
         ☰
     </button>
 
 </nav>
 
 
-<!-- =====================================================
-     MOBILE MENU
-===================================================== -->
+<!-- =======================================================
+     HERO
+======================================================== -->
 
-<div
-    class="mobile-menu"
-    id="mobileMenu"
->
+<section class="hero" id="home">
 
-    <a href="#home">Home</a>
+    <div class="hero-container">
 
-    <a href="#about">About</a>
+        <div class="hero-content">
 
-    <a href="#services">Services</a>
+            <div class="hero-small">
 
-    <a href="#projects">Projects</a>
+                <span></span>
 
-    <a href="#skills">Skills</a>
+                Available for creative projects
 
-    <a href="#contact">Contact</a>
+            </div>
+
+            <h1>
+
+                Hi, I'm
+                <span class="gradient">
+                    Muhammad Ahsan
+                </span>
+
+            </h1>
+
+            <p class="hero-description">
+
+                A creative digital designer focused on
+                Graphic Design, Web Development and
+                Shopify Design. I create modern,
+                clean and engaging digital experiences.
+
+            </p>
+
+            <div class="hero-buttons">
+
+                <a
+                href="#projects"
+                class="btn btn-primary"
+                >
+                    View My Work
+                </a>
+
+                <a
+                href="#contact"
+                class="btn btn-secondary"
+                >
+                    Let's Work Together
+                </a>
+
+            </div>
+
+        </div>
+
+
+        <div class="hero-visual">
+
+            <div class="profile-area">
+
+                <div class="profile-ring"></div>
+
+                <div class="profile-ring-two"></div>
+
+                <div class="orbit-dot orbit-one"></div>
+
+                <div class="orbit-dot orbit-two"></div>
+
+                <img
+                src="./Porfolio Picture.jpg"
+                alt="Muhammad Ahsan"
+                class="profile-image"
+                >
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =======================================================
+     STATS
+======================================================== -->
+
+<div class="stats reveal">
+
+    <div class="stats-grid">
+
+        <div class="stat">
+
+            <h3>3+</h3>
+
+            <p>
+                Graphic Projects
+            </p>
+
+        </div>
+
+        <div class="stat">
+
+            <h3>1+</h3>
+
+            <p>
+                Web Projects
+            </p>
+
+        </div>
+
+        <div class="stat">
+
+            <h3>1+</h3>
+
+            <p>
+                Shopify Projects
+            </p>
+
+        </div>
+
+        <div class="stat">
+
+            <h3>100%</h3>
+
+            <p>
+                Creative Focus
+            </p>
+
+        </div>
+
+    </div>
 
 </div>
 
 
-<main>
-
-
-<!-- =====================================================
-     HERO
-===================================================== -->
-
-<section
-    class="hero container"
-    id="home"
->
-
-
-    <!-- PROFILE -->
-
-    <div class="hero-right">
-
-        <div class="profile-area">
-
-            <canvas id="fireworks"></canvas>
-
-            <div class="profile-glow"></div>
-
-            <div class="profile-orbit"></div>
-
-            <div class="profile-ring">
-
-                <div class="profile-ring-inner">
-
-                    <img
-                        src="./Porfolio%20Picture.jpg"
-                        alt="Muhammad Ahsan"
-                        class="profile-photo"
-                        id="profileImage"
-                    >
-
-                </div>
-
-            </div>
-
-            <div class="profile-badge">
-
-                <strong>
-                    Creative Designer
-                </strong>
-
-                Graphic • Web • Shopify
-
-            </div>
-
-        </div>
-
-    </div>
-
-
-    <!-- HERO TEXT -->
-
-    <div class="hero-left">
-
-        <div class="status">
-
-            <span class="status-dot"></span>
-
-            Available for Freelance Projects
-
-        </div>
-
-        <h1>
-
-            Creative
-
-            <br>
-
-            <span class="gradient">
-                Muhammad Ahsan
-            </span>
-
-            <br>
-
-            Designer.
-
-        </h1>
-
-        <p class="hero-description">
-
-            I create modern graphic designs,
-            responsive websites and professional
-            e-commerce experiences that help
-            ideas look better online.
-
-        </p>
-
-        <div class="hero-buttons">
-
-            <a
-                href="#projects"
-                class="button button-primary"
-            >
-                Explore My Work →
-            </a>
-
-            <a
-                href="mailto:your@email.com"
-                class="button button-secondary"
-            >
-                ✉ Email Me
-            </a>
-
-        </div>
-
-    </div>
-
-</section>
-
-
-<!-- =====================================================
-     STATS
-===================================================== -->
-
-<section class="container reveal">
-
-    <div class="stats">
-
-        <div class="stat">
-
-            <div class="stat-number">
-                3<span>+</span>
-            </div>
-
-            <div class="stat-text">
-                Creative Services
-            </div>
-
-        </div>
-
-        <div class="stat">
-
-            <div class="stat-number">
-                8<span>+</span>
-            </div>
-
-            <div class="stat-text">
-                Portfolio Projects
-            </div>
-
-        </div>
-
-        <div class="stat">
-
-            <div class="stat-number">
-                100<span>%</span>
-            </div>
-
-            <div class="stat-text">
-                Responsive Design
-            </div>
-
-        </div>
-
-        <div class="stat">
-
-            <div class="stat-number">
-                24<span>/7</span>
-            </div>
-
-            <div class="stat-text">
-                Creative Mindset
-            </div>
-
-        </div>
-
-    </div>
-
-</section>
-
-
-<!-- =====================================================
+<!-- =======================================================
      ABOUT
-===================================================== -->
+======================================================== -->
 
 <section id="about">
 
-<div class="container reveal">
+    <div class="section-heading reveal">
 
-    <div class="about-grid">
-
-        <div class="about-image">
-
-            <img
-                src="./Porfolio%20Picture.jpg"
-                alt="Muhammad Ahsan"
-                loading="lazy"
-                id="aboutImage"
-            >
-
+        <div class="section-label">
+            About Me
         </div>
-
-        <div class="about-content">
-
-            <div class="section-heading">
-
-                <span class="section-label">
-                    About Me
-                </span>
-
-                <h2>
-
-                    Turning ideas into
-
-                    <span class="gradient">
-                        digital experiences.
-                    </span>
-
-                </h2>
-
-            </div>
-
-            <p>
-
-                Hi, I'm Muhammad Ahsan.
-                I am passionate about graphic design,
-                web development and modern
-                e-commerce experiences.
-
-            </p>
-
-            <p>
-
-                My goal is to create websites and
-                designs that are visually attractive,
-                responsive and easy for people to use.
-
-            </p>
-
-            <div class="about-points">
-
-                <div class="about-point">
-
-                    <strong>
-                        🎨 Creative Design
-                    </strong>
-
-                    <span>
-                        Modern visual concepts and branding.
-                    </span>
-
-                </div>
-
-                <div class="about-point">
-
-                    <strong>
-                        💻 Development
-                    </strong>
-
-                    <span>
-                        Responsive and interactive websites.
-                    </span>
-
-                </div>
-
-                <div class="about-point">
-
-                    <strong>
-                        🛒 E-Commerce
-                    </strong>
-
-                    <span>
-                        Shopify and online store experiences.
-                    </span>
-
-                </div>
-
-                <div class="about-point">
-
-                    <strong>
-                        ⚡ Performance
-                    </strong>
-
-                    <span>
-                        Lightweight and smooth interfaces.
-                    </span>
-
-                </div>
-
-            </div>
-
-        </div>
-
-    </div>
-
-</div>
-
-</section>
-
-
-<!-- =====================================================
-     SERVICES
-===================================================== -->
-
-<section id="services">
-
-<div class="container reveal">
-
-    <div class="section-heading center">
-
-        <span class="section-label">
-            Services
-        </span>
 
         <h2>
-            What I Can Do
+            Designing ideas into digital experiences.
         </h2>
 
-        <p style="margin-left:auto;margin-right:auto;">
-
-            From visual design to complete digital
-            experiences, I focus on clean design
-            and smooth performance.
-
+        <p>
+            I combine creativity, visual design and
+            technology to build modern digital work.
         </p>
 
     </div>
 
-    <div class="services">
 
-        <div class="service">
+    <div class="about-grid">
 
-            <div class="service-icon">
-                🎨
-            </div>
-
-            <h3>
-                Graphic Designing
-            </h3>
+        <div class="about-text reveal">
 
             <p>
-                Social media posts, posters,
-                thumbnails, advertisements,
-                branding concepts and creative visuals.
+
+                I'm <strong>Muhammad Ahsan</strong>,
+                a creative digital designer interested
+                in building visually attractive and
+                user-friendly digital experiences.
+
+            </p>
+
+            <br>
+
+            <p>
+
+                My work includes social media graphics,
+                branding concepts, website interfaces
+                and Shopify store designs.
+
+            </p>
+
+            <br>
+
+            <p>
+
+                I'm continuously learning new tools and
+                technologies and adding new projects
+                to my portfolio.
+
             </p>
 
         </div>
 
-        <div class="service">
+
+        <div class="about-card reveal">
+
+            <h3>
+                Creative + Digital
+            </h3>
+
+            <p>
+
+                My goal is simple: create designs that
+                look professional, communicate clearly
+                and provide a strong digital experience.
+
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =======================================================
+     SERVICES
+======================================================== -->
+
+<section id="services">
+
+    <div class="section-heading reveal">
+
+        <div class="section-label">
+            Services
+        </div>
+
+        <h2>
+            What I can create.
+        </h2>
+
+        <p>
+            Creative and digital services for modern
+            brands, businesses and personal projects.
+        </p>
+
+    </div>
+
+
+    <div class="services-grid">
+
+        <div class="service-card reveal">
 
             <div class="service-icon">
-                💻
+                ✦
+            </div>
+
+            <h3>
+                Graphic Design
+            </h3>
+
+            <p>
+
+                Social media designs, posters,
+                promotional graphics, branding
+                concepts and visual content.
+
+            </p>
+
+        </div>
+
+
+        <div class="service-card reveal">
+
+            <div class="service-icon">
+                ◈
             </div>
 
             <h3>
@@ -3000,113 +2808,63 @@ footer{
             </h3>
 
             <p>
-                Responsive websites with modern
-                layouts, interactive sections,
-                animations and clean interfaces.
+
+                Responsive and modern websites
+                designed with clean layouts,
+                smooth interactions and usability.
+
             </p>
 
         </div>
 
-        <div class="service">
+
+        <div class="service-card reveal">
 
             <div class="service-icon">
-                🛍️
+                ◆
             </div>
 
             <h3>
-                Shopify Store Design
+                Shopify Design
             </h3>
 
             <p>
-                Professional Shopify store layouts,
-                product sections, landing pages
-                and e-commerce experiences.
-            </p>
 
-        </div>
+                Clean e-commerce interfaces,
+                product presentation and modern
+                Shopify store design concepts.
 
-        <div class="service">
-
-            <div class="service-icon">
-                🖼️
-            </div>
-
-            <h3>
-                Social Media Design
-            </h3>
-
-            <p>
-                Attractive social media content
-                designed to maintain a consistent
-                professional visual identity.
-            </p>
-
-        </div>
-
-        <div class="service">
-
-            <div class="service-icon">
-                🌐
-            </div>
-
-            <h3>
-                Portfolio Websites
-            </h3>
-
-            <p>
-                Personal portfolios for designers,
-                developers, students and creators.
-            </p>
-
-        </div>
-
-        <div class="service">
-
-            <div class="service-icon">
-                🚀
-            </div>
-
-            <h3>
-                Landing Pages
-            </h3>
-
-            <p>
-                Focused landing pages with strong
-                visual hierarchy and clear sections.
             </p>
 
         </div>
 
     </div>
-
-</div>
 
 </section>
 
 
-<!-- =====================================================
+<!-- =======================================================
      SKILLS
-===================================================== -->
+======================================================== -->
 
 <section id="skills">
 
-<div class="container reveal">
+    <div class="section-heading reveal">
 
-    <div class="section-heading">
-
-        <span class="section-label">
+        <div class="section-label">
             Skills
-        </span>
+        </div>
 
         <h2>
-            My Creative Toolkit
+            Tools & creative skills.
         </h2>
 
     </div>
 
+
     <div class="skills-grid">
 
-        <div class="skill">
+        <div class="skill reveal">
 
             <div class="skill-top">
 
@@ -3123,20 +2881,21 @@ footer{
             <div class="skill-bar">
 
                 <div
-                    class="skill-progress"
-                    data-width="90%"
+                class="skill-fill"
+                data-width="90%"
                 ></div>
 
             </div>
 
         </div>
 
-        <div class="skill">
+
+        <div class="skill reveal">
 
             <div class="skill-top">
 
                 <span>
-                    Web Development
+                    UI Design
                 </span>
 
                 <span>
@@ -3148,20 +2907,47 @@ footer{
             <div class="skill-bar">
 
                 <div
-                    class="skill-progress"
-                    data-width="85%"
+                class="skill-fill"
+                data-width="85%"
                 ></div>
 
             </div>
 
         </div>
 
-        <div class="skill">
+
+        <div class="skill reveal">
 
             <div class="skill-top">
 
                 <span>
-                    UI / UX Design
+                    Web Development
+                </span>
+
+                <span>
+                    80%
+                </span>
+
+            </div>
+
+            <div class="skill-bar">
+
+                <div
+                class="skill-fill"
+                data-width="80%"
+                ></div>
+
+            </div>
+
+        </div>
+
+
+        <div class="skill reveal">
+
+            <div class="skill-top">
+
+                <span>
+                    Shopify Design
                 </span>
 
                 <span>
@@ -3173,33 +2959,8 @@ footer{
             <div class="skill-bar">
 
                 <div
-                    class="skill-progress"
-                    data-width="82%"
-                ></div>
-
-            </div>
-
-        </div>
-
-        <div class="skill">
-
-            <div class="skill-top">
-
-                <span>
-                    Shopify
-                </span>
-
-                <span>
-                    88%
-                </span>
-
-            </div>
-
-            <div class="skill-bar">
-
-                <div
-                    class="skill-progress"
-                    data-width="88%"
+                class="skill-fill"
+                data-width="82%"
                 ></div>
 
             </div>
@@ -3208,83 +2969,95 @@ footer{
 
     </div>
 
-</div>
-
 </section>
 
 
-<!-- =====================================================
+<!-- =======================================================
      PROJECTS
-===================================================== -->
+======================================================== -->
 
-<section id="projects">
+<section
+id="projects"
+class="projects-section"
+>
 
-<div class="container reveal">
+    <div class="section-heading reveal">
 
-    <div class="section-heading center">
-
-        <span class="section-label">
+        <div class="section-label">
             Portfolio
-        </span>
+        </div>
 
         <h2>
-            My Selected Work
+            Selected Projects
         </h2>
 
-        <p style="margin-left:auto;margin-right:auto;">
+        <p>
 
-            Click any project to open it in a smooth
-            animated preview.
+            A selection of my graphic design,
+            web development and Shopify work.
 
         </p>
 
     </div>
 
 
-    <div class="filter">
+    <!-- FILTERS -->
+
+    <div class="filter-buttons reveal">
 
         <button
-            class="active"
-            data-filter="all"
+        class="filter-btn active"
+        data-filter="all"
         >
             All
         </button>
 
-        <button data-filter="graphic">
+        <button
+        class="filter-btn"
+        data-filter="graphic"
+        >
             Graphic Design
         </button>
 
-        <button data-filter="web">
+        <button
+        class="filter-btn"
+        data-filter="web"
+        >
             Web Development
         </button>
 
-        <button data-filter="shopify">
-            Shopify
+        <button
+        class="filter-btn"
+        data-filter="shopify"
+        >
+            Shopify Design
         </button>
 
     </div>
 
 
-    <div class="projects">
+    <div class="projects-grid" id="projectsGrid">
 
 
-        <!-- PROJECT 1 -->
+        <!-- =================================================
+             PROJECT 1
+        ================================================== -->
 
         <article
-            class="project"
-            data-category="graphic"
-            data-title="Creative Social Media Design"
-            data-category-name="Graphic Design"
-            data-description="A modern social media design created with a strong visual hierarchy, clean typography and an engaging digital style."
-            data-image="./design1.jpeg"
+        class="project reveal"
+        data-category="graphic"
+        data-title="Creative Social Media Design"
+        data-category-name="Graphic Design"
+        data-description="A modern social media design created with strong visual hierarchy, clean typography and an engaging digital style."
+        data-image="./design1.jpeg"
         >
 
             <div class="project-image">
 
                 <img
-                    src="./design1.jpeg"
-                    alt="Creative Social Media Design"
-                    loading="lazy"
+                src="./design1.jpeg"
+                alt="Creative Social Media Design"
+                loading="lazy"
                 >
 
                 <div class="project-overlay">
@@ -3312,23 +3085,25 @@ footer{
         </article>
 
 
-        <!-- PROJECT 2 -->
+        <!-- =================================================
+             PROJECT 2
+        ================================================== -->
 
         <article
-            class="project"
-            data-category="graphic"
-            data-title="Modern Poster Design"
-            data-category-name="Graphic Design"
-            data-description="A clean and modern poster concept designed for promotional and advertising purposes."
-            data-image="./design2.jpeg"
+        class="project reveal"
+        data-category="graphic"
+        data-title="Modern Poster Design"
+        data-category-name="Graphic Design"
+        data-description="A clean and modern poster concept designed for promotional and advertising purposes."
+        data-image="./design2.jpeg"
         >
 
             <div class="project-image">
 
                 <img
-                    src="./design2.jpeg"
-                    alt="Modern Poster Design"
-                    loading="lazy"
+                src="./design2.jpeg"
+                alt="Modern Poster Design"
+                loading="lazy"
                 >
 
                 <div class="project-overlay">
@@ -3356,23 +3131,25 @@ footer{
         </article>
 
 
-        <!-- PROJECT 3 -->
+        <!-- =================================================
+             PROJECT 3
+        ================================================== -->
 
         <article
-            class="project"
-            data-category="graphic"
-            data-title="Branding Concept"
-            data-category-name="Graphic Design"
-            data-description="A branding concept combining typography, visual identity and modern digital presentation."
-            data-image="./design3.jpeg"
+        class="project reveal"
+        data-category="graphic"
+        data-title="Branding Concept"
+        data-category-name="Graphic Design"
+        data-description="A branding concept combining typography, visual identity and modern digital presentation."
+        data-image="./design3.jpeg"
         >
 
             <div class="project-image">
 
                 <img
-                    src="./design3.jpeg"
-                    alt="Branding Concept"
-                    loading="lazy"
+                src="./design3.jpeg"
+                alt="Branding Concept"
+                loading="lazy"
                 >
 
                 <div class="project-overlay">
@@ -3400,23 +3177,25 @@ footer{
         </article>
 
 
-        <!-- PROJECT 4 -->
+        <!-- =================================================
+             PROJECT 4
+        ================================================== -->
 
         <article
-            class="project"
-            data-category="web"
-            data-title="Modern Business Website"
-            data-category-name="Web Development"
-            data-description="A responsive business website focused on modern layout, usability and smooth interactions."
-            data-image="./web1.jpg"
+        class="project reveal"
+        data-category="web"
+        data-title="Modern Business Website"
+        data-category-name="Web Development"
+        data-description="A responsive business website focused on modern layout, usability and smooth interactions."
+        data-image="./web1.jpg"
         >
 
             <div class="project-image">
 
                 <img
-                    src="./web1.jpg"
-                    alt="Business Website"
-                    loading="lazy"
+                src="./web1.jpg"
+                alt="Modern Business Website"
+                loading="lazy"
                 >
 
                 <div class="project-overlay">
@@ -3444,30 +3223,35 @@ footer{
         </article>
 
 
-        <!-- PROJECT 5 -->
+        <!-- =================================================
+             WEB COMING SOON 1
+        ================================================== -->
 
         <article
-            class="project"
-            data-category="web"
-            data-title="Personal Portfolio Website"
-            data-category-name="Web Development"
-            data-description="A responsive portfolio concept designed to showcase creative work, skills and services."
-            data-image="./images/project-5.jpg"
+        class="project reveal coming-soon-card"
+        data-category="web"
         >
 
-            <div class="project-image">
+            <div class="coming-soon-image">
 
-                <img
-                    src="./images/project-5.jpg"
-                    alt="Portfolio Website"
-                    loading="lazy"
-                >
+                <div class="coming-soon-content">
 
-                <div class="project-overlay">
+                    <div class="coming-soon-icon">
+                        ✦
+                    </div>
 
-                    <span class="view-project">
-                        View Project
+                    <span class="coming-soon-label">
+                        COMING SOON
                     </span>
+
+                    <h3>
+                        More Web Projects
+                    </h3>
+
+                    <p>
+                        New web development projects
+                        will be added soon.
+                    </p>
 
                 </div>
 
@@ -3480,7 +3264,7 @@ footer{
                 </div>
 
                 <h3>
-                    Personal Portfolio Website
+                    Coming Soon
                 </h3>
 
             </div>
@@ -3488,30 +3272,35 @@ footer{
         </article>
 
 
-        <!-- PROJECT 6 -->
+        <!-- =================================================
+             WEB COMING SOON 2
+        ================================================== -->
 
         <article
-            class="project"
-            data-category="web"
-            data-title="Creative Landing Page"
-            data-category-name="Web Development"
-            data-description="A modern landing page concept with clear content hierarchy and responsive design."
-            data-image="./images/project-6.jpg"
+        class="project reveal coming-soon-card"
+        data-category="web"
         >
 
-            <div class="project-image">
+            <div class="coming-soon-image">
 
-                <img
-                    src="./images/project-6.jpg"
-                    alt="Landing Page"
-                    loading="lazy"
-                >
+                <div class="coming-soon-content">
 
-                <div class="project-overlay">
+                    <div class="coming-soon-icon">
+                        ✦
+                    </div>
 
-                    <span class="view-project">
-                        View Project
+                    <span class="coming-soon-label">
+                        COMING SOON
                     </span>
+
+                    <h3>
+                        New Website
+                    </h3>
+
+                    <p>
+                        Another web development project
+                        is currently being prepared.
+                    </p>
 
                 </div>
 
@@ -3524,7 +3313,7 @@ footer{
                 </div>
 
                 <h3>
-                    Creative Landing Page
+                    Coming Soon
                 </h3>
 
             </div>
@@ -3532,23 +3321,25 @@ footer{
         </article>
 
 
-        <!-- PROJECT 7 -->
+        <!-- =================================================
+             PROJECT 7 - SHOPIFY
+        ================================================== -->
 
         <article
-            class="project"
-            data-category="shopify"
-            data-title="Luxury Watch Store"
-            data-category-name="Shopify"
-            data-description="A modern e-commerce store concept designed around products, clean navigation and a premium shopping experience."
-            data-image="./shopify1.png"
+        class="project reveal"
+        data-category="shopify"
+        data-title="Luxury Watch Store"
+        data-category-name="Shopify Design"
+        data-description="A modern e-commerce store concept focused on premium product presentation, clean navigation and a polished shopping experience."
+        data-image="./shopify1.png"
         >
 
             <div class="project-image">
 
                 <img
-                    src="./shopify1.png"
-                    alt="Luxury Watch Store"
-                    loading="lazy"
+                src="./shopify1.png"
+                alt="Luxury Watch Store"
+                loading="lazy"
                 >
 
                 <div class="project-overlay">
@@ -3564,11 +3355,11 @@ footer{
             <div class="project-info">
 
                 <div class="project-category">
-                    Shopify
+                    Shopify Design
                 </div>
 
                 <h3>
-                    Shopify Fashion Store
+                    Luxury Watch Store
                 </h3>
 
             </div>
@@ -3576,30 +3367,35 @@ footer{
         </article>
 
 
-        <!-- PROJECT 8 -->
+        <!-- =================================================
+             SHOPIFY COMING SOON
+        ================================================== -->
 
         <article
-            class="project"
-            data-category="shopify"
-            data-title="E-Commerce Product Store"
-            data-category-name="Shopify Design"
-            data-description="An e-commerce store interface focused on clean product presentation and a smooth customer experience."
-            data-image="./images/project-8.jpg"
+        class="project reveal coming-soon-card"
+        data-category="shopify"
         >
 
-            <div class="project-image">
+            <div class="coming-soon-image">
 
-                <img
-                    src="./images/project-8.jpg"
-                    alt="E-Commerce Store"
-                    loading="lazy"
-                >
+                <div class="coming-soon-content">
 
-                <div class="project-overlay">
+                    <div class="coming-soon-icon">
+                        ✦
+                    </div>
 
-                    <span class="view-project">
-                        View Project
+                    <span class="coming-soon-label">
+                        COMING SOON
                     </span>
+
+                    <h3>
+                        More Shopify Projects
+                    </h3>
+
+                    <p>
+                        New Shopify design projects
+                        will be added soon.
+                    </p>
 
                 </div>
 
@@ -3608,11 +3404,11 @@ footer{
             <div class="project-info">
 
                 <div class="project-category">
-                    Shopify
+                    Shopify Design
                 </div>
 
                 <h3>
-                    E-Commerce Product Store
+                    Coming Soon
                 </h3>
 
             </div>
@@ -3621,54 +3417,71 @@ footer{
 
 
     </div>
-
-</div>
 
 </section>
 
 
-<!-- =====================================================
+<!-- =======================================================
      PROCESS
-===================================================== -->
+======================================================== -->
 
 <section>
 
-<div class="container reveal">
+    <div class="section-heading reveal">
 
-    <div class="section-heading center">
-
-        <span class="section-label">
+        <div class="section-label">
             My Process
-        </span>
+        </div>
 
         <h2>
-            From Idea To Final Design
+            From idea to final design.
         </h2>
 
     </div>
 
-    <div class="process">
 
-        <div class="process-item">
+    <div class="process-grid">
+
+        <div class="process reveal">
 
             <div class="process-number">
-                01
+                01 / DISCOVER
             </div>
 
             <h3>
-                Discover
+                Understand
             </h3>
 
             <p>
-                Understand the idea, goals and requirements.
+                Understand the idea, goals and
+                requirements of the project.
             </p>
 
         </div>
 
-        <div class="process-item">
+
+        <div class="process reveal">
 
             <div class="process-number">
-                02
+                02 / PLAN
+            </div>
+
+            <h3>
+                Plan
+            </h3>
+
+            <p>
+                Create the visual direction,
+                structure and design concept.
+            </p>
+
+        </div>
+
+
+        <div class="process reveal">
+
+            <div class="process-number">
+                03 / CREATE
             </div>
 
             <h3>
@@ -3676,31 +3489,17 @@ footer{
             </h3>
 
             <p>
-                Build the visual direction and interface.
+                Build the design with attention
+                to detail and visual consistency.
             </p>
 
         </div>
 
-        <div class="process-item">
+
+        <div class="process reveal">
 
             <div class="process-number">
-                03
-            </div>
-
-            <h3>
-                Develop
-            </h3>
-
-            <p>
-                Turn the approved concept into a responsive experience.
-            </p>
-
-        </div>
-
-        <div class="process-item">
-
-            <div class="process-number">
-                04
+                04 / DELIVER
             </div>
 
             <h3>
@@ -3708,280 +3507,225 @@ footer{
             </h3>
 
             <p>
-                Finalize the project and prepare it for launch.
+                Refine the final result and
+                prepare it for real-world use.
             </p>
 
         </div>
 
     </div>
 
-</div>
-
 </section>
 
 
-<!-- =====================================================
+<!-- =======================================================
      HIGHLIGHT
-===================================================== -->
+======================================================== -->
 
 <section>
 
-<div class="container reveal">
-
-    <div class="highlight">
-
-        <div class="highlight-card">
-
-            <h3>
-                Design that looks good.
-                Experience that feels good.
-            </h3>
-
-            <p>
-                I focus on combining attractive visuals
-                with responsive layouts and simple
-                interactions.
-            </p>
-
-            <div class="mini-list">
-
-                <div>
-
-                    <span class="check">
-                        ✓
-                    </span>
-
-                    Responsive on mobile and desktop
-
-                </div>
-
-                <div>
-
-                    <span class="check">
-                        ✓
-                    </span>
-
-                    Modern visual style
-
-                </div>
-
-                <div>
-
-                    <span class="check">
-                        ✓
-                    </span>
-
-                    Lightweight animations
-
-                </div>
-
-                <div>
-
-                    <span class="check">
-                        ✓
-                    </span>
-
-                    Clean user experience
-
-                </div>
-
-            </div>
-
-        </div>
-
-
-        <div class="highlight-card">
-
-            <h3>
-                Let's build something memorable.
-            </h3>
-
-            <p>
-                Whether you need a graphic design,
-                portfolio website, business website
-                or Shopify store, let's turn the idea
-                into a professional digital experience.
-            </p>
-
-            <div style="margin-top:22px;">
-
-                <a
-                    href="#contact"
-                    class="button button-primary"
-                >
-                    Start a Project →
-                </a>
-
-            </div>
-
-        </div>
-
-    </div>
-
-</div>
-
-</section>
-
-
-<!-- =====================================================
-     CONTACT
-===================================================== -->
-
-<section id="contact">
-
-<div class="container reveal">
-
-    <div class="contact-box">
-
-        <span class="section-label">
-            Contact
-        </span>
+    <div class="highlight reveal">
 
         <h2>
-            Have a project in mind?
+            Let's create something amazing.
         </h2>
 
         <p>
-            Let's discuss your idea and create
-            something professional, modern
-            and memorable.
+
+            Have an idea, brand or website project?
+            Let's turn it into a clean and memorable
+            digital experience.
+
         </p>
 
-        <div class="contact-buttons">
+        <a
+        href="#contact"
+        class="btn btn-primary"
+        >
+            Start a Project
+        </a>
+
+    </div>
+
+</section>
+
+
+<!-- =======================================================
+     CONTACT
+======================================================== -->
+
+<section id="contact">
+
+    <div class="section-heading reveal">
+
+        <div class="section-label">
+            Contact
+        </div>
+
+        <h2>
+            Let's work together.
+        </h2>
+
+        <p>
+            Have a project in mind? Get in touch.
+        </p>
+
+    </div>
+
+
+    <div class="contact-grid">
+
+        <div class="contact-card reveal">
+
+            <h3>
+                Get In Touch
+            </h3>
+
+            <p>
+
+                I'm open to creative projects,
+                collaborations and new opportunities.
+
+            </p>
+
+
+            <div class="contact-item">
+
+                <div class="contact-icon">
+                    ✉
+                </div>
+
+                <div>
+
+                    <small>
+                        Email
+                    </small>
+
+                    <strong>
+                        mhdxahsan@email.com
+                    </strong>
+
+                </div>
+
+            </div>
+
+
+            <div class="contact-item">
+
+                <div class="contact-icon">
+                    ●
+                </div>
+
+                <div>
+
+                    <small>
+                        Availability
+                    </small>
+
+                    <strong>
+                        Available for projects
+                    </strong>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <div class="contact-card reveal">
+
+            <h3>
+                Start A Conversation
+            </h3>
+
+            <p>
+
+                Tell me what you want to create
+                and let's discuss your idea.
+
+            </p>
+
+            <br>
 
             <a
-                href="mhdxahsan@email.com"
-                class="button email"
+            href="mailto:mhdxahsan@email.com"
+            class="btn btn-primary"
             >
-                ✉ Email Me
-            </a>
-
-            <a
-                href="https://wa.me/923319333080"
-                target="_blank"
-                rel="noopener"
-                class="button whatsapp"
-            >
-                💬 WhatsApp Me
+                Send Email
             </a>
 
         </div>
 
     </div>
 
-</div>
-
 </section>
 
 
-</main>
-
-
-<!-- =====================================================
+<!-- =======================================================
      FOOTER
-===================================================== -->
+======================================================== -->
 
 <footer>
 
-<div class="footer-inner">
-
-    <p>
-        © 2026 Muhammad Ahsan. All rights reserved.
-    </p>
-
-    <div class="footer-links">
-
-        <a href="#home">
-            Home
-        </a>
-
-        <a href="#projects">
-            Projects
-        </a>
-
-        <a href="#contact">
-            Contact
-        </a>
-
-    </div>
-
-</div>
+    © 2026
+    <span class="footer-name">
+        Muhammad Ahsan
+    </span>
+    — Creative Digital Designer.
 
 </footer>
 
 
-<!-- =====================================================
+<!-- =======================================================
      WHATSAPP
-===================================================== -->
+======================================================== -->
 
 <a
-    href="https://wa.me/923001234567"
-    target="_blank"
-    rel="noopener"
-    class="whatsapp-float"
-    aria-label="WhatsApp"
+href="https://wa.me/"
+class="whatsapp"
+target="_blank"
+aria-label="WhatsApp"
 >
-    💬
+    ☎
 </a>
 
 
-<!-- =====================================================
+<!-- =======================================================
      PROJECT MODAL
-===================================================== -->
+======================================================== -->
 
-<div
-    class="modal"
-    id="projectModal"
->
+<div class="modal" id="projectModal">
 
-    <div class="modal-wrap">
+    <div class="modal-box">
 
         <button
-            class="modal-close"
-            id="modalClose"
-            aria-label="Close"
+        class="modal-close"
+        id="modalClose"
         >
             ×
         </button>
 
-        <div class="modal-box">
+        <img
+        class="modal-image"
+        id="modalImage"
+        src=""
+        alt=""
+        >
 
-            <img
-                src=""
-                alt=""
-                id="modalImage"
-                class="modal-image"
+        <div class="modal-content">
+
+            <div
+            class="category"
+            id="modalCategory"
             >
-
-            <div class="modal-content">
-
-                <div
-                    class="modal-category"
-                    id="modalCategory"
-                ></div>
-
-                <h2
-                    class="modal-title"
-                    id="modalTitle"
-                ></h2>
-
-                <p
-                    class="modal-description"
-                    id="modalDescription"
-                ></p>
-
-                <div class="modal-actions">
-
-                    <button
-                        class="button button-primary"
-                        id="modalCloseBottom"
-                    >
-                        Close Project
-                    </button>
-
-                </div>
-
             </div>
+
+            <h2 id="modalTitle">
+            </h2>
+
+            <p id="modalDescription">
+            </p>
 
         </div>
 
@@ -3990,8 +3734,11 @@ footer{
 </div>
 
 
-<script>
+<!-- =======================================================
+     JAVASCRIPT
+======================================================== -->
 
+<script>
 
 /* =========================================================
    LOADER
@@ -4004,18 +3751,10 @@ window.addEventListener(
         setTimeout(
             function(){
 
-                const loader =
-                    document.getElementById(
-                        "loader"
-                    );
-
-                if(loader){
-
-                    loader.classList.add(
-                        "loaded"
-                    );
-
-                }
+                document
+                .getElementById("loader")
+                .classList
+                .add("hide");
 
             },
             900
@@ -4029,53 +3768,76 @@ window.addEventListener(
    MOBILE MENU
 ========================================================= */
 
-const menuButton =
-    document.getElementById(
-        "menuButton"
-    );
+const menuBtn =
+document.getElementById("menuBtn");
 
-const mobileMenu =
-    document.getElementById(
-        "mobileMenu"
-    );
-
-if(
-    menuButton &&
-    mobileMenu
-){
-
-    menuButton.addEventListener(
-        "click",
-        function(){
-
-            mobileMenu.classList.toggle(
-                "open"
-            );
-
-        }
-    );
+const navLinks =
+document.getElementById("navLinks");
 
 
-    document
-        .querySelectorAll(
-            ".mobile-menu a"
-        )
-        .forEach(
-            function(link){
+menuBtn.addEventListener(
+    "click",
+    function(){
 
-                link.addEventListener(
-                    "click",
-                    function(){
+        navLinks.classList.toggle("open");
 
-                        mobileMenu.classList.remove(
-                            "open"
-                        );
+    }
+);
 
-                    }
-                );
+
+document
+.querySelectorAll(".nav-links a")
+.forEach(
+    function(link){
+
+        link.addEventListener(
+            "click",
+            function(){
+
+                navLinks.classList.remove("open");
 
             }
         );
+
+    }
+);
+
+
+/* =========================================================
+   PARTICLES
+========================================================= */
+
+const particles =
+document.getElementById("particles");
+
+
+for(
+    let i = 0;
+    i < 35;
+    i++
+){
+
+    const particle =
+    document.createElement("div");
+
+    particle.className =
+    "particle";
+
+    particle.style.left =
+    Math.random() * 100 + "%";
+
+    particle.style.animationDuration =
+    (7 + Math.random() * 12) + "s";
+
+    particle.style.animationDelay =
+    (Math.random() * 10) + "s";
+
+    particle.style.opacity =
+    .15 + Math.random() * .4;
+
+    particles.appendChild(
+        particle
+    );
 
 }
 
@@ -4085,69 +3847,45 @@ if(
 ========================================================= */
 
 const revealElements =
-    document.querySelectorAll(
-        ".reveal"
-    );
+document.querySelectorAll(".reveal");
 
-if(
-    "IntersectionObserver"
-    in window
-){
 
-    const revealObserver =
-        new IntersectionObserver(
-            function(entries){
+const revealObserver =
+new IntersectionObserver(
+    function(entries){
 
-                entries.forEach(
-                    function(entry){
+        entries.forEach(
+            function(entry){
 
-                        if(
-                            entry.isIntersecting
-                        ){
+                if(
+                    entry.isIntersecting
+                ){
 
-                            entry.target.classList.add(
-                                "visible"
-                            );
+                    entry.target
+                    .classList
+                    .add("show");
 
-                            revealObserver.unobserve(
-                                entry.target
-                            );
+                }
 
-                        }
-
-                    }
-                );
-
-            },
-            {
-                threshold:.08
             }
         );
 
+    },
+    {
+        threshold:.12
+    }
+);
 
-    revealElements.forEach(
-        function(element){
 
-            revealObserver.observe(
-                element
-            );
+revealElements.forEach(
+    function(element){
 
-        }
-    );
+        revealObserver.observe(
+            element
+        );
 
-}else{
-
-    revealElements.forEach(
-        function(element){
-
-            element.classList.add(
-                "visible"
-            );
-
-        }
-    );
-
-}
+    }
+);
 
 
 /* =========================================================
@@ -4155,75 +3893,47 @@ if(
 ========================================================= */
 
 const skillSection =
-    document.getElementById(
-        "skills"
-    );
+document.getElementById("skills");
 
-if(
-    skillSection &&
-    "IntersectionObserver"
-    in window
-){
 
-    const skillObserver =
-        new IntersectionObserver(
-            function(entries){
+let skillsAnimated =
+false;
 
-                entries.forEach(
-                    function(entry){
 
-                        if(
-                            entry.isIntersecting
-                        ){
+const skillObserver =
+new IntersectionObserver(
+    function(entries){
 
-                            entry.target
-                                .querySelectorAll(
-                                    ".skill-progress"
-                                )
-                                .forEach(
-                                    function(bar){
+        if(
+            entries[0].isIntersecting &&
+            !skillsAnimated
+        ){
 
-                                        bar.style.width =
-                                            bar.dataset.width;
+            skillsAnimated = true;
 
-                                    }
-                                );
+            document
+            .querySelectorAll(".skill-fill")
+            .forEach(
+                function(bar){
 
-                            skillObserver.unobserve(
-                                entry.target
-                            );
-
-                        }
-
-                    }
-                );
-
-            },
-            {
-                threshold:.2
-            }
-        );
-
-    skillObserver.observe(
-        skillSection
-    );
-
-}else{
-
-    document
-        .querySelectorAll(
-            ".skill-progress"
-        )
-        .forEach(
-            function(bar){
-
-                bar.style.width =
+                    bar.style.width =
                     bar.dataset.width;
 
-            }
-        );
+                }
+            );
 
-}
+        }
+
+    },
+    {
+        threshold:.25
+    }
+);
+
+
+skillObserver.observe(
+    skillSection
+);
 
 
 /* =========================================================
@@ -4231,14 +3941,14 @@ if(
 ========================================================= */
 
 const filterButtons =
-    document.querySelectorAll(
-        ".filter button"
-    );
+document.querySelectorAll(
+    ".filter-btn"
+);
 
 const projects =
-    document.querySelectorAll(
-        ".project"
-    );
+document.querySelectorAll(
+    ".project"
+);
 
 
 filterButtons.forEach(
@@ -4258,36 +3968,56 @@ filterButtons.forEach(
                     }
                 );
 
-
                 button.classList.add(
                     "active"
                 );
 
 
                 const filter =
-                    button.dataset.filter;
+                button.dataset.filter;
 
 
                 projects.forEach(
                     function(project){
 
-                        const category =
-                            project.dataset.category;
-
-
                         if(
                             filter === "all" ||
-                            category === filter
+                            project.dataset.category === filter
                         ){
 
-                            project.classList.remove(
-                                "hidden"
+                            project.style.display =
+                            "block";
+
+                            setTimeout(
+                                function(){
+
+                                    project.style.opacity =
+                                    "1";
+
+                                    project.style.transform =
+                                    "translateY(0)";
+
+                                },
+                                20
                             );
 
-                        }else{
+                        }
+                        else{
 
-                            project.classList.add(
-                                "hidden"
+                            project.style.opacity =
+                            "0";
+
+                            project.style.transform =
+                            "translateY(20px)";
+
+                            setTimeout(
+                                function(){
+
+                                    project.style.display =
+                                    "none";
+
+                                },
+                                250
                             );
 
                         }
@@ -4303,70 +4033,67 @@ filterButtons.forEach(
 
 
 /* =========================================================
-   PROJECT MODAL
+   MODAL
 ========================================================= */
 
 const modal =
-    document.getElementById(
-        "projectModal"
-    );
+document.getElementById(
+    "projectModal"
+);
 
 const modalImage =
-    document.getElementById(
-        "modalImage"
-    );
+document.getElementById(
+    "modalImage"
+);
 
 const modalTitle =
-    document.getElementById(
-        "modalTitle"
-    );
+document.getElementById(
+    "modalTitle"
+);
 
 const modalCategory =
-    document.getElementById(
-        "modalCategory"
-    );
+document.getElementById(
+    "modalCategory"
+);
 
 const modalDescription =
-    document.getElementById(
-        "modalDescription"
-    );
+document.getElementById(
+    "modalDescription"
+);
 
 const modalClose =
-    document.getElementById(
-        "modalClose"
-    );
-
-const modalCloseBottom =
-    document.getElementById(
-        "modalCloseBottom"
-    );
+document.getElementById(
+    "modalClose"
+);
 
 
 function openProject(project){
 
-    if(!modal){
+    if(
+        project.classList.contains(
+            "coming-soon-card"
+        )
+    ){
+
         return;
+
     }
 
 
     modalImage.src =
-        project.dataset.image;
-
+    project.dataset.image;
 
     modalImage.alt =
-        project.dataset.title;
-
+    project.dataset.title;
 
     modalTitle.textContent =
-        project.dataset.title;
-
+    project.dataset.title;
 
     modalCategory.textContent =
-        project.dataset.categoryName;
-
+    project.dataset.categoryName;
 
     modalDescription.textContent =
-        project.dataset.description;
+    project.dataset.description;
 
 
     modal.classList.add(
@@ -4374,28 +4101,8 @@ function openProject(project){
     );
 
 
-    document.body.classList.add(
-        "modal-open"
-    );
-
-}
-
-
-function closeProject(){
-
-    if(!modal){
-        return;
-    }
-
-
-    modal.classList.remove(
-        "show"
-    );
-
-
-    document.body.classList.remove(
-        "modal-open"
-    );
+    document.body.style.overflow =
+    "hidden";
 
 }
 
@@ -4418,44 +4125,38 @@ projects.forEach(
 );
 
 
-if(modalClose){
+function closeModal(){
 
-    modalClose.addEventListener(
-        "click",
-        closeProject
+    modal.classList.remove(
+        "show"
     );
+
+    document.body.style.overflow =
+    "";
 
 }
 
 
-if(modalCloseBottom){
-
-    modalCloseBottom.addEventListener(
-        "click",
-        closeProject
-    );
-
-}
+modalClose.addEventListener(
+    "click",
+    closeModal
+);
 
 
-if(modal){
+modal.addEventListener(
+    "click",
+    function(event){
 
-    modal.addEventListener(
-        "click",
-        function(event){
+        if(
+            event.target === modal
+        ){
 
-            if(
-                event.target === modal
-            ){
-
-                closeProject();
-
-            }
+            closeModal();
 
         }
-    );
 
-}
+    }
+);
 
 
 document.addEventListener(
@@ -4466,488 +4167,12 @@ document.addEventListener(
             event.key === "Escape"
         ){
 
-            closeProject();
+            closeModal();
 
         }
 
     }
 );
-
-
-/* =========================================================
-   PROFILE IMAGE FALLBACK
-========================================================= */
-
-function addImageFallback(id){
-
-    const image =
-        document.getElementById(
-            id
-        );
-
-
-    if(!image){
-
-        return;
-
-    }
-
-
-    image.addEventListener(
-        "error",
-        function(){
-
-            if(
-                !image.dataset.fallback
-            ){
-
-                image.dataset.fallback =
-                    "true";
-
-                image.src =
-                    "./images/Porfolio%20Picture.jpg";
-
-            }
-
-        }
-    );
-
-}
-
-
-addImageFallback(
-    "profileImage"
-);
-
-addImageFallback(
-    "aboutImage"
-);
-
-
-/* =========================================================
-   FIREWORKS
-========================================================= */
-
-const canvas =
-    document.getElementById(
-        "fireworks"
-    );
-
-let ctx = null;
-
-
-if(canvas){
-
-    ctx =
-        canvas.getContext(
-            "2d"
-        );
-
-}
-
-
-let fireworksEnabled =
-    true;
-
-let fireworksRunning =
-    false;
-
-let rockets = [];
-
-let particles = [];
-
-
-function resizeCanvas(){
-
-    if(
-        !canvas ||
-        !ctx
-    ){
-
-        return;
-
-    }
-
-
-    const rect =
-        canvas
-            .parentElement
-            .getBoundingClientRect();
-
-
-    const ratio =
-        Math.min(
-            window.devicePixelRatio || 1,
-            1.5
-        );
-
-
-    canvas.width =
-        rect.width * ratio;
-
-
-    canvas.height =
-        rect.height * ratio;
-
-
-    canvas.style.width =
-        rect.width + "px";
-
-
-    canvas.style.height =
-        rect.height + "px";
-
-
-    ctx.setTransform(
-        ratio,
-        0,
-        0,
-        ratio,
-        0,
-        0
-    );
-
-}
-
-
-function createRocket(){
-
-    if(
-        !fireworksEnabled ||
-        !canvas
-    ){
-
-        return;
-
-    }
-
-
-    const width =
-        canvas.clientWidth;
-
-
-    const height =
-        canvas.clientHeight;
-
-
-    rockets.push({
-
-        x:
-            width * .25 +
-            Math.random() *
-            width * .5,
-
-        y:
-            height + 10,
-
-        target:
-            height *
-            (
-                .18 +
-                Math.random() * .3
-            ),
-
-        speed:
-            4.5 +
-            Math.random() * 1.5
-
-    });
-
-}
-
-
-function explode(x,y){
-
-    const count = 20;
-
-
-    for(
-        let i=0;
-        i<count;
-        i++
-    ){
-
-        const angle =
-            Math.PI * 2 *
-            i / count;
-
-
-        const speed =
-            1.2 +
-            Math.random() * 1.8;
-
-
-        particles.push({
-
-            x:x,
-
-            y:y,
-
-            vx:
-                Math.cos(angle) *
-                speed,
-
-            vy:
-                Math.sin(angle) *
-                speed,
-
-            life:1
-
-        });
-
-    }
-
-}
-
-
-function fireworksFrame(){
-
-    if(!fireworksEnabled){
-
-        fireworksRunning =
-            false;
-
-        return;
-
-    }
-
-
-    if(
-        !canvas ||
-        !ctx
-    ){
-
-        return;
-
-    }
-
-
-    fireworksRunning =
-        true;
-
-
-    const width =
-        canvas.clientWidth;
-
-
-    const height =
-        canvas.clientHeight;
-
-
-    ctx.clearRect(
-        0,
-        0,
-        width,
-        height
-    );
-
-
-    /* ROCKETS */
-
-    for(
-        let i=rockets.length-1;
-        i>=0;
-        i--
-    ){
-
-        const rocket =
-            rockets[i];
-
-
-        rocket.y -=
-            rocket.speed;
-
-
-        ctx.fillStyle =
-            "rgba(80,210,255,.9)";
-
-
-        ctx.fillRect(
-            rocket.x,
-            rocket.y,
-            2,
-            6
-        );
-
-
-        if(
-            rocket.y <=
-            rocket.target
-        ){
-
-            explode(
-                rocket.x,
-                rocket.y
-            );
-
-
-            rockets.splice(
-                i,
-                1
-            );
-
-        }
-
-    }
-
-
-    /* PARTICLES */
-
-    for(
-        let i=particles.length-1;
-        i>=0;
-        i--
-    ){
-
-        const particle =
-            particles[i];
-
-
-        particle.x +=
-            particle.vx;
-
-
-        particle.y +=
-            particle.vy;
-
-
-        particle.vy +=
-            .018;
-
-
-        particle.life -=
-            .025;
-
-
-        if(
-            particle.life <= 0
-        ){
-
-            particles.splice(
-                i,
-                1
-            );
-
-            continue;
-
-        }
-
-
-        ctx.globalAlpha =
-            particle.life;
-
-
-        ctx.fillStyle =
-            "rgba(80,200,255,1)";
-
-
-        ctx.fillRect(
-            particle.x,
-            particle.y,
-            2,
-            2
-        );
-
-    }
-
-
-    ctx.globalAlpha =
-        1;
-
-
-    requestAnimationFrame(
-        fireworksFrame
-    );
-
-}
-
-
-if(canvas){
-
-    resizeCanvas();
-
-
-    window.addEventListener(
-        "resize",
-        resizeCanvas
-    );
-
-
-    setInterval(
-        createRocket,
-        1800
-    );
-
-
-    const hero =
-        document.getElementById(
-            "home"
-        );
-
-
-    if(
-        hero &&
-        "IntersectionObserver"
-        in window
-    ){
-
-        const heroObserver =
-            new IntersectionObserver(
-                function(entries){
-
-                    fireworksEnabled =
-                        entries[0]
-                        .isIntersecting;
-
-
-                    if(
-                        fireworksEnabled &&
-                        !fireworksRunning
-                    ){
-
-                        fireworksFrame();
-
-                    }
-
-                },
-                {
-                    threshold:.05
-                }
-            );
-
-
-        heroObserver.observe(
-            hero
-        );
-
-    }
-
-
-    fireworksFrame();
-
-}
-
-
-/* =========================================================
-   PREVENT IMAGE DRAG
-========================================================= */
-
-document
-    .querySelectorAll("img")
-    .forEach(
-        function(image){
-
-            image.addEventListener(
-                "dragstart",
-                function(event){
-
-                    event.preventDefault();
-
-                }
-            );
-
-        }
-    );
 
 
 /* =========================================================
@@ -4955,25 +4180,27 @@ document
 ========================================================= */
 
 document
-    .querySelectorAll("img")
-    .forEach(
-        function(image){
+.querySelectorAll("img")
+.forEach(
+    function(img){
 
-            image.addEventListener(
-                "error",
-                function(){
+        img.addEventListener(
+            "error",
+            function(){
 
-                    image.style.background =
-                        "linear-gradient(135deg,#111423,#1a1e35)";
+                console.log(
+                    "Image could not be loaded:",
+                    img.src
+                );
 
-                }
-            );
+            }
+        );
 
-        }
-    );
-
+    }
+);
 
 </script>
 
 </body>
 </html>
+```
